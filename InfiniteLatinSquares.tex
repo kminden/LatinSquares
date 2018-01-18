@@ -1,0 +1,96 @@
+\documentclass{amsart}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{amssymb,amsbsy}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{latexsym}
+\usepackage{bbm}
+\usepackage{verbatim}
+\usepackage{paralist}
+\usepackage[utf8]{inputenc}
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usetikzlibrary{patterns}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{statement}[theorem]{Statement}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{thm*}{Theorem} % unnumbered
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{claimno}{Claim}
+\renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Namba}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\N}{{\overline{N}}}
+\newcommand{\G}{\overline{G}}
+\renewcommand{\H}{\overline{H}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\pmb{\mathcal C}}
+\newcommand{\Pkl}{\ensuremath{\mathcal P_\kappa \lambda}}
+\renewcommand{\c}{\mathfrak{c}}
+\newcommand{\ZFC}{\textup{\ensuremath{\textsf{ZFC}}}}
+\newcommand{\CH}{\textup{\textsf{CH}}}
+\newcommand{\GCH}{\textup{\ensuremath{\textsf{GCH}}}}
+\DeclareMathOperator{\cof}{cof}
+\DeclareMathOperator{\height}{height}
+\DeclareMathOperator{\ran}{range}
+\DeclareMathOperator{\otp}{otp}
+\DeclareMathOperator{\cp}{cp}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Add}{\mathcal A\textit{dd}\,}
+\DeclareMathOperator{\Coll}{\mathcal C\textit{oll}\,}
+\newcommand{\card}[1]{\mathrm{card}(#1)}
+\newcommand{\Ord}{\textup{\ensuremath{\text{Ord}}}}
+\newcommand{\id}{\textup{\ensuremath{\text{id}}}}
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+\newcommand{\seq}[2]{\langle #1 \st #2 \rangle}
+\newcommand{\forces}{\Vdash}
+\newcommand{\rest}{\mathbin{\upharpoonright}}
+\newcommand{\To}{\longrightarrow}
+
+
+\begin{document}
+\begin{theorem}
+Assume $\CH$. The group $(\R, +)$ has a directed $T_\infty$-terrace $g: \R \To \R$. 
+\end{theorem}
+\begin{proof}
+Consider the poset $\P$ of partial, directed, countable $T_\infty$-terraces, partially ordered so that $a \leq c$ if and only if $\dom a \subseteq \dom c$ and $c \rest \dom a = a$. Each condition $a \in \R$ should satisfy the property that in fact for each $d \in \R$, the function $b_{(d)}: \dom a \To \ran a \setminus \{0\}$ defined by $b_{(d)}(i)=a(i+d)-a(i)$ is a bijection.
+
+Need to establish: \begin{enumerate}
+	\item $\P$ is countably closed.
+	\item It is dense to add a real number $r$ to the range of a condition.
+\end{enumerate}
+\end{proof}
+					
+
+
+
+%\bibliography{}{}
+%\bibliographystyle{abbrv}
+\end{document} 
