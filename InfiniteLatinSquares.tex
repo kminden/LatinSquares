@@ -74,17 +74,40 @@
 \newcommand{\rest}{\mathbin{\upharpoonright}}
 \newcommand{\To}{\longrightarrow}
 
+\renewcommand{\a}{\textup{\textbf{a}}}
+\renewcommand{\b}{\textup{\textbf{b}}}
+\newcommand{\g}{\textup{\textbf{g}}}
+\renewcommand{\c}{\textup{\textbf{c}}}
+\renewcommand{\d}{\textup{\textbf{d}}}
+\newcommand{\e}{\textup{\textbf{e}}}
+\newcommand{\f}{\textup{\textbf{f}}}
+\renewcommand{\r}{\overline r}
 
 \begin{document}
+\begin{definition}
+Let $A \subseteq \R$ be countable and let $\a: A \To \R$ be an injection. For each $d \in \R^+$ let $A_{(d)} = \set{a \in A}{a+d \in A}$. Define functions $\a_{(d)}: A_{(d)} \To \R \setminus \{ 0 \}$ by $$\a_{(d)}(a) = \a(a+d)-\a(a).$$ If each $\a_{(d)}$ is injective then call $\a$ a \textbf{\emph{countable partial directed $T_\infty$-terrace on $\R$}}. We call each $\a_{(d)}$ the \textbf{\emph{partial $T_{(d)}$-sequencing corresponding to $\a$}}.
+
+Let $G$ be a group of order $\aleph_0$ or $2^{\aleph_0}$ that has no involutions and identity element $e$. For a bijection $\a:I \To G$ define a function $\a_{(d)}: I \To G \setminus \{e\}$ for each $d \in I^+$ by $$\a_{(d)}(i)=\a(i)^{-1}\a(i+d).$$ If each $\a_{(d)}$ is a bijection then $\a$ is a \textbf{\emph{directed $T_\infty$-terrace for $G$}}.
+\end{definition}
 \begin{theorem}
-Assume $\CH$. The group $(\R, +)$ has a directed $T_\infty$-terrace $g: \R \To \R$. 
+Assume $\CH$. The group $(\R, +)$ has a directed $T_\infty$-terrace $\g: \R \To \R$. 
 \end{theorem}
 \begin{proof}
-Consider the poset $\P$ of partial, directed, countable $T_\infty$-terraces, partially ordered so that $a \leq c$ if and only if $\dom a \subseteq \dom c$ and $c \rest \dom a = a$. Each condition $a \in \R$ should satisfy the property that in fact for each $d \in \R$, the function $b_{(d)}: \dom a \To \ran a \setminus \{0\}$ defined by $b_{(d)}(i)=a(i+d)-a(i)$ is a bijection.
+Consider the poset $\P$ of countable partial directed $T_\infty$-terrace on $\R$ partially ordered so that $\a \leq \c$ if and only if $\dom \a \subseteq \dom \c$ and $\c \rest \dom \a = \a$.
 
 Need to establish: \begin{enumerate}
-	\item $\P$ is countably closed.
-	\item It is dense to add a real number $r$ to the range of a condition.
+	\item \emph{$\P$ is countably closed:} Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces on $\R$. Then the union of all of them is a countable partial directed $T_\infty$-terrace on $\R$.
+	\item \emph{It is dense to add a real number $r$ to the domain of a condition in $\P$:} i.e., for each $r \in \R$, the set $D_r=\set{\d \in \P}{r \in \dom \d }$ is dense. To see this, let $\a \in \P$ with domain $A$. Choose $r \in \R \setminus A$. We need to find $\d \in D_r$ satisfying $\d \leq \a$. But in order to find such a $\d$, we just have two types of restrictions on what values of $\d(r)$ may take. We must ensure that $\d(r) \neq \a(a)$ for each $a \in A$, and $\d(r)$ must be chosen so as to not cause any repeats in the differences at distance $d = |a-r|$. This set of restrictions rules out finite or countably many values, and $A$ is countable. So the set of values that $\d(r)$ cannot be is at most countable, but $\R$ is uncountable and so we are able to choose an allowable value.
+	\item \emph{It is dense to add a real number $r$ to the range of a condition in $\P$:} i.e., for each $r \in \R$, the set $E_r=\set{\e \in \P}{r \in \ran \e }$ is dense. Again the idea should be that we only have to avoid countably many scenarios, but we have room in $\R$ for that. Choose $r \in \R \setminus \ran \a$. We need to find $\e \in E_r$ satisfying $\e \leq \a$. This amounts to finding $\r \notin A = \dom \a$ so that we can let $\d(\overline r)=r$, subject to the further restriction that if some element of $A$ happens to have the form $\r +d$ for some $d \in \R^+$, then $\e(\r+d)-\e(\r) \neq \a(a+d)-\a(a)$ for all $a\in A$ with $a+d \in A$. All of our searches here involve checking against what is already in $A$ or the range of $\a$, both of which are countable, and as $\R$ is uncountable we are able to find such values.
+	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by $D_r$, since for a condition $\a$, the domain of $\a_{(d)}$ is contained in $A$.
+	\item \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $r \in \R$ and each $d \in \R^+$, the set $F^d_r=\set{\f \in \P}{r \in \ran \f_{(d)}}$ is dense in $\P$. To see this, fix $d \in \R^+$ and let $r \in \R$. Let $\a \in \P$, and suppose that $r \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_r$ such that $r=\f(\r+d)-\f(\r)$ for some $\r \in \R$. This amounts to finding a suitable $\r$, and indeed it is enough to choose so that neither $\r$ or $\r+d$ are in $A = \dom \a$. Of course then we need to ensure that $\f(\r), \f(\r+d) \notin \ran \a$, and also that $\f(\r)+\f(\r+d)=r$. Since we have only eliminated countably many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room to choose such an $\r$ as desired.
+\end{enumerate}
+
+We may find a filter $G \subseteq \P$ which meets the family of dense sets $$\mathcal D = \set{D_r}{r\in \R} \cup \set{E_r}{r \in \R} \cup \set{F^d_r}{d \in \R^+, r \in \R}$$ because $|\mathcal D|=\aleph_1$, and since the forcing axiom for countably closed forcing is true. To see this, we may construct a sequence of $\g_\alpha$'s enabling the generic filter to be defined by $$G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}$$ by transfinite induction. The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in D_\lambda$.
+
+By construction, $\cup G$ defines a function $\g: \R \To \R$ with the desired properties. \begin{enumerate}
+	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $r \in \R$, the dense sets $D_r$ for injectivity and $E_r$ for surjectivity.
+	\item \emph{For each $d \in \R^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense} above and the dense sets $F^d_r$.
 \end{enumerate}
 \end{proof}
 					
