@@ -1,0 +1,509 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\bibliographystyle{plain}
+\usepackage{fullpage}
+
+%environments
+\newtheorem{thm}{Theorem}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{ex}[thm]{Exercise}
+\newtheorem{ques}[thm]{Question}
+
+
+%notation
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ub}{\underbrace}
+\newcommand{\ep}{\mathop{\rm EP}\nolimits}
+\newcommand{\rowrev}{\mathop{\rm rowrev}\nolimits}
+\newcommand{\colrev}{\mathop{\rm colrev}\nolimits}
+\newcommand{\rot}{\mathop{\rm rot}\nolimits}
+\newcommand{\qed}{\unskip\protect\nolinebreak\mbox{\quad$\Box$}\vspace{3mm}}
+\newcommand{\subsoma}{\mathop{\rm subSOMA}\nolimits}
+
+%\setlength{\parindent}{0in}
+%\setlength{\parskip}{3mm}
+
+
+
+\begin{document}
+
+
+
+\title{Neighbor Balance in Infinite Latin Squares}
+
+\author{Gage~N.~Martin, Kaethe Minden and M.~A.~Ollis\footnote{Corresponding author, email address: \texttt{matt@marlboro.edu.}}   \\
+              \\
+              {\it Marlboro College, P.O.~Box A, Marlboro,} \\    
+              {\it Vermont 05344, USA.}  }
+              
+%\date{}
+
+\maketitle
+
+\begin{abstract}
+We consider natural generalizations of $D$-complete Latin squares and Vatican squares from the finite to the infinite.   We construct countable $D$-complete and Vatican squares using Cayley tables of groups and also give a countable Vatican square whose rows and columns cannot be permuted to give a Cayley table (whether a finite Vatican square with this property exists is an open question).  We show that there is a partial Vatican square of uncountable size and order and introduce the notion of a semi-Vatican square---a concept that does not make sense in the finite case---and show that there is an uncountable semi-Vatican square based on~$\R$.
+
+
+
+\vspace{3mm}
+\noindent
+{\bf Keywords:} complete Latin square; directed terrace; infinite design; infinite Latin square; sequencing; Vatican square.
+\end{abstract}
+
+
+
+\section{Introduction}\label{sec:intro}
+
+
+A finite Latin square is {\em row complete} or {\em Roman} if  any two distinct symbols appear in adjacent cells within rows once in each order.  If the transpose of a Latin square is row complete then the square is {\em column complete}; a square that is row complete and column complete is {\em complete}.  Finite row complete squares exist for all composite orders~\cite{Higham98} and finite complete squares are known to exist for all even orders~\cite{Gordon61} and many odd composite orders at which a nonabelian group exists, see for example \cite{Ollis14}
+
+Vatican and $D$-complete  squares strengthen this notion of completeness.
+
+A Latin square is is {\em row D-complete} if any two distinct symbols appear in cells that are distance~$d$ apart in rows at most once in each order for each~$d \leq D$. {\em Column D-completeness} is defined analogously and a square that is both row and column D-complete is {\em D-complete}.  The 1-completeness property is the same as completeness.
+
+An $(n-1)$-complete square of order~$n$ is called {\em Vatican}; that is, Vatican squares have the pair-occurrence restriction at every possible distance.
+
+Vatican squares are known to exist for all orders that are one less than a prime.  In addition to this, 2-complete squares are known to exist at orders~$2p$ where~$p$ is a prime congruent to 5, 7 or 19 modulo~24, orders~$2m$ where~$5 \leq m \leq 25$, and order~21 \cite{TuscanCRC,OllisTFSG}.
+
+
+In this paper we extend these notions to the infinite and prove various existence results.  As in \cite{CW02}, we use Zermelo-Fraenkel set theory with the axiom of choice.   Common sets are the natural numbers $\N$ which we take to include~0, the integers~$\Z$ (these two sets have order~$\aleph_0$; that is, are countably infinite) and the real numbers~$\R$ (which has order~$2^{\aleph_0}$ and is uncountable---this is the only uncountable order we consider).
+
+
+
+
+We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by embedding the square in the real plane.  Let~$I$, the {\em indexing set}, be either~$\Z$ or~$\R$.  A {\em Latin square} of order~$|I|$ on a symbol set~$X$ is a function $L: I \times I \rightarrow X$ such that for each~$i \in I$ the restriction of $L$ to $I \times \{i\}$ is a bijection with~$X$, as is the restriction to~$\{i\} \times I$.   In other words, each symbol appears once in each ``row" and once in each ``column."
+
+This definition is  compatible with the definition for Latin squares of arbitrary cardinality of Hilton and Wojciechowski~\cite{HW05} and in the countable case it matches the ``full-plane Latin square" of Caulfield~\cite{Caulfield96}.  If we allow the indexing set to be~$\N$, we get the ``quarter-plane Latin square" of Caulfield~\cite{Caulfield96} and a similar but uncountable version is obtained by taking ~$I = \R^{\geq 0}$.  We don't explicitly consider these versions; however, all but Theorem~\ref{th:svr} have natural quarter-plane analogues (indeed, the proofs of the quarter-plane versions are usually a little more straightforward).
+
+
+The definition of completeness for infinite squares is obtained by identifying the ideas of adjacency and being at distance~1.  This is perfectly natural in the countable case and again matches the definition of Caulfield~\cite{Caulfield96}.   It does not seem to capture a property of particular combinatorial interest in the uncountable case, but when we move to generalizing Vatican squares we get the very natural notion of pairs appearing at  all distances.  Indeed, the definition of an infinite Vatican square is arguably more natural than the finite version as it allows every pair to appear exactly once  at every distance rather than merely at most once.
+
+Formally, an infinite Latin square is {\em row complete} or {\em Roman} each pair of distinct symbols appear exactly once in each order at distance~1 in rows, and the square is {\em complete} if the corresponding property also holds in columns.   An infinite Latin square with indexing set~$I$ is {\em row $D$-complete} if each pair of symbols appear exactly once in each order at distance~$d$ in rows for each~$d \in I$ with $0 < d \leq D$, and the square is~{\em $D$-complete} if the corresponding property also holds in columns. Further, the square is {\em Vatican} if for each~$d \in I^+$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in each order in rows and once in each order in columns.
+
+As infinite sets can be bijective with proper subsets of themselves, we can define a variation on Vatican squares that only makes sense for infinite orders.
+Say that an infinite Latin square is {\em semi-Vatican} if for each~$d \in I^+$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
+
+Our first method for constructing squares uses groups to define the entries.   In the finite case the most well-known construction for complete squares---and the only known ones for Vatican squares and $D$-complete squares with~$D>1$---uses the notion of ``sequenceability" of a group and generalisations of it.  In the next section we show that similar notions are sufficient to construct infinite $D$-complete, Vatican and semi-Vatican squares and in Section~\ref{sec:cigps} show that there are many groups of countable order for which we can permute the rows and columns of their Cayley tables to obtain $D$-complete, Vatican or semi-Vatican squares.
+
+In Section~\ref{sec:cisqs} we explore non-group-based methods.  We show that there is a countable Vatican square that cannot be realized by permuting the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  We also show that there is a countable Latin square with no permutation of its rows and columns Vatican (or even row complete).
+
+We return to groups in Section~\ref{sec:uncgps} and look at the uncountable case.  We are unable to show that the Cayley table of any group of order~$2^{\aleph_0}$ can have its rows and columns permuted to form a Vatican square.
+However, we are able to construct a partial Vatican square of uncountably infinite size and order based on~$(\R,+)$.  Also using~$(\R,+)$ we are able to give a direct construction of an uncountable semi-Vatican square using just the tools of undergraduate calculus. 
+
+
+
+
+
+\section{Group Methods}\label{sec:gps}
+
+
+Our main method for constructing squares uses groups to define the entries.  In particular we will be concerned with functions from the indexing set to a group that satisfy various constraints.
+
+Let $G$ be an infinite group of cardinality~$\aleph_0$ or~$2^{\aleph_0}$ and with identity~$e$.  Let~${\bf a}$ be a bijection from the appropriate indexing set $I$ to $G$ and define a function ${\bf b}: I \rightarrow G\setminus\{e\}$ by ${\bf b}(i) = {\bf a}(i)^{-1}{\bf a}(i+1)$.  If ${\bf b}$ is  also a bijection then ${\bf a}$ is a {\em directed terrace} for $G$ and ${\bf b}$ is a {\em sequencing} of $G$.   When~$I = \Z$ we usually write ${\bf a}(i)$ as~$a_i$, which emphasises the notion of a directed terrace as a sequence of elements of the group, how it is usually considered in the finite case.  
+
+More generally, for a bijection~${\bf a}: I \rightarrow G$ define a function  ${\bf b_{(d)}}: I \rightarrow G\setminus\{e\}$ for each~$d \in I^+$ by ${\bf b_{(d)}}(i) = {\bf a}(i)^{-1}{\bf a}(i+d)$.  If for each~$d \in I$ with $0 < d \leq D$ we have that~${\bf b_{(d)}}$ is a bijection then ${\bf a}$ is a {\em directed $T_{D}$-terrace} for $G$ and ${\bf b_{(d)}}$ is the {\em $T_{(d)}$-sequencing} corresponding to~${\bf a}$.  If this holds for all~$d \in I^+$ then~${\bf a}$ is a directed $T_{\infty}$-terrace.
+
+For any bijection~${\bf a}: I \rightarrow G$ define a square~$L({\bf a}) = (l_{ij})$ by $l_{ij} = a(i)^{-1}a(j)$.   As~${\bf a}$ is a bijection, each row and column contains each symbol exactly once and so~$L$ is a Latin square.  Call a Latin square created in this way {\em based on~$G$}, or simply {\em group-based}.
+  
+These definitions closely mimic the versions for finite groups and they can be used in much the same way.
+The following result generalizes Gordon's result~\cite{Gordon61} for finite complete squares and Etzion, Golomb and Taylor's result~\cite{EGT89} for finite Vatican squares to the infinite.  The countable and 1-complete case of Theorem~\ref{th:gordon} is equivalent to a result of Caulfield~\cite{Caulfield96}.
+
+\begin{thm}\label{th:gordon}
+Let~$G$ be a group of order~$\aleph_0$ or~$2^{\aleph_0}$.  If~$G$ has a directed $T_{D}$-terrace then there is a $D$-complete Latin square of order~$|G|$.  Further, if~$G$ has a directed $T_{\infty}$-terrace then there is a Vatican square of order~$|G|$.
+\end{thm}
+
+\noindent
+Proof.  Let~${\bf a}$ be a directed $T_D$-terrace for~$G$ and consider~$L({\bf a})$.  
+
+Take~$x$ and~$y$ to be distinct elements of~$G$.  There is a unique~$j$ with ${\bf a}(j)^{-1}{\bf a}(j+d) = x^{-1}y$ and a unqiue~$i$ with ${\bf a}(i)^{-1}{\bf a}(j)=x$.  We therefore have that~$x$ appears in row~$i$ and column~$j$ of~$L({\bf a})$ and that~$y$ appears in row~$i$ and column~$j+d$ of~$L({\bf a})$ and that~$x$ and~$y$ do not appear anywhere else with~$y$ exactly $d$  to the right of~$x$.
+
+There is also a unique~$i$ with $xy^{-1} = {\bf a}(i)^{-1}{\bf a}(i+d)$ and then a unique~$j$ with ${\bf a}(i)^{-1}{\bf a}(j)=x$.  This identifies a unique place where~$y$ appears exactly $d$ unit above~$x$ in the square.  Therefore $L({\bf a})$ is a $D$-complete square of order~$|G|$.
+
+If we replace~${\bf a}$ with a directed $T_{\infty}$-terrace in the above argument we see that~$L({\bf a})$ is a Vatican square of order~$|G|$.
+\qed
+
+Slight variations on the above ideas allow us to construct semi-Vatican squares.
+Let~$G$ be a group of order~$\aleph_0$ or $2^{\aleph_0}$ that has identity element~$e$ and no involutions.  For a bijection~${\bf a}: I \rightarrow G$ define a function  ${\bf b_{(d)}}: I \rightarrow G\setminus\{e\}$ for each~$d \in I^+$ by ${\bf b_{(d)}}(i) = {\bf a}(i)^{-1}{\bf a}(i+d)$.  If each~${\bf b_{(d)}}$ contains in its image exactly one element from each set~$\{ g, g^{-1}  : g \neq e \}$ then ${\bf a}$ is a {\em directed $S_{\infty}$-terrace} for $G$ and ${\bf b_{(d)}}$ is the {\em $S_{(d)}$-sequencing} corresponding to~${\bf a}$.
+
+
+The semi-Vatican version of Theorem~\ref{th:gordon} is:
+
+\begin{thm}\label{th:semigordon}
+Let~$G$ be an involution-free group of order~$\aleph_0$ or~$2^{\aleph_0}$.  If~$G$ has a directed $S_{\infty}$-terrace then there is a semi-Vatican square of order~$|G|$.
+\end{thm}
+
+\noindent
+Proof.  Analogous to the proof of Theorem~\ref{th:gordon}.
+\qed
+
+
+
+
+
+\section{Countably infinite groups}\label{sec:cigps}
+
+
+In this section we show two results.  First that a wide variety of countably infinite groups have a directed~$T_{D}$-terrace for any positive integer~$D$; second that countably infinite abelian groups that have infinitely many non-involutions have a directed~$T_{\infty}$-terrace.  We first need some definitions.  The existence of countable $D$-complete and Vatican squares follows.
+
+Let~$G$ be a group.  If every conjugacy class of~$G$ is finite then~$G$ is an {\em FC-group}.  More about the structure of FC-groups can be found in \cite[Chapter~15]{Scott64}.   We are interested in those with countably infinite order.  These include all countable infinite abelian groups and, further, all direct products of a countably infinite abelian group with a finite group.
+
+For each element~$h$ of a group $G$ define a subset~$S_h$ of G by
+$$S_h = \{ xhx :  x \in G \}.$$
+If $S_h$ is infinite for each non-identity element~$h$ of~$G$ then say that~$G$ is {\em spreadable}.  Note that an abelian group is spreadable if and only if it has infinitely many elements that are not involutions.
+
+
+\begin{thm}\label{th:3a}
+Let $D \in \N$.  If~$G$ is a countably infinite spreadable FC-group then~$G$ has a directed~$T_{D}$-terrace.
+\end{thm}
+
+
+\noindent
+Proof.
+We build  a directed $T_{D}$-terrace~${\bf a}$ outwards from~$a_0 = e$ with a series of processes, numbered from $-1$ to $D$, each of which will be implemented infinitely often.  The implementations of Process~0 will ensure that~${\bf a}$ is surjective; for each~$i$ with  $0 < i \leq D$ the implementations of Process~$i$ will ensure that ${\bf b}_{(i)}$ is surjective; the implementations of Process~$-1$ will ensure that all of these functions are well-defined and injective.
+
+For each~$d$ with~$0 \leq d \leq D$ define~$\sigma_d$ to be a sequence of all of the non-identity elements of~$G$.  For $d>0$ these sequences will track which quotients have not yet appeared at distance~$d$ and~$\sigma_0$ will track which elements have not yet been used in~${\bf a}$.  
+
+At the start of each process, assume we have a partial directed  $T_{D}$-terrace~${\bf a} = (a_{k-l}, a_{k-l+1}, \ldots a_k)$ of length~$l+1$ and that the~$\sigma_d$ have been appropriately updated to match this sequence.
+
+For Process~$-1$ we wish to find an element~$x \in G \setminus \{e\}$ such that we can assign $a_{k-l-1}$ to be $x$.  We need that~$x \not\in \sigma_0$ and, for each~$d$ with~$1 \leq d \leq D$, that $x^{-1}a_{k-l-1+d} \not\in \sigma_d$.  This rules out only finitely many possible choices for~$x$ and so there are infinitely many admissable choices for~$x$.  Choose one and set  $a_{k-l-1} = x$.  Remove $x$ from $\sigma_0$ and $x^{-1}a_{k-l-1+d}$ from $\sigma_d$ for each $1 \leq d \leq D$.
+
+For Process~0 the goal is to include~$g$ in ${\bf a}$, where~$g$ is the first element of~$\sigma_0$.  We do so by successively assigning values for $a_{k+1}, a_{k+2}, \ldots, a_{k+D}$ and then setting~$a_{k+D+1} = g$.
+
+Suppose that we have set $a_{k+1}, a_{k+2}, \ldots, a_{k+j-1}$ for some~$j \leq D$ (and have also suitably updated each of the~$\sigma_d$) and need a value of~$x \in G \setminus \{e\}$ to serve as $a_{k+j}$.  Similarly to Process~$-1$, we start with some conditions that rule out only finitely many choices of~$x$ and so do not cause a problem: $ x \neq g$; $x \in \sigma_0$; $a_{k+j-d}^{-1}x \in \sigma_d$.  The potentially awkward condition is  $a_{k+2j-D+1}x \neq   x^{-1}g$.  However, transforming this to $xa_{k+2j-D+1}x \neq g$ and noting that $S_{a_{k+2j-D+1}}$ is infinite as~$G$ is spreadable we see that there must be infinitely many admissable~$x$ from which to choose.  Choose one, set $a_{k+j} = x$ and update the~$\sigma_d$.
+
+Once this is complete for all~$j \leq D$, set~$a_{k+D+1} = g$, update all of the~$\sigma_d$ and Process~0 is complete.
+
+We now turn to Process~$i$ where $1 \leq i \leq~D$.  Here the goal is to make~$g$, where~$g$ is the first element of~$\sigma_i$, appear as a quotient at distance~$i$.  In particular, we shall successively assign $a_{k+1}, a_{k+2}, \ldots, a_{k+D}$ and then set $a_{k+D+1} = a_{k+D+1-i}g$.
+
+First consider~$j \leq k+D-i$ (if any such~$j$ exist) and suppose first that we have successfully assigned  $a_{k+1}, a_{k+2}, \ldots, a_{k+j-1}$.  We want to choose a value of~$x$ to set as~$a_{k+j}$.  As usual we have some constraints that rule out only finitely many choices: $x \in \sigma_0$; $a_{k+j-d}^{-1} x \neq g$;  $a_{k+j-d}^{-1}x \in \sigma_d$.  Satisfying these conditions is  sufficient for the immediate task.  However, in order to make some future choices possible, we also add the constraint that $xa_{k-i+j}^{-1}$ is not conjugate to~$g$.  This only rules out finitely many choices as~$G$ is an FG-group.  Choose a valid~$x$ and update the~$\sigma_d$.
+
+Next consider~$j = k+D-i+1$.  The only constraints that do not obviously rule out only finitely many choices are those of the form~$a_{k-l+1}^{-1}x \neq a_{j -l}^{-1}xg$ for~$1 \leq l < D$, but this is equivalent to $ x g x^{-1}\neq a_{j-l}a_{k+l-1} $ which is ruled out by our choice of~$a_{j-l}$.
+
+Finally for this process, consider~$j > k+D-i+1$.  As with Process~0, all the constraints rule out only finitely many choices for~$ a_j$, using the fact that~$G$ is spreadable.
+
+Repeatedly run the processes in turn.  All the requirements of a directed~$T_D$-terrace are met.
+\qed
+
+Theorem~\ref{th:gordon} immediately gives:
+
+\begin{cor}
+For any $D \in \N$ there is a countably infinite $D$-complete Latin square.
+\end{cor}
+
+
+In the case where the group is abelian, the methods of the proof of Theorem~\ref{th:3a} can be extended to give a directed $T_{\infty}$-terrace.
+
+\begin{thm}\label{th:3b}
+Let~$G$ be a countably infinite abelian group with infinitely many non-involutions.  Then~$G$ has a directed $T_{\infty}$ terrace.
+\end{thm}
+
+\noindent
+Proof.
+First note that~$G$ is is a spreadable FC-group, so we can apply the processes of the proof of Theorem~\ref{th:3a}.  We do so, employing a variable~$D$ to maintain distinct differences at every distance.
+
+In particular, we follow the method of the proof of Theorem~\ref{th:3a} but for each process we redefine~$D$ to be~$l$, the length of the partial directed terrace so far.  Now, applying each process (except~Process~$-1$, which preserves all the required differences properties anyway) gives a partial directed~$T_D$-terrace of length~$2D+1$.  We claim that this is also a partial directed~$T_{\infty}$-terrace.
+
+Suppose there is a~$d > D$ such that~$a_{j+d} - a_j = a_{i+d} - a_i$ for some~$i<j$.  Then, as~$G$ is abelian, we also have~$a_{j+d} - a_{i+d} = a_{j} - a_i$.  But~$j-i \leq D$ as the partial sequence has length~$2D+1$, contradicting that we have a partial directed~$T_D$-terrace.
+
+Thus at each step the process preserves that we have a partial directed~$T_{\infty}$-terrace and running through the processes repeatedly gives us a full directed~$T_{\infty}$-terrace. 
+\qed
+
+Again applying Theorem~\ref{th:gordon}:
+
+\begin{cor}
+There is a countably infinite Vatican square.
+\end{cor}
+
+
+\section{Countably infinite squares not based on groups}\label{sec:cisqs}
+
+
+The results of the previous section raise the question about what is and is not possible for countably infinite squares more generally.   Perhaps {\em all} countably infinite squares may be made complete, or even Vatican, with a suitable permutation of their rows and columns?   In a similar vein, it is known that all infinite Steiner triple systems are resolvable~\cite{DHW14}, an uncommon property among finite systems. However, Theorem~\ref{th:notrcls} scuppers this possibility, showing that there is a countably infinite square that cannot be made row-complete via permuting columns.
+
+In the other direction, a question asked (and answered positively) about finite squares was whether there exist row-complete Latin squares that are not based on groups, see \cite{CE91, DK, Owens76}.  We answer the infinite version of this question, also positively, in Theorem~\ref{th:infvat}.  Indeed, this result gives a Vatican square that is not group-based.  All known finite Vatican squares are based on groups.
+
+\begin{thm}\label{th:notrcls}
+There is a countably infinite Latin square that cannot be made row-complete by permuting columns.
+\end{thm}
+
+\noindent
+Proof.
+We will build a square with the rows, columns and symbols indexed by~$\N$ and by employing a bijection~$\N \rightarrow \Z$ to the column and row indices we get our full-plane square.  The idea is that we will ensure at each stage that no three columns can appear in sequence in a row-complete Latin square while also ensuring that the Latin square properties are attained.  That there is no row-complete Latin square of order~3 is the crucial fact.
+
+For each~$i,j \in \N$, set $\rho_i = \kappa_j = \N$.  These sequences will track which symbols have been used in each row and column respectively and allow us to ensure that the Latin properties hold.  Also set~$\zeta = \emptyset$; into this set we will add the indices of columns that cannot be used in juxtaposition with two earlier columns in a row-complete square.
+
+To start the construction, define three entries in each of the first three rows using the following square, where the bottom left entry goes in cell~$(0,0)$.
+$$
+\begin{array}{ccc}
+2  & 0   &  1 \\ 
+1 & 2 &  0  \\
+ 0  & 1 & 2 
+\end{array}
+$$
+Remove~0, 1 and~2 from~$\rho_i$ and~$\kappa_i$ for $i \in \{0,1,2\}$ and add~0, 1 and~2 to~$\zeta$.
+
+We now alternate between Process~0, which ensures that each symbol appears in each row and column, and Process 1, which ensures that~$\zeta$ fills up.
+
+Process 0.  Let~$M$ be the maximum row index for which the corresponding row is non-empty and let~$N$ be the maximum element of~$\zeta$.  For $j = 0,1,\ldots, N$ add the first element of~$\kappa_j$ in the lowest-indexed position of column~$j$ that does not contravene the Latin constraints.  Similarly, for $i = 0,1,\ldots, M$ add the first element of~$\rho_i$ in the lowest-indexed position of row~$i$ that does not contravene the Latin constraints.  Finally, for each cell~$(i,j)$ with~$i \leq M$ and $j \leq N$, in turn add the smallest element of~$\N$ that does not contravene the Latin constraints.    At each step in Process~0 remove the appropriate elements from~$\rho_i$ and~$\kappa_j$.
+
+Process 1.  Define~$N$ as in Process~0 and consider the column~$C$ with index~$y_3 = N+1$.  For each pair of distinct columns~$A$, and~$B$ with indices at most~$N$, say $y_1$ and~$y_2$, do the following.  Take~$x_1, x_2, x_3$ to be the three smallest row indices for which all of~$A$, $B$ and~$C$ have no entries and let $m$ be the largest number that appears in any of these three columns.  Put the symbols~$m+1$, $m+2$ and~$m+3$ in the cells~$\{ (x_i, y_j) : 1 \leq i,j \leq 3 \}$ in such a way that the Latin constraints are not contravened (possible, as an order~3 Latin square exists) and add~$N+1$ to the set~$\zeta$.  Each time entries are added to the square update~$\rho_i$ and~$\kappa_j$ accordingly.
+
+As every $3 \times 3$ Latin square has two instances of identical consecutive symbols in rows, Process~1 does indeed ensure that all column indices are legitimately added to $\zeta$.
+\qed
+
+
+Prior to giving Theorem~\ref{th:infvat} we need a result that lets us be sure that a square is not group-based.  The {\em quadrangle criterion} states that in a square based on a group if the three equations
+$$a_{i_1j_1} = a_{i_2j_2}, \ a_{k_1j_1} = a_{k_2j_2}, \ a_{i_1l_1} = a_{i_2l_2}$$
+are satisfied then $a_{k_1l_1} = a_{k_2l_2}$ \cite[Theorem~1.2.1]{DK}.  That is, if two ``quadrangles" in a group-based square agree on three points then they agree on the fourth.
+
+\begin{thm}\label{th:infvat}
+There is a countably infinite Vatican square that is not based on a  group.
+\end{thm}
+
+\noindent
+Proof.  The  idea is to start with a subsquare at the origin, structured to guarantee that the square is not group-based, and grow this to fill the plane via different processes, analogously to the proof of Theorem~\ref{th:cigp}.  Our symbol set is~$\N$.
+
+Place the following $4 \times 4$ square at the origin, with the bottom-left cell in position~$(0,0)$.
+$$
+\begin{array}{cccc}
+0   &  5  & 6   &  1 \\ 
+ 7    & 0& 1 &  8  \\
+  9  & 2  & 3 & 10 \\
+2  & 11 & 12  &  4 
+\end{array}
+$$
+This does not break any of the constraints required to be Vatican.  Considering the symbols~$\{0,1,\ldots,4\}$ we see that it breaks the quadrangle criterion and hence any square with this as a subsquare cannot be group-based.
+
+For each~$i,j \in \Z$ set $\rho_i = \kappa_j = (0, 1,2,\ldots)$. For each~$i$ with $0 \leq i \leq 3$ remove from~$\rho_i$ the four elements that appear in the row indexed by~$i$ in the above~$4 \times 4$ square and for  each~$j$ with~$0 \leq j \leq 3$ remove from~$\kappa_j$ the four elements that appear  in the column indexed by~$j$.  These sequences will track which symbols have been used in each row and column.
+
+For each $d \geq 1$ construct an ordered sequence $\sigma_d$ of all possible ordered pairs of distinct elements.  Remove any ordered pairs from $\sigma_d$ that occur at distance~$d$ in the above~$4 \times 4$ square in rows (for example, remove $(0,1)$, $(7,8)$, $(9,10)$ and~$(2,4)$ from~$\sigma_{3}$).  The sequence~$\sigma_d$ will track which pairs have occurred at distance~$d$ apart horizontally.   Generate an ordered sequence~$\tau_d$ for each~$d \geq 1$ similarly, but for ordered pairs at distance~$d$ within columns rather than rows.
+
+We now define the processes.  Process~0 ensures that the square fills up and that each row and column contains each element.  Process~$d$ ensures that each ordered pair of symbols occurs at distance~$d$ in both rows and columns.
+
+Process~$0$. Given a finite partial square, define~$M$ to be the largest absolute value of a non-empty row or column index.  For each~$i$ with $-M \leq i \leq M$ in turn, place the first element of~$\rho_i$ in row~$i$, in one of the positions that has smallest absolute value of column index without violating any of the Vatican conditions (as the number of Vatican conditions is finite, this must be possible) and remove that entry from~$\rho_i$ and the appropriate~$\kappa_j$.  Also remove any new pairs generated at distance~$d$ in rows from~$\sigma_d$ and new pairs generated at distance~$d$ in columns from~$\tau_d$.
+Repeat for columns.  Recalculate~$M$ and for every empty cell in turn whose row and column indices are both at most~$M$ in absolute value, put the smallest permissible entry in that cell and remove the appropriate values from the sequences.
+
+Process~$d$.  Take the first pair~$(a,b)$ from~$\sigma_d$.  There are infinitely many pairs~$(i,j)$ such that cell~$(i,j)$ is either empty or contains~$a$ and cell~$(i,j+d)$ is either empty or contains~$b$  and adding~$a$ to the first (if empty) and~$b$ to the second (if empty) does not violate the Vatican conditions (note that as $(a,b) \in \sigma_d$, at least one of these cells  must be empty).  From these options, choose one that has the smallest absolute value of $\max(|i|,|j|)$, add~$a$ and/or~$b$ to the cells and remove all necessary values from the sequences.  Perform the analogous process in columns for the first pair from~$\tau_d$.
+
+As in Theorem~\ref{th:cigp}, performing the processes in the order
+$$0,1,0,1,2,0,1,2,3,0,1,2,3,4,0,1,2,3,4,5,\ldots$$
+guarantees that all of the properties of being a countably-infinite Vatican square are met.
+\qed
+
+As in the last section, a slight tweaking of the construction gives semi-Vatican rather than Vatican squares.
+
+\begin{thm} \label{th:infsv}
+There is a countably infinite semi-Vatican square that is not based on a  group.
+\end{thm}
+
+\noindent
+Proof.  Use the construction method of the proof of Theorem~\ref{th:infvat}, except make sure that the semi-Vatican, rather than Vatican, conditions are not violated and use the $\sigma_d$ sequences to track which unordered pairs have occurred.
+\qed
+
+
+
+
+
+
+
+
+
+
+\section{Uncountably infinite groups}\label{sec:uncgps}
+
+We now move to squares of order~$2^{\aleph_0}$ and limit our attention to the group~$(\R,+)$.
+We have been unable to demonstrate the existence of a Vatican square of this size.  Theorem~\ref{th:part} gives a partial result.   However, we are able to construct a semi-Vatican square based on~$(\R,+)$.  This is given in Theorem~\ref{th:svr}.
+
+
+Analagously to the well-studied finite case, a {\em partial infinite Latin square} on symbol set~$X$ with indexing set~$I$ (where~$I \in \{\Z, \R\}$ as usual) is a function~$P: J \times K \rightarrow X$ such that~$J,K \subseteq I$,  for each~$k \in K$ the restriction of~$P$ to~$J\times \{k\}$ is an injection to~$X$ and for each~$j \in J$ the restriction of~$P$ to $\{j\} \times K$ is an injection to~$X$.  As in the non-partial case we think of $J\times \{k\}$ and~$\{j\} \times K$ as rows and columns.  The {\em order} of a partial infinite Latin square is the largest cardinality among~$J$, $K$ and $Y$, where $Y \subseteq X$ consists of the symbols used in the square.  The {\em size} of a partial infinite Latin square is the cardinality of the set of entries of the square.
+
+A partial infinite Latin square is a {\em partial infinite Vatican square} if given $x,y \in X$ then for any~$d \in I^+$ we have~$x$ and~$y$ appearing in the same row at distance~$d$ from each other at most once in each order, and similarly for columns.
+
+
+Let~$A \subseteq \R$  and let~${\bf a}$ be an injection from~$A$ to~$\R$.  For each~$d \in \R^+$ let $B_{(d)} = \{ i : i,  i+d \in A\}$.  Define functions~${\bf b_{(d)}}: B_{(d)} \rightarrow \R \setminus \{0\}$ by ${\bf b_{(d)}}(i) = {\bf a}(i+d) - {\bf a}(i)$.  If 
+each~${\bf b_{(d)}}$ is injective then call~${\bf a}$ a {\em partial directed  $T_{\infty}$-terrace}.
+
+
+
+\begin{thm}\label{th:part}
+The group~$(\R, +)$  has a partial directed $T_{\infty}$-terrace~${\bf m}:M \rightarrow \R$ with $M$ uncountable. Hence it is possible to construct a partial infinite Vatican square based on~$(\R,+)$ that has uncountable size and uncountable order.
+\end{thm}
+
+\noindent
+Proof.  We use Zorn's Lemma on the poset of partial directed $T_{\infty}$-terraces that is (partially) ordered as follows.  If~${\bf a}$ and~${\bf c}$ are partial  directed $T_{\infty}$-terraces on sets~$A$ and~$C$ respectively, then ${\bf a} \leq {\bf c}$ if~$A \subseteq C$ and the restriction of~${\bf c}$ to~$A$ is~${\bf a}$.  Note that the poset is non-empty.  Indeed, we have an explicit countable example using~${\bf \Z}$ in Theorem~\ref{th:cigp}.
+
+Let $\mathcal{C}$ be a chain in this poset.   We have that~$\cup \mathcal{C}$ is a partial directed $T_{\infty}$-terrace (if it were not, we would have a contradiction in one of the elements of the chain) and so $\cup \mathcal{C}$  is an upper bound for~$\mathcal{C}$.  Zorn's Lemma implies that we must have a maximal element~${\bf m}$.  Let the domain of~${\bf m}$ be~$M$.
+
+Suppose that~$M$ is finite or countably infinite and choose~$x \in \R \setminus M$.  We define a new partial directed $T_{\infty}$-terrace ${\bf \bar{m}}$ on $M \cup \{ x \}$ with~${\bf m} < {\bf \bar{m}}$, showing that~${\bf m}$ was not in fact maximal.
+
+For each~$y \in M$ we get two types of restriction on what values~${\bf m'}(x)$ may take: ${\bf \bar{m}}(x) \neq {\bf m}(y)$ and  ${\bf \bar{m}}(x)$ must be chosen so as not to cause any repeats in the differences at distance~$d = |y-x|$.   This set of restrictions rules out finite or countably many values and $M$ is finite or countable so the set of values that ${\bf \bar{m}}(x)$ cannot be is at most countable.  However,~$\R$ is uncountable and we are able to choose an allowable value.  Thus~$M$ is uncountable.
+
+Therefore, by Zorn's Lemma, we have  partial directed $T_{\infty}$-terrace with uncountable domain.
+
+The argument that this can be used to construct a partial infinite Vatican square with uncountable order and size is analogous to Theorem~\ref{th:gordon}.
+\qed
+
+The argument in the above proof falls short of the target of a directed $T_{\infty}$-terrace in two important ways.  First, and most obviously, we cannot make the domain of the terrace be all of~$\R$.  Secondly, even if we were able to extend the argument so that the domain did cover~$\R$ we still would not necessarily have a 
+directed $T_{\infty}$-terrace as we would not have guaranteed that {\em all} differences occur at any distance~$d$.
+
+On the other hand, the large amount of freedom when building the chain while it is still countable allows us to add potentially interesting properties.  For example, by building~$\mathcal{C}$ in the above proof such that~$M$ includes all of~$\Q$ we guarantee the existence of a partial directed $T_{\infty}$-terrace for~$(\R,+)$ whose uncountable domain is dense in~$\R$.
+
+
+Perhaps surprisingly, we have significantly more success in the semi-Vatican case and need only methods from calculus to do so:
+
+\begin{thm}\label{th:svr}
+There is a semi-Vatican square based on~$(\R,+)$.
+\end{thm} 
+
+\noindent
+Proof.   We give a direct definition of the required directed $S_{\infty}$-terrace~${\bf a}$:
+\begin{equation*}
+    {\bf a}(x) = \begin{cases}
+               e^x   -1            & x \geq 0\\
+               -\ln (1-x)       & \text{otherwise}
+           \end{cases}
+\end{equation*}
+This is a continuous, strictly increasing bijection from~$\R$ to~$\R$.  Its derivative is:
+\begin{equation*}
+    {\bf a}'(x) = \begin{cases}
+               e^x               & x \geq 0\\
+              \frac{1}{1-x}       & \text{otherwise}
+           \end{cases}
+\end{equation*}
+which is a continuous, strictly increasing bijection from~$\R^+$ to~$\R^+$.
+
+Therefore, for each~$d \in \R^+$, we have that ${\bf b_{(d)}}$, defined by ${\bf b_{(d)}}(x) = {\bf a}(x+d) - {\bf a}(x)$ as usual, is a bijection from~$\R^+$ to~$\R^+$.  Hence~${\bf a}$ is a directed $S_{\infty}$-terrace and Theorem~\ref{th:semigordon} gives a semi-Vatican square based on~$(\R,+)$.
+\qed
+
+
+Unfortunately, when one tries to use similar techniques to construct a 
+directed $T_{\infty}$-terrace for~$(\R,+)$ one quickly runs into difficulties.
+
+
+
+
+\section*{Acknowledgements}
+
+This work was partly funded by a  Marlboro College Faculty Professional Development Grant and a Marlboro College Town Meeting Scholarship Fund award.  We are grateful for this assistance.
+
+
+\begin{thebibliography}{99}
+
+%\bibitem{AandI92}
+%B.~A.~Anderson and E.~C.~Ihrig.
+%\newblock All groups of odd order have starter-translate 2-sequencings,
+%\newblock {\em Australas. J. Combin.} {\bf 6} (1992) 135--146.
+
+%\bibitem{AandI93} B.~A.~Anderson and E.~C.~Ihrig,
+%Symmetric sequencings of non-solvable groups,
+%{\em Congr. Numer.} {\bf 93} (1993) 73--82.
+
+
+%\bibitem{Bailey84}
+%R.~A.~Bailey,
+%Quasi-complete {L}atin squares: construction and randomization,
+%{\em J.~Royal Statist. Soc. Ser. B} {\bf 46} (1984) 323--334.
+
+\bibitem{CW02}
+P.~J.~Cameron and B.~S.~Webb, What is an infinite design? {\em J.~Combin.~Des.} {\bf 10} (2002), 79--91.
+
+\bibitem{Caulfield96}
+M.~J.~Caulfield, Full and quarter plane complete infinite Latin squares, {\em Discrete Math.} {\bf 159} (1996) 251--253.
+
+\bibitem{TuscanCRC}
+W.~Chu, S.~W.~Golomb and H.-Y.~Song, Tuscan Squares, in {\em The Handbook of Combinatorial Designs (2nd Edition), Eds. C.~J.~Colbourn and J.~H.~Dinitz}, Chapman and Hall/CRC, (2007).
+
+\bibitem{CE91}
+D.~Cohen and T.~Etzion, Row complete Latin squares that are not column complete, Ars Combin.~{\bf 32} (1991) 193--201.
+
+\bibitem{DHW14}
+P.~Danziger, D.~Horsley and B.~S.~Webb, Resolvability of infinite designs, {\em J.~Combin.~Thy.~A} {\bf 123} (2014) 73--85.
+
+\bibitem{DK}
+J.~Denes and A.~D.~Keedwell, {\em Latin Squares and Their Applications}, Academic Press, New York. (1974).
+
+\bibitem{EGT89}
+T.~Etzion, S.~W.~Golomb, and H.~Taylor, Tuscan-$K$ squares, {\em Advances in Applied Math.} {\bf 10} (1989) 164--174.
+
+
+%\bibitem{Gallian}
+%J.~A.~Gallian, A dynamic survey of graph labellings, Electron. J. Combin. {\bf DS6} (2001--2010), 246pp.
+
+%\bibitem{gap}
+%{{G}{A}{P} group}.
+%\newblock {G}{A}{P}---{G}roups, {A}lgorithms, and {P}rogramming, {V}ersion 4, 1999.
+
+\bibitem{Gordon61} B.~Gordon, Sequences in groups with distinct partial products, {\em Pacific J. Math.} {\bf 11} (1961) 1309--1313.
+
+\bibitem{Higham98} 
+J.~Higham, Row-complete Latin squares of every composite order exist, {\em J. Combin. Des.} {\bf 6} (1998) 63--77. 
+
+\bibitem{HW05}
+A.~J.~W.~Hilton and J.~Wojciechowski, Amalgamating infinite Latin squares, {\em Discrete Math.} {\bf 292} (2005) 67--81.
+
+%\bibitem{HLW}
+%Y.-S.~Hwang, D.~B.~Leep and A.~R.~Wadsworth,
+%Galois groups of order $2n$ that contain a cyclic subgroup of order $n$, {\em Pacific J. Math.} {\bf 212} (2003) 297--319.
+
+%\bibitem{Lucas92}
+%\'{E}.~Lucas, {\em R\'{e}cr\'{e}ations Math\'{e}mathiques}, T\^{o}me II, Albert Blanchard, Paris, 1892 (reprinted 1975).
+
+%\bibitem{survey}
+%M.~A. Ollis, Sequenceable groups and related topics, {\em Electron. J. Combin.} {\bf DS10} (2002) 34pp.
+
+%\bibitem{Ollis05}
+%M.~A.~Ollis, On terraces for abelian groups, {\em Disc. Math.} {\bf 305} (2005) 250--263.
+
+%\bibitem{Ollis12}
+%M.~A.~Ollis,  A note on terraces for abelian groups,  {\em Australas.~J.~Combin.}  {\bf 52} (2012),  229--234.
+
+%\bibitem{OW1}
+%M.~A.~Ollis and D.~T.~Willmott, On twizzler, zigzag and graceful terraces, {\em Australas.~J.~Combin.} {\bf 51} (2011) 243--257.
+
+\bibitem{Ollis14}
+M.~A,~Ollis, New complete Latin squares of odd order, {\em Europ.~J.~Combin.}~{\bf 41} (2014), 35--46.
+
+\bibitem{OllisTFSG}
+M.~A,~Ollis, Terraces for small groups, {\em submitted}. arXiv.
+
+\bibitem{Owens76}
+P.~J.~Owens,  Solutions to two problems of Denes and Keedwell on row-complete
+Latin squares, {\em J.~Combin.~Thy.}~A {\bf 21} (1976) 299--308.
+
+%\bibitem{PreeceZF}
+%D.~A.~Preece, Zigzag and foxtrot terraces for $\Z_n$, {\em Australas. J. Combin.} {\bf 42} (2008) 261--278.
+
+\bibitem{Scott64}
+W.~R.~Scott, {\em Group Theory}, Prentice-Hall, New Jersey (1964).
+
+
+\bibitem{VE78}
+C.~Vanden Eynden, Countable sequenceable groups, {\em Discrete Math.} {\bf 23} (1978) 317--318.
+
+
+%\bibitem{Williams49}
+%E.~J. Williams,
+%Experimental designs balanced for the estimation of residual effects of treatments,
+%{\em Aust. J. Scient. Res. A}, {\bf 2} (1949) 149--168.
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+
