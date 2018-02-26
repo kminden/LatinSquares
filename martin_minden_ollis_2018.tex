@@ -31,6 +31,10 @@
 \newcommand{\qed}{\unskip\protect\nolinebreak\mbox{\quad$\Box$}\vspace{3mm}}
 \newcommand{\subsoma}{\mathop{\rm subSOMA}\nolimits}
 
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+
+
 %\setlength{\parindent}{0in}
 %\setlength{\parskip}{3mm}
 
@@ -68,7 +72,7 @@ We consider natural generalizations of $D$-complete Latin squares and Vatican sq
 
 A finite Latin square is {\em row complete} or {\em Roman} if  any two distinct symbols appear in adjacent cells within rows once in each order.  If the transpose of a Latin square is row complete then the square is {\em column complete}; a square that is row complete and column complete is {\em complete}.  Finite row complete squares exist for all composite orders~\cite{Higham98} and finite complete squares are known to exist for all even orders~\cite{Gordon61} and many odd composite orders at which a nonabelian group exists, see for example \cite{Ollis14}
 
-Vatican and $D$-complete  squares strengthen this notion of completeness.
+Vatican and $D$-complete  squares strengthen this notion of completeness. %Might be useful here to define what it means to be Vatican in the finite case. -KM
 
 A Latin square is is {\em row D-complete} if any two distinct symbols appear in cells that are distance~$d$ apart in rows at most once in each order for each~$d \leq D$. {\em Column D-completeness} is defined analogously and a square that is both row and column D-complete is {\em D-complete}.  The 1-completeness property is the same as completeness.
 
@@ -89,10 +93,10 @@ This definition is  compatible with the definition for Latin squares of arbitrar
 
 The definition of completeness for infinite squares is obtained by identifying the ideas of adjacency and being at distance~1.  This is perfectly natural in the countable case and again matches the definition of Caulfield~\cite{Caulfield96}.   It does not seem to capture a property of particular combinatorial interest in the uncountable case, but when we move to generalizing Vatican squares we get the very natural notion of pairs appearing at  all distances.  Indeed, the definition of an infinite Vatican square is arguably more natural than the finite version as it allows every pair to appear exactly once  at every distance rather than merely at most once.
 
-Formally, an infinite Latin square is {\em row complete} or {\em Roman} each pair of distinct symbols appear exactly once in each order at distance~1 in rows, and the square is {\em complete} if the corresponding property also holds in columns.   An infinite Latin square with indexing set~$I$ is {\em row $D$-complete} if each pair of symbols appear exactly once in each order at distance~$d$ in rows for each~$d \in I$ with $0 < d \leq D$, and the square is~{\em $D$-complete} if the corresponding property also holds in columns. Further, the square is {\em Vatican} if for each~$d \in I^+$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in each order in rows and once in each order in columns.
+Formally, an infinite Latin square is {\em row complete} or {\em Roman} each pair of distinct symbols appear exactly once in each order at distance~1 in rows, and the square is {\em complete} if the corresponding property also holds in columns.   An infinite Latin square with indexing set~$I$ is {\em row $D$-complete} if each pair of symbols appear exactly once in each order at distance~$d$ in rows for each~$d \in I$ with $0 < d \leq D$, and the square is~{\em $D$-complete} if the corresponding property also holds in columns. Further, the square is {\em Vatican} if for each~$d \in I^+=$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in each order in rows and once in each order in columns.
 
 As infinite sets can be bijective with proper subsets of themselves, we can define a variation on Vatican squares that only makes sense for infinite orders.
-Say that an infinite Latin square is {\em semi-Vatican} if for each~$d \in I^+$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
+Say that an infinite Latin square is {\em semi-Vatican} if for each~$d \in I^+=\set{i \in I}{i>0}$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
 
 Our first method for constructing squares uses groups to define the entries.   In the finite case the most well-known construction for complete squares---and the only known ones for Vatican squares and $D$-complete squares with~$D>1$---uses the notion of ``sequenceability" of a group and generalisations of it.  In the next section we show that similar notions are sufficient to construct infinite $D$-complete, Vatican and semi-Vatican squares and in Section~\ref{sec:cigps} show that there are many groups of countable order for which we can permute the rows and columns of their Cayley tables to obtain $D$-complete, Vatican or semi-Vatican squares.
 
@@ -176,7 +180,11 @@ For each~$d$ with~$0 \leq d \leq D$ define~$\sigma_d$ to be a sequence of all of
 
 At the start of each process, assume we have a partial directed  $T_{D}$-terrace~${\bf a} = (a_{k-l}, a_{k-l+1}, \ldots a_k)$ of length~$l+1$ and that the~$\sigma_d$ have been appropriately updated to match this sequence.
 
-For Process~$-1$ we wish to find an element~$x \in G \setminus \{e\}$ such that we can assign $a_{k-l-1}$ to be $x$.  We need that~$x \not\in \sigma_0$ and, for each~$d$ with~$1 \leq d \leq D$, that $x^{-1}a_{k-l-1+d} \not\in \sigma_d$.  This rules out only finitely many possible choices for~$x$ and so there are infinitely many admissable choices for~$x$.  Choose one and set  $a_{k-l-1} = x$.  Remove $x$ from $\sigma_0$ and $x^{-1}a_{k-l-1+d}$ from $\sigma_d$ for each $1 \leq d \leq D$.
+For Process~$-1$ we wish to find an element~$x \in G \setminus \{e\}$ such that we can assign $a_{k-l-1}$ to be $x$.  We need that $x \in \sigma_0$
+%~$x \not\in \sigma_0$ From the way that the $\sigma$-sequences are defined, we always are looking for things that are in there, since they are the unused elements, right? And we cross things off of it as we go along. -KM
+and, for each~$d$ with~$1 \leq d \leq D$, that $x^{-1}a_{k-l-1+d} \in \sigma_d$.  
+%$x^{-1}a_{k-l-1+d} \not\in \sigma_d$. Same issue.-KM
+This rules out only finitely many possible choices for~$x$ and so there are infinitely many admissable choices for~$x$.  Choose one and set  $a_{k-l-1} = x$.  Remove $x$ from $\sigma_0$ and $x^{-1}a_{k-l-1+d}$ from $\sigma_d$ for each $1 \leq d \leq D$.
 
 For Process~0 the goal is to include~$g$ in ${\bf a}$, where~$g$ is the first element of~$\sigma_0$.  We do so by successively assigning values for $a_{k+1}, a_{k+2}, \ldots, a_{k+D}$ and then setting~$a_{k+D+1} = g$.
 
@@ -347,7 +355,11 @@ Let $\mathcal{C}$ be a chain in this poset.   We have that~$\cup \mathcal{C}$ is
 
 Suppose that~$M$ is finite or countably infinite and choose~$x \in \R \setminus M$.  We define a new partial directed $T_{\infty}$-terrace ${\bf \bar{m}}$ on $M \cup \{ x \}$ with~${\bf m} < {\bf \bar{m}}$, showing that~${\bf m}$ was not in fact maximal.
 
-For each~$y \in M$ we get two types of restriction on what values~${\bf m'}(x)$ may take: ${\bf \bar{m}}(x) \neq {\bf m}(y)$ and  ${\bf \bar{m}}(x)$ must be chosen so as not to cause any repeats in the differences at distance~$d = |y-x|$.   This set of restrictions rules out finite or countably many values and $M$ is finite or countable so the set of values that ${\bf \bar{m}}(x)$ cannot be is at most countable.  However,~$\R$ is uncountable and we are able to choose an allowable value.  Thus~$M$ is uncountable.
+We get two types of restriction on what values~${\bf m}(x)$
+%${\bf m'}(x)$ An artifact of old notation I presume. -KM
+may take: ${\bf \bar{m}}(x) \neq {\bf m}(y)$ for each $y \in M$ and ${\bf \bar{m}}(x)$ must be chosen so as not to cause any repeats in the differences at distance~$d = |y-x|$ whenever $y+d \in M$.   
+%For each~$y \in M$ we get two types of restriction on what values~${\bf m'}(x)$ may take: ${\bf \bar{m}}(x) \neq {\bf m}(y)$ and  ${\bf \bar{m}}(x)$ must be chosen so as not to cause any repeats in the differences at distance~$d = |y-x|$.   To me it makes more sense to write this a little differently, I don't know why. -KM
+This set of restrictions rules out finite or countably many values and $M$ is finite or countable so the set of values that ${\bf \bar{m}}(x)$ cannot be is at most countable.  However,~$\R$ is uncountable and we are able to choose an allowable value.  Thus~$M$ is uncountable.
 
 Therefore, by Zorn's Lemma, we have  partial directed $T_{\infty}$-terrace with uncountable domain.
 
