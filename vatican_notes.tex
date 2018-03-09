@@ -1,0 +1,206 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage[section] {placeins}
+\usepackage{enumerate}
+
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{exa}{Example}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{ques}{Question}
+\newtheorem{ex}{Exercise}
+\newtheorem{prob}{Problem}
+\newtheorem{unthm}{Untheorem}
+
+%\newcommand{\qed}{\unskip\protect\nolinebreak\mbox{\quad$\Box$}\vspace{3mm}}
+%\newcommand{\noqed}{\begin{flushright}$\Box$\end{flushright}} 
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\setof}[1]{\left\{#1\right\}}
+\newcommand{\dom}{\mathop{\rm dom}\nolimits}
+\newcommand{\range}{\mathop{\rm range}\nolimits}
+\newcommand{\rev}{\mathop{\rm rev}\nolimits}
+
+
+\usepackage{fullpage}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{4mm}
+
+
+\begin{document}
+
+\section{Vatican Square Thoughts}
+
+\subsection{Index Sets}
+
+Let~$\F$ be an ordered field and let~$A \subseteq \F$.   For each~$d \in \F^+$ let~$A_{(d)} = \{ a \in A | a+d \in A \}$.  If $|A| = |\F|$ and for each~$d$ we have either $|A_{(d)}| = |\F|$ or~$|A_{(d)}| = 0$, then~$A$ is an {\em index set}.  
+
+$\N$, $\Z$, $\Q_{\geq 0}$, $\Q^+$ and $\Q$ are all index sets using~$\F = \Q$,  and $\R_{\geq 0}$, $\R^+$ and~$\R$ are all index sets using~$\F = \R$.  I think this covers all the types of square we've considered so far and more. 
+
+We could drop the condition that the $A_{(d)}$ are all either empty or the size of~$\F$, I think.  However, we'd then need to do something different at the distances where this did not hold in the definition of Vatican squares, similar to how in finite squares ordered pairs appear at most once at a given distance rather than exactly once.  I suspect the hassle of dealing with this is not worth it.
+
+With this definition of index set, the definition of a directed $T_{\infty}$-terrace becomes:
+
+Let~$A$ be an index set in an ordered field~$\F$.  Let~$G$ be a group of order~$|A|$.  For a bijection~${\bf a}: A \rightarrow G$ define a function~${\bf a}_{(d)}: A \rightarrow G \setminus \{ e \}$ for each~$d \in \F^+$ with~$A_{(d)} \neq \emptyset$ by
+$${\bf a}_{(d)}(i) = {\bf a}(i)^{-1}{\bf a}(i+d).$$
+If each ${\bf a}_{(d)}$ is a bijection then ${\bf a}$ is  a directed $T_{\infty}$-terrace for~$G$.
+
+[The no-involution clause can be left off here. That's only needed for the semi-Vatican version.]
+
+
+\subsection{From Finite to Countably Infinite}
+
+If in the definition of a directed $T_{\infty}$-terrace, the domain of~${\bf a}$ is $X \subseteq A$ for some finite~$X$ and the ${\bf a}_{(d)}$ functions are injective instead of bijective, then ${\bf a}$ is a {\em finite partial directed $T_{\infty}$-terrace}.
+
+Let~$A$ be an index set of~$\Q$ and let~$G$ be a group with~$|G| = |A|$.  Assume that ${\bf a}$ is a finite partial directed $T_{\infty}$-terrace for some~$X \subseteq A$.  If I've understood things correctly, the combinatorial results we need in order for the set theory to kick in and demonstrate the existence of a directed $T_{\infty}$-terrace for~$A$ are:
+\begin{enumerate}
+
+\item For each $a \in A \setminus X$ we can find a ${\bf d} \leq {\bf a}$ such that $\dom{{\bf d}} \supseteq A \cup \{ a \}$.
+
+\item For each $r \in G \setminus \range{{\bf a}}$ we can find ${\bf e} \leq {\bf a}$  such that  $\range{{\bf e}} \supseteq \range{{\bf a}} \cup \{ r \}$.
+
+\item For each $d \in \Q^+$ such that~$A_{(d)} \neq \emptyset$, for each $a \in A \setminus \dom{{\bf a}_{(d)}}$ we can find ${\bf g} \leq {\bf a}$ such that $\dom{{\bf g}_{(d)}} \supseteq \dom{{\bf a}_{(d)}} \cup \{ a \}$.
+
+\item for each $d \in \Q^+$ such that~$A_{(d)} \neq \emptyset$, for each non-identity $r \in G \setminus \range{{\bf a}_{(d)}}$ we can find ${\bf f} \leq {\bf a}$ such that $\range{{\bf f}_{(d)}} \supseteq \range{{\bf a}_{(d)}} \cup \{ r \}$.
+
+\end{enumerate}
+
+Translating into group theory:
+\begin{enumerate}
+
+\item We want a~$g \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a) = g$ does not break anything.
+  
+\item  We want an $a \in A \setminus \dom{{\bf a}}$ such that setting~${\bf a}(a) = r$ does not break anything.
+
+\item This follows from Item 1, so I'm not going to spell out what the conditions are.
+
+\item  We want an $a \in A \setminus \dom{{\bf a}}$ and a~$g \in G \setminus \range{{\bf a}}$ such that $a+ d \not\in \dom{{\bf a}}$ and setting ${\bf a}(a) = g$ and ${\bf a}(a+d) = rg$ does not break anything.
+
+
+\end{enumerate}
+
+What does it mean to meet these conditions?
+
+\begin{enumerate}
+
+\item For all~$d$ we need to have $g^{-1} {\bf a}(a+d) \not\in \range{ {\bf a}_{(d)} }$ and ${\bf a}(a-d)^{-1} g \not\in \range{ {\bf a}_{(d)} }$. All of these sets are finite, so these conditions can be rewritten as choosing~$g$ so as to avoid a finite set.  We have infinitely many choices for~$g$ and so we can meet them.  
+
+Also, for values of~$d$ where $a-d, a+d \in \dom{{\bf a}}$, we need that ${\bf a}(a-d)^{-1} g \neq g^{-1} {\bf a}(a+d)$; that is, $g {\bf a}(a-d)^{-1} g \neq {\bf a}(a+d)$.  To achieve this in the draft we added the condition that~$G$ be {\em spreadable}: $\{ xhx : x \in G \}$ is infinite for all~$h$.  
+
+However, in writing this, and without due reflection, I now recognise this as the problem I thought/think the old proof had/has.  We potentially need to satisfy this for multiple values of~$d$ simultaneously and an intersection of infinite sets (from which we have to choose~$g$) is not necessarily infinite.  Does it fix things if we redefine spreadable to mean that $G \setminus \{ xhx : x \in G \}$ is finite for all~$h$?  
+
+Some more reflection.  The cowards' way out is simply to make the requirement we need the condition.  Call a group~$G$ {\em cowardly} if for any finite list $( (x_1, y_1),(x_2,y_2), \ldots, (x_k,y_k))$  of pairs of elements of~$G$ with~$| \{x_1, x_2, \ldots, x_k, y_1, y_2, \ldots, y_k \} | = 2k$ (i.e. no repeated elements anywhere), we can find a~$g \in G$ such that $x_i^{-1}g \neq g^{-1}y_i$ for~$1 \leq i \leq k$.
+
+If~$G$ is abelian, the condition is met if given a subset~$S \subseteq G$, with~$G \setminus S$ finite, we can always choose a~$g \in S$ such that $g^2$ is not in a given finite subset $T \subseteq G$.  (Here $T \supseteq \{ x_iy_i : 1 \leq i \leq k \}$. I don't see a way to get any value out of knowing that the $x_i$ and $y_i$ are distinct in general, but see below.)  
+
+Further, if~$G$ is abelian and finitely generated then~$G$ is cowardly: any element~$h \in G$ has finitely many square roots.  Therefore, $\{ g^2 : g \in G \setminus S \}$ is infinite as $G \setminus S$ is infinite.  
+
+I know nothing about abelian groups that are not finitely generated, other than that they're less well-behaved than I might hope.  Perhaps lots of them are also cowardly?  But consider $C_2^{\omega}$: this doesn't meet the abelian group condition two paragraphs up, but it is cowardly: $x^{-1}g = g^{-1}y$ implies~$x=y$, which cannot happen.  So it's sneakily cowardly, and it is possible to get some traction from the distinctness of the~$x_i$ and~$y_i$ sometimes.
+
+After a bit of trying I haven't managed to come up with an example of a non-cowardly group (somewhat serious, but far from exhaustive and mostly looking at abelian ones).  Could it be that all countably infinite groups are cowardly??
+
+
+
+\item  We make $a$ big enough to avoid any issues.  Let $$D = \max(\dom{{\bf a}}) - \min(\dom{{\bf a}})$$ and choose~$a > \max(\dom{{\bf a}}) + D$.  Set~${\bf a}(a) = r$.  This adds at most one element to the ranges of~${\bf a}_{(d)}$ for $d > D$ and these were all empty prior to this assignment.  It does not change the situation for~$d \leq D$.
+
+\item  Nothing to see here.
+
+\item As $\dom{{\bf a}}$ is finite, there are infinitely many values of~$a$ such that $a$ and~$a+d$ are not in the domain.   Further, there are infinitely many values of~$a$ such that the maximum value of $\dom{{\bf a}}$  is smaller than $a$.  Choose such an~$a$.  
+
+There are finitely many~$g$ such $g \in \range{{\bf a}}$ and $h = gr \in  \range{{\bf a}}$.  We want to choose a~$g \in G \setminus \range{{\bf a}}$ such that for all~$b \in \dom{{\bf a}}$, we have $${\bf a}(b)^{-1}g \not\in \range{{\bf a}_{(a-b)}}$$ and $$  {\bf a}(b)^{-1}gr =  {\bf a}(b)^{-1}h \not\in \range{{\bf a}_{(a+d-b)}}.$$
+This is possible as $\bigcup_{d} \range{{\bf a_{(d)}}}$ is finite and we have infinitely many choices for~$g$.
+
+However, we also need to think about situations where adding~$g$ in this way adds more than one element to the range of an~${\bf a}_{(\ell)}$ for some~$\ell$: such elements cannot be equal.  This we {\em can't} do without extra conditions.  We require that ${\bf a}(a-\ell)^{-1}g \neq {\bf a}(a+d-\ell)^{-1}h$; that is, ${\bf a}(a-\ell+d){\bf a}(a-\ell)^{-1} \neq grg^{-1}$.  It might not be possible to choose~$g$ to guarantee this.  (Changing our choice of~$a$ might be a route to fixing this, I have not thought that through but we have some unused leeway there.\footnote{First attempt (obsolete, but here in case it makes sense at some point down the line to revisit trying things in this order): There are infinitely many pairs~$(g,h)$ satisfying~$g^{-1}h = r$ and we have only used finitely many pairs so far, so there are infinitely many valid choices.  Choose one of them.  As $\dom{{\bf a}}$ is finite, there are infinitely many values of~$a$ such that $a$ and~$a+d$ are not in the domain.   Further, there are infinitely many values of~$a$ such that the maximum value of $\dom{{\bf a}}$  is smaller than $a$.
+
+Given~$g$ and~$h$ we want such a value of~$a$ that, for all~$b \in \dom{{\bf a}}$, we have $${\bf a}(b)^{-1}g \not\in \range{{\bf a}_{(a-b)}}$$ and $${\bf a}(b)^{-1}h \not\in \range{{\bf a}_{(a+d-b)}}$$
+
+I don't see that we can guarantee this (although I haven't completely convinced myself that we can't).  I think it'll be cleaner to fix~$a$ and look at the constraints on~$g$ and~$h$, but as you see in the text that runs into issues too. Can those issues be avoided with this approach?})
+
+Escape Route 1: Rather than shooting for a $T_{\infty}$ terrace, look for a~$T_D$ one for some fixed~$D$.  Then when choosing~$a$, make it larger than $\max(\dom{{\bf a}}) + D$.  This means that~$\ell > D$ and we don't care if we get repeats in $\range{{\bf a}_{(\ell)}}$.
+
+Escape Route 2:  Insist that~$G$ is abelian.  I think this will work for much the same reason as Theorem~5 of the draft paper does, but I haven't looked at the details.  (Also, looking at the condition we have here, it seems like making~$G$ abelian guarantees that things can go wrong as the $g$s cancel entirely, which is not promising.)  [Success with this track: see Theorem~\ref{th:cifga}.  One of the others might still be better though.]
+
+Escape Route 3: Put some condition on the conjugacy classes of~$G$ so that we can always make the choice.  That the conjugacy classes of all non-identity elements are infinite seems like a natural starting place, but also seems to be the opposite of the condition we found useful in the draft.
+
+Escape Route 4: Limit the partial terraces we're building somehow in order to avoid future problems.  This is the approach taken in the draft where some choices are ruled out in the intermediate steps between the partial terrace and the desired new element.   I'm not sure how this translates (if at all) to the new approach of filling up positions at will rather than working along in a prescribed order.
+\end{enumerate}
+
+\vspace{5mm}
+
+Given all the above, what can we compile into a theorem with an genuine, fully-functioning proof?  Theorem~\ref{th:cifga} doesn't push the limits of what is possible with these arguments, I don't think, but it's not too shabby.
+
+Before writing it down, let's take a step that we should probably have taken long ago: replace ``directed $T_{\infty}$-terrace" with {\em vatican terrace}.
+
+\begin{thm}\label{th:cifga}
+Every countably-infinite finitely-generated abelian group has a vatican terrace.
+\end{thm}
+
+\begin{proof}  Let~${\bf a}$ be a finite partial vatican terrace.  To apply the set theoretic magic, we need to be able to:
+
+\begin{enumerate}
+\item Given~$a \in A \setminus \dom{{\bf a}}$, find a~$g \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a) = g$ does not break anything.
+  
+\item Given~$r \in G \setminus \range{{\bf a}}$, find an $a \in A \setminus \dom{{\bf a}}$ such that setting~${\bf a}(a) = r$ does not break anything.
+
+\item Given~$a \in A \setminus \dom{{\bf a}_{(d)}}$, find a~$g \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a) = g$ does not break anything and, if $a + d \not\in \dom{{\bf a}}$, also find an~$h \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a+d) = h$ does not break anything.
+
+\item Given a non-identity~$r \in G \setminus \range{{\bf a_{(d)}}}$,  find an $a \in A \setminus \dom{{\bf a}}$ and a~$g \in G \setminus \range{{\bf a}}$ such that $a+ d \not\in \dom{{\bf a}}$ and setting ${\bf a}(a) = g$ and ${\bf a}(a+d) = rg$ does not break anything.
+\end{enumerate}
+
+Let's consider them in turn.
+
+To achieve Item~1, for all~$d$ we need to have $g^{-1} {\bf a}(a+d) \not\in \range{ {\bf a}_{(d)} }$ and ${\bf a}(a-d)^{-1} g \not\in \range{ {\bf a}_{(d)} }$. All of these sets are finite, so these conditions can be rewritten as choosing~$g$ so as to avoid a finite set.  
+
+Also, for values of~$d$ where $a-d, a+d \in \dom{{\bf a}}$, we need that ${\bf a}(a-d)^{-1} g \neq g^{-1} {\bf a}(a+d)$; that is, $g^2  \neq {\bf a}(a+d){\bf a}(a-d)$.  There are finitely many such conditions and, as~$G$ is finitely generated, there are infinitely many elements of~$g$ with distinct squares.  
+
+So we need to avoid finitely many options for~$g$ and have infinitely many to choose from; fine.
+
+To achieve Item~2 we make $a$ big enough to avoid any issues.  Let $$D = \max(\dom{{\bf a}}) - \min(\dom{{\bf a}})$$ and choose~$a > \max(\dom{{\bf a}}) + D$.  Set~${\bf a}(a) = r$.  This adds at most one element to the ranges of~${\bf a}_{(d)}$ for $d > D$ and these were all empty prior to this assignment.  It does not change the situation for~$d \leq D$.
+
+Item~3 follows immediately from~1.
+
+Finally, consider Item~4.  As $\dom{{\bf a}}$ is finite, there are infinitely many values of~$a$ such that $a$ and~$a+d$ are not in the domain.   Further, there are infinitely many values of~$a$ such that the maximum value of $\dom{{\bf a}}$  is smaller than $a$.  Choose such an~$a$.  
+
+There are finitely many~$g$ such $g \in \range{{\bf a}}$ and $h = gr \in  \range{{\bf a}}$.  We want to choose a~$g \in G \setminus \range{{\bf a}}$ such that for all~$b \in \dom{{\bf a}}$, we have $${\bf a}(b)^{-1}g \not\in \range{{\bf a}_{(a-b)}}$$ and $$  {\bf a}(b)^{-1}gr =  {\bf a}(b)^{-1}h \not\in \range{{\bf a}_{(a+d-b)}}.$$
+This is possible as $\bigcup_{d} \range{{\bf a_{(d)}}}$ is finite and we have infinitely many choices for~$g$.
+
+However, we also need to think about situations where adding~$g$ in this way adds more than one element to the range of an~${\bf a}_{(\ell)}$ for some~$\ell$: such elements cannot be equal. To cover this we require that ${\bf a}(a-\ell)^{-1}g \neq {\bf a}(a+d-\ell)^{-1}h$.  However, using that~$G$ is abelian, ${\bf a}(a-\ell)^{-1}g = {\bf a}(a+d-\ell)^{-1}h$ implies that $g^{-1}h = {\bf a}(a-\ell)^{-1}{\bf a}(a+d-\ell)$, contradicting $g^{-1}h = r \not\in \range{{\bf a}_{(d)}}$.
+
+
+And abracadabra, by the power of Grayskull, piff-paff-puff, we are done.
+\end{proof}
+
+The finitely-generated condition in the theorem can be replaced with cowardliness.  The abelian condition is more baked-in.  One way around the latter is to change from looking for a vatican terrace to a directed $T_D$-terrace and then when meeting item~(d) we can put~$a$ far enough away from the existing elements of~$\dom {\bf a}$ so that it doesn't cause problems.
+
+I'm inclined to stick with abelian groups for the main thrust of the argument and maybe talk about some of these issues in passing.  Going this way leaves one big question for this section: which countably-infinite abelian groups are cowardly and which are not?
+
+For a group~$G$, let~$G_{\square} = \{ g^2 : g \in G \}$ (is $G^2$ better notation, or does that evoke~$G \times G$ too strongly?).  A sufficient condition for cowardliness in countably infinite abelian groups that's much broader than being finitely generated is that~$G_{\square}$ is infinite.
+
+Not all countably infinite abelian groups are cowardly.  Consider~$\Z_3 \times \Z_2^{\infty}$ and consider the list of pairs
+$$\{ (101{\bf 0}, 201{\bf 0}), (0{\bf 0}, 2{\bf 0}), (01{\bf 0},21{\bf 0})   \}$$ 
+where in yet more horrid notation I've omitted the parentheses and commas from the direct product and a bold ${\bf 0}$ indicates 0s forever.  The three pairs mean that~$g^2$ cannot be $0{\bf 0}$, $1{\bf 0}$ or~$2{\bf 0}$ respectively.  However these are the only square elements of the group.
+
+Perhaps having infinitely many squares is exactly cowardliness, with the exception of the degenerate case where the group is all involutions and so the list we'd build of pairs that require distinct non-identity squares is empty?  Yes, I'm increasingly confident that this is the case and will write up a proper justification at some point.
+
+%\section{From Countable to Uncountable}
+
+%First order of business: prove the result we want for~$\R$.  This is really just me writing down what I'm doing as I work through Kaethe's version to make sure that everything lines up.  
+
+
+
+
+
+
+\end{document}
