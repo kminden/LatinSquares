@@ -167,7 +167,7 @@ Also, for values of~$d$ where $a-d, a+d \in \dom{{\bf a}}$, we need that ${\bf a
 
 So we need to avoid finitely many options for~$g$ and have infinitely many to choose from; fine.
 
-To achieve Item~2 we make $a$ big enough to avoid any issues.  Let $$D = \max(\dom{{\bf a}}) - \min(\dom{{\bf a}})$$ and choose~$a > \max(\dom{{\bf a}}) + D$.  Set~${\bf a}(a) = r$.  This adds at most one element to the ranges of~${\bf a}_{(d)}$ for $d > D$ and these were all empty prior to this assignment.  It does not change the situation for~$d \leq D$.
+To achieve Item~2 we make $a$ big enough to avoid any issues.  Let $$D = \max(\dom{{\bf a}}) - \min(\dom{{\bf a}})$$ and choose~$a > \max(\dom{{\bf a}}) + D$.  Set~${\bf a}(a) = r$.  This adds at most one element to the ranges of~${\bf a}_{(d)}$ for $d > D$ and these were all empty prior to this assignment.  It does not change the situation for~$d \leq D$.   [Later note: this doesn't work when~$A$ is bounded, which it can be; $\Q \cap (0,1)$, for example.  The slightly more complicated method in the proof of Theorem~\ref{th:saba1} should patch it up though.]
 
 Item~3 follows immediately from~1.
 
@@ -194,10 +194,126 @@ where in yet more horrid notation I've omitted the parentheses and commas from t
 
 Perhaps having infinitely many squares is exactly cowardliness, with the exception of the degenerate case where the group is all involutions and so the list we'd build of pairs that require distinct non-identity squares is empty?  Yes, I'm increasingly confident that this is the case and will write up a proper justification at some point.
 
-%\section{From Countable to Uncountable}
+\section{From Countable to Uncountable}
 
-%First order of business: prove the result we want for~$\R$.  This is really just me writing down what I'm doing as I work through Kaethe's version to make sure that everything lines up.  
+First order of business: prove the result we want for~$\R$.  This is really just me updating the earlier proof for countably-infinite abelian groups as I work through Kaethe's version to make sure that everything lines up.   Perhaps recklessly, I'm going to shoot for squareful abelian groups of order~$\aleph_1$ and hope I don't run into problems, where a group is {\em squareful} if $|G_{\square}| = |G|$.  (I'm not trying to see how many bad choices of naming and notation I can make in a single document, I promise.)
 
+
+\begin{thm}\label{th:saba1}
+Assuming the Continuum Hypothesis,
+every squareful abelian group of order~$\aleph_1$ has a vatican terrace.
+\end{thm}
+
+\begin{proof}  
+
+[This is the proof of Theorem~\ref{th:cifga}, updated for the new situation.  Pleasingly, not much needed changing.  I wonder if we can write them as a single proof to cover both situations without too much difficulty?]
+
+Let~$G$ be the group and let~${\bf a}$ be a countable partial vatican terrace.  To apply the set theoretic magic, we need to be able to:
+
+\begin{enumerate}
+\item Given~$a \in A \setminus \dom{{\bf a}}$, find a~$g \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a) = g$ does not break anything.
+  
+\item Given~$r \in G \setminus \range{{\bf a}}$, find an $a \in A \setminus \dom{{\bf a}}$ such that setting~${\bf a}(a) = r$ does not break anything.
+
+\item Given~$a \in A \setminus \dom{{\bf a}_{(d)}}$, find a~$g \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a) = g$ does not break anything and, if $a + d \not\in \dom{{\bf a}}$, also find an~$h \in G \setminus \range{{\bf a}}$ such that setting~${\bf a}(a+d) = h$ does not break anything.
+
+\item Given a non-identity~$r \in G \setminus \range{{\bf a_{(d)}}}$,  find an $a \in A \setminus \dom{{\bf a}}$ and a~$g \in G \setminus \range{{\bf a}}$ such that $a+ d \not\in \dom{{\bf a}}$ and setting ${\bf a}(a) = g$ and ${\bf a}(a+d) = rg$ does not break anything.
+\end{enumerate}
+
+Let's consider them in turn.
+
+To achieve Item~1, for all~$d$ we need to have $g^{-1} {\bf a}(a+d) \not\in \range{ {\bf a}_{(d)} }$ and ${\bf a}(a-d)^{-1} g \not\in \range{ {\bf a}_{(d)} }$. All of these sets are countable, so these conditions can be rewritten as choosing~$g$ so as to avoid a countable set.  
+
+Also, for values of~$d$ where $a-d, a+d \in \dom{{\bf a}}$, we need that ${\bf a}(a-d)^{-1} g \neq g^{-1} {\bf a}(a+d)$; that is, $g^2  \neq {\bf a}(a+d){\bf a}(a-d)$.  There are countably many such conditions and, as~$G$ is squareful, there are uncountably many elements of~$G$ with distinct squares.  
+
+So we need to avoid countably many options for~$g$ and have uncountably many to choose from; fine.
+
+To achieve Item~2 we find an~$a$ with~$a \not\in \dom{{\bf a}}$ and for all~$d$ if $a-d \in \dom{{\bf a}}$ then ${\bf a}(a-d)^{-1}r \not\in \range{{\bf a}_{(d)}}$ and if  $a+d \in \dom{{\bf a}}$ then $r^{-1}{\bf a}(a+d) \not\in \range{{\bf a}_{(d)}}$.  This gives countably many restrictions and, as $\dom{{\bf a}}$ is countable, we have uncountably many possibilities for~$a$ and so can find one.
+
+
+Item~3 follows immediately from~1.
+
+Finally, consider Item~4.  As $\dom{{\bf a}}$ is countable, there are uncountably many values of~$a$ such that $a$ and~$a+d$ are not in the domain,  such that for all~$\ell$ at most one of~$a-\ell$ and $a+d + \ell$ is in the domain, and such that for all~$\ell$ at most one of~$a+\ell$ and $a+d - \ell$ is in the domain.   Choose such an~$a$.  
+
+There are countably many~$g$ such $g \in \range{{\bf a}}$ and $h = gr \in  \range{{\bf a}}$.  We want to choose a~$g \in G \setminus \range{{\bf a}}$ that works with each $b \in \dom{{\bf a}}$.  There are three situations depending on the position of~$b$ relative to~$a$ and~$a+d$. 
+
+For all~$b \in \dom{{\bf a}}$ with~$b<a$, we require $${\bf a}(b)^{-1}g \not\in \range{{\bf a}_{(a-b)}}$$ and $$  {\bf a}(b)^{-1}gr =  {\bf a}(b)^{-1}h \not\in \range{{\bf a}_{(a+d-b)}}.$$
+For all~$b \in \dom{{\bf a}}$ with~$a<b<a+d$, we require $$g^{-1}{\bf a} \not\in \range{{\bf a}_{(b-a)}}$$ and $$  {\bf a}(b)^{-1}gr =  {\bf a}(b)^{-1}h \not\in \range{{\bf a}_{(a+d-b)}}.$$  
+For all~$b \in \dom{{\bf a}}$ with~$a+d < b$, we require $$g^{-1}{\bf a} \not\in \range{{\bf a}_{(b-a)}}$$ and $$r^{-1}g^{-1}  {\bf a}(b) =  h^{-1}{\bf a}(b) \not\in \range{{\bf a}_{(b - (a+d))}}.$$  
+
+
+These are possible as $\bigcup_{d} \range{{\bf a_{(d)}}}$ is countable and we have uncountably many choices for~$g$.
+
+However, we also need to think about situations where adding~$g$ in this way adds more than one element to the range of an~${\bf a}_{(\ell)}$ for some~$\ell$: such elements cannot be equal. Our choice of~$a$ rules out situations  like ${\bf a}(a-\ell)^{-1}g \neq h^{-1} {\bf a}(a+d+\ell)$ where the existing domain elements are not to the same side of $a$ and $a+d$ (although as it happens, I think we can handle those situations with squarefulness if we prefer)
+
+To cover this we require that ${\bf a}(a-\ell)^{-1}g \neq {\bf a}(a+d-\ell)^{-1}h$ and  ${\bf a}(a+\ell)^{-1}g \neq {\bf a}(a+d+\ell)^{-1}h$ for all~$\ell$ in all instances where the terms in an inequality are defined.
+Using that~$G$ is abelian, ${\bf a}(a \pm \ell)^{-1}g = {\bf a}(a+d \pm \ell)^{-1}h$ implies that $g^{-1}h = {\bf a}(a \pm \ell)^{-1}{\bf a}(a+d \pm \ell)$, contradicting $g^{-1}h = r \not\in \range{{\bf a}_{(d)}}$.
+
+
+And abracadabra, by the power of Grayskull, piff-paff-puff, we are done.
+\end{proof}
+
+
+
+
+
+\section{Orthogonal Orthomorphisms}
+
+Let~$G$ be a group and~$\theta: G \rightarrow G$ a bijection.  If $g \mapsto g^{-1}\theta(g)$ is a bijection then~$\theta$ is an {\em orthomorphism}; if  $g \mapsto g\theta(g)$ is a bijection then~$\theta$ is a {\em complete mapping}.  If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.  Two orthomorphisms, $\theta, \phi$ are {\em orthogonal} if $g \mapsto \theta(g)^{-1} \phi(g)$ is a bijection.
+
+The study of ``mutually orthogonal latin squares" is a big subset of Design Theory.   In the finite case, an orthomorphism of~$G$ gives a pair of orthogonal latin squares using Cayley tables of~$G$ and a set of~$k$ mutually orthogonal orthomorphisms gives~$k+1$ mutually orthogonal latin squares.  There doesn't seem to have been much interest in infinite orthogonal latin squares (although there is an ILL I'm waiting on that I think will show that they've at least been defined somewhere).  However, orthomorphisms for infinite groups have cropped up in a couple of places.   So I propose, for now at least, we think about orthomorphisms and leave any latin square consequences to one side.
+
+Why should we think about them at all?  Because we've pretty much already constructed a bunch of them.
+
+Let~$A$ be an index set in an ordered field~$\F$.  Let~$G$ be a group of order~$|A|$.  For a bijection~${\bf a}: A \rightarrow G \setminus \{ e \}$ define a function~${\bf a}_{(d)}: A \rightarrow G \setminus \{ e \}$ for each~$d \in \F^+$ with~$A_{(d)} \neq \emptyset$ by
+$${\bf a}_{(d)}(i) = {\bf a}(i)^{-1}{\bf a}(i+d).$$
+If each ${\bf a}_{(d)}$ is a bijection then ${\bf a}$ is  a directed $R_{\infty}$-terrace for~$G$.
+
+Spot the difference.  It's that we've taken the identity out of the range of~${\bf a}$.  That we had the identity in the range was never an important point in the constructions, so for all groups for which we have constructed a directed $T_{\infty}$-terrace we also have a directed $R_{\infty}$-terrace.
+
+
+
+\begin{thm}
+Let~$G$ be a group of infinite order~$\kappa$.  If~$G$ has a directed $R_{\infty}$-terrace then~$G$ has a set of~$ \kappa$ mutually orthogonal orthomorphisms. 
+\end{thm}
+
+\begin{proof}
+Let~${\bf a}$ be a directed $T_{\infty}$-terrace for~$G$ over some index set~$A$.  For each~$d$ such that~$A_d \neq \emptyset$ (of which there are~$\kappa$) define~$\theta_d(e) = e$ and $\theta_d( {\bf a}(a) ) = {\bf a}(a+d)$.  This gives us the orthogonal orthomorphisms we're looking for:
+
+First, they are orthomorphisms: given~$g \in G \setminus \{ e \}$ with~${\bf a}(a) = g$ we get
+$$g^{-1}\theta_d(g) = {\bf a}(a)^{-1}{\bf a}(a+d) = {\bf a}_{(d)}(a)$$
+which, when we also consider that~$\theta_d(e)=e$, gives us a bijection on~$G$.
+
+Second, they are orthogonal: again taking~$g \in G \setminus \{ e \}$ with~${\bf a}(a) = g$, if~$d_2 > d_1$ we get: 
+$$\theta_{d_1}^{-1}(g) \theta_{d_2}(g) =  {\bf a}(a+d_1)^{-1}{\bf a}(a+d_2)  = {\bf a}_{(d_2 - d_1)}(a+d_1) .       $$
+If~$d_1 < d_2$ we get:
+$$\theta_{d_1}^{-1}(g) \theta_{d_2}(g) =  {\bf a}(a+d_1)^{-1}{\bf a}(a+d_2)  = {\bf a}_{(d_1 - d_2)}(a+d_2)^{-1} .       $$
+Also~$\theta_{d_1}(e)^{-1}\theta_{d_2}(e) =e$ in each case, giving bijections on~$G$.
+\end{proof}
+
+If we have a directed~$R_D$-terrace, with the obvious definition, then the same argument gives $ | \{ d \leq D : A_d \neq \emptyset \} |$ mutually orthogonal orthomorphisms for~$G$.
+
+It's known that every infinite group has an orthomorphism~\cite{Bateman50} and that every countably infinite group has a strong complete mapping~\cite{Evans12}.  I haven't found anything about orthogonal orthomorphisms in infinite groups.
+
+
+Question: can we set up posets of partial orthogonal orthomorphisms analogously to our partial terraces ones that lead to more families of groups having them than we can get via directed $R_{\infty}$-terraces?  What about strong complete mappings? In the latter case I think that the argument in~\cite{Evans12} might extend to uncountable groups without much effort.
+
+Even without doing any more work than we already have, we have infinite sets of mutually orthogonal orthomorphisms for squareful abelian groups of order~$\aleph_0$ or~$\aleph_1$.
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Evans12}
+A.~B.~Evans, The existence of strong complete mappings, {\em Electronic J.~Combin.}~{\bf 19} (2012), \#P34.
+
+\bibitem{Bateman50}
+P.~T.~Bateman, A remark on infinite groups, {\em Amer.~Math.~Monthly} {\bf 57} (1950), 623--624.
+
+
+
+
+\end{thebibliography}
 
 
 
