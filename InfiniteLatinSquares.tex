@@ -1,4 +1,4 @@
-\documentclass{amsart}
+\documentclass[11pt]{amsart}
 \usepackage{amssymb}
 \usepackage{geometry}
 \geometry{letterpaper}
@@ -21,32 +21,32 @@
 
 
 \newtheorem{theorem}{Theorem}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{observation}[theorem]{Observation}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{statement}[theorem]{Statement}
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{statement}{Statement}
+\newtheorem{fact}{Fact}
+\newtheorem{conjecture}{Conjecture}
 \newtheorem*{thm*}{Theorem} % unnumbered
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{question}[theorem]{Question}
-\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem*{definition}{Definition}
+\newtheorem{question}{Question}
+\newtheorem{assumption}{Assumption}
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
 \newtheorem*{claim}{Claim}
 \newtheorem{claimno}{Claim}
+
 \renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
 %\renewcommand{\baselinestretch}{1.2}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Namba}{\mathbb{N}}
 \newcommand{\D}{\mathbb{D}}
-\newcommand{\N}{{\overline{N}}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\G}{\overline{G}}
 \renewcommand{\H}{\overline{H}}
 \newcommand{\R}{\mathbb{R}}
@@ -85,89 +85,120 @@
 \renewcommand{\r}{\overline r}
 
 \begin{document}
+\section*{Terrace on $\R$}
+\begin{definition}
+Let $G$ be a group of order $2^{\aleph_0}$ that has no involutions and identity element $e$. For a bijection $\a:\R \To G$ define a function $\a_{(d)}: \R \To G \setminus \{e\}$ for each $d \in \R^+$ by $$\a_{(d)}(i)=\a(i)^{-1}\a(i+d).$$ If each $\a_{(d)}$ is a bijection then $\a$ is a \emph{directed $T_\infty$-terrace for $G$}. 
 
-Let $A \subseteq \R$ be countable and let $\a: A \To \R$ be an injection. For each $d \in \R^+$ let $A_{(d)} = \set{a \in A}{a+d \in A}$. Define functions $\a_{(d)}: A_{(d)} \To \R \setminus \{ 0 \}$ by $$\a_{(d)}(a) = \a(a+d)-\a(a).$$ If each $\a_{(d)}$ is injective then call $\a$ a \emph{countable partial directed $T_\infty$-terrace on $\R$}. We call each $\a_{(d)}$ the \emph{partial $T_{(d)}$-sequencing corresponding to $\a$}.
-
-Let $G$ be a group of order $2^{\aleph_0}$ that has no involutions and identity element $e$. For a bijection $\a:\R \To G$ define a function $\a_{(d)}: \R \To G \setminus \{e\}$ for each $d \in \R^+$ by $$\a_{(d)}(i)=\a(i)^{-1}\a(i+d).$$ If each $\a_{(d)}$ is a bijection then $\a$ is a \emph{directed $T_\infty$-terrace for $G$}.
+If instead we have that $A \subseteq \R$ is countable, and $\a:A \To G$ and $\a_{(d)}:A_{(d)} \To G$ are injections for each $d \in \R^+$, where $A_{(d)}=\set{a \in A}{a+d \in A}$, we say that $\a$ a \emph{countable partial directed $T_\infty$-terrace on $G$} and we call each $\a_{(d)}$ the \emph{partial $T_{(d)}$-sequencing corresponding to $\a$}.
+\end{definition}
 
 \begin{theorem}
-Assume $\CH$.\footnote{\texttt{Even without assuming $\CH$ in the ground model, the forcing poset $\P$ in the construction will force $\CH$ and the existence of such a terrace in the forcing extension.}} The group $(\R, +)$ has a directed $T_\infty$-terrace $\g: \R \To \R$. 
+Assume $\CH$. The group $(\R, +)$ has a directed $T_\infty$-terrace $\g: \R \To \R$. 
 \end{theorem}
 \begin{proof}
-Consider the poset $\P$ consisting of conditions which are countable partial directed $T_\infty$-terraces on $\R$ partially ordered so that $\a \leq \c$ (following convention in set theory, we say $\a$ is \emph{stronger} than $\c$) if and only if $\dom \c \subseteq \dom \a$ and $\a \rest \dom \c = \c$.
+Consider the poset $\P$ consisting of conditions which are countable partial directed $T_\infty$-terraces on $\R$ partially ordered so that $\a \leq \b$ (following convention in set theory, we say $\a$ is \emph{stronger} than $\b$) if and only if $\dom \b \subseteq \dom \b$ and $\a \rest \dom \b = \b$.
+
+It is not hard to see that $\P$ is countably closed. Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces, $\a_n$ for $n \in \N$, on $\R$. Then the union of all of them, $\a$, is a countable partial directed $T_\infty$-terrace on $\R$. Indeed, $\a$ is a bijection since each $\a_n$ in the chain is. For each $d \in \R^+$, we have that $\a_{(d)}$ is injective since $\dom\a_{(d)} \subseteq \dom\a$. Moreover $\a_{(d)}$ is a surjection since if $\a_{(d)}(i)=\a_{(d)}(j)$ then it must be that for some $n,m \in \N$, say $n\leq m$, we have that $\a_n(i+d)-\a_n(i)=\a_m(j+d)-\a_m(j)$, but this would imply that $i=j$ since then $\a_m \leq \a_n$ and $\a_m$ is surjective.
 
 Need to establish: \begin{enumerate}
-	\item \emph{$\P$ is countably closed:} Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces on $\R$. Then the union of all of them is a countable partial directed $T_\infty$-terrace on $\R$.
-	\item \label{item:DomainDense} \emph{It is dense to add a real number $r$ to the domain of a condition in $\P$:} i.e., for each $r \in \R$, the set $D_r=\set{\d \in \P}{r \in \dom \d }$ is dense. To see this, let $\a \in \P$ with domain $A$. Choose $r \in \R \setminus A$. We need to find $\d \in D_r$ satisfying $\d \leq \a$. But in order to find such a $\d$, first we must ensure that $\d(r) \neq \a(a)$ for each $a \in A$. Secondly, for each pair $a, a+d \in A$, we must ensure that $$\a(a+d)-\a(a) \neq \a(r+d)-\d(r)$$ if $r+d \in A$, that $$\a(a+d)-\a(a) \neq \d(r)-\a(r-d)$$ if $r-d \in A$, and if both $r-d, r+d \in A$ then $$\a(r+d)-\d(r) \neq \d(r)-\a(r-d).$$ As $A$ and the ranges of $\a$ and $\a_{(d)}$ are countable, the set of values to rule out for $\d(r)$ is at most countable, and we just need to make sure it's not one of those values. As $\R$ is uncountable, this can be done.
-	\item \emph{It is dense to add a real number $r$ to the range of a condition in $\P$:} i.e., for each $r \in \R$, the set $E_r=\set{\e \in \P}{r \in \ran \e }$ is dense. Again the idea should be that we only have to avoid countably many scenarios, but we have room in $\R$ for that. Choose $r \in \R \setminus \ran \a$. We need to find $\e \in E_r$ satisfying $\e \leq \a$. This amounts to finding $\r \notin A = \dom \a$ so that we can let $\d(\overline r)=r$, subject to the further restriction that if some element of $A$ happens to have the form $\r +d$ (or $\r-d$) for some $d \in \R^+$, then $\e(\r+d)-\e(\r) \neq \a(a+d)-\a(a)$ (or $\e(\r-d)-\e(\r) \neq \a(a+d)-\a(a)$) for all $a\in A$ with $a+d \in A$. All of our searches here involve checking against what is already in $A$ or the range of $\a$, both of which are countable, and as $\R$ is uncountable we are able to find such values.
-	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by \ref{item:DomainDense}., since we may add both $r$ and $d+r$ to the domain of a condition.
-	\item \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $r \in \R$ and each $d \in \R^+$, the set $F^d_r=\set{\f \in \P}{r \in \ran \f_{(d)}}$ is dense in $\P$. To see this, fix $d \in \R^+$ and let $r \in \R$. Let $\a \in \P$, and suppose that $r \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_r$ such that $r=\f(\r+d)-\f(\r)$ for some $\r \in \R$. This amounts to finding a suitable $\r$. First we need $\r$ to be so that neither $\r$ nor $\r+d$ are in $A = \dom \a$. Then we need to ensure that $\f(\r), \f(\r+d) \notin \ran \a$, and also that $r=\f(\r+d)-\f(\r)$. 
-	It must also be the case that for any $a\in A$, we have that $$\f(\r)-\a(a) \notin \ran \a_{(\r-a)}, \ \a(a)-\f(r) \notin \ran \a_{(a-\r)},$$ $$\f(\r+d) - \a(a) \notin \ran \a_{(\r+d-a)}, \ \a(a) - \f(\r+d) \notin \ran \a_{(a-\r-d)}.$$
 
-Moreover, we can't inadvertently mess up another sequencing. In particular, whenever we have that $\r+l, \r+d+l \in \dom A$, we must have that $$\a(\r+l)-\f(\r)\neq \a(\r+d+l) - \f(\r+d),$$ meaning that $$g= \f(\r+d)-\f(\r) \neq \a(\r+d+l) - \a(\r+l).$$ This contradicts $g \notin \ran \a_{(d)}$. Dually, we need that whenever $\r-l, \r-d-l \in \dom A$, we must have that $$\f(\r)-\a(\r-l) \neq \f(\r+d)-\a(\r+d-l),$$ which again contradicts $g \notin \ran \a_{(d)}$.
-Since we have only eliminated countably many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room to choose such an $\r$ as desired.
+	\item \label{item:DomainDense} \emph{It is dense to add a real number $r$ to the domain of a condition in $\P$:} i.e., for each $r \in \R$, the set $D_r=\set{\d \in \P}{r \in \dom \d }$ is dense. 
+	
+	To see this, let $\a \in \P$ with domain $A$. Choose $r \in \R \setminus A$. We need to find $\d \in D_r$ satisfying $\d \leq \a$. In order to find such a $\d$, first we must ensure that $\d(r) \neq \a(i)$ for each $i \in A$. 
+	
+	Secondly, we must ensure the $T_d$-sequencings for $\d$ are bijections. This amounts to ensuring that for each pair $i, i+d \in A$, 
+	\begin{eqnarray*}
+		\a(i+d)-\a(i) &\neq& \a(r+d)-\d(r) \\
+					&\neq& \d(r)-\a(r-d)
+	\end{eqnarray*}				
+	If $r-d$ and/or $r+d$ happen to be in $A$. 
+	
+	As $A$ and the ranges of $\a$ and $\a_{(d)}$ are countable, the set of values to rule out for $\d(r)$ is at most countable, and we just need to make sure it's not one of those values. As $\R$ is uncountable, this can be done. \\
+	
+	\item \emph{It is dense to add a real number $r$ to the range of a condition in $\P$:} i.e., for each $r \in \R$, the set $E_r=\set{\e \in \P}{r \in \ran \e }$ is dense. 
+	
+	Again the idea should be that we only have to avoid countably many scenarios, but we have room in $\R$ for that. Suppose $r \in \R \setminus \ran \a$. We need to find $\e \in E_r$ satisfying $\e \leq \a$. This amounts to finding $\r \notin A = \dom \a$ so that we can let $\d(\overline r)=r$, satisfying $\r \notin A_{(d)}$ for whenever $A_{(d)}$ is nonempty.
+	
+	Both $A$ and $A_{(d)} \subseteq A$ are countable, so this can be done. \\
+		
+	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by \ref{item:DomainDense}., since we may add both $r$ and $d+r$ to the domain of a condition.\\
+	\item \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $r \in \R$ and each $d \in \R^+$, the set $F^d_r=\set{\f \in \P}{r \in \ran \f_{(d)}}$ is dense in $\P$. 
+	
+	To see this, fix $d \in \R^+$ and let $r \in \R$. Let $\a \in \P$, and suppose that $r \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_r$ such that $r=\f(\r+d)-\f(\r)$ for some $\r \in \R$. This amounts to finding a suitable $\r$. First we need $\r$ to be so that neither $\r$ nor $\r+d$ are in $A = \dom \a$. Then we need to ensure that $\f(\r), \f(\r+d) \notin \ran \a$, and also that $r=\f(\r+d)-\f(\r)$. 
+
+	It must also be the case that for any $i\in A$, we have that 
+		$$\f(\r)-\a(i) \notin \ran \a_{(\r-i)}, \ \  \a(i)-\f(r) \notin \ran \a_{(i-\r)},$$ 
+		$$\f(\r+d) - \a(i) \notin \ran \a_{(\r+d-i)}, \ \ \a(i) - \f(\r+d) \notin \ran \a_{(i-\r-d)}.$$
+
+Moreover, we can't inadvertently mess up another sequencing. In particular, whenever we have that $\r+l, \r+d+l \in \dom A$, we must have that $$\a(\r+l)-\f(\r)\neq \a(\r+d+l) - \f(\r+d),$$ meaning that $$r= \f(\r+d)-\f(\r) \neq \a(\r+d+l) - \a(\r+l).$$ This contradicts $r \notin \ran \a_{(d)}$. Dually, we need that whenever $\r-l, \r-d-l \in \dom A$, we must have that $$\f(\r)-\a(\r-l) \neq \f(\r+d)-\a(\r+d-l),$$ which again contradicts $r \notin \ran \a_{(d)}$.
+
+Since we have only eliminated countably many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room to choose such an $\r$ as desired.\\
 \end{enumerate}
 
-We may find a filter $\mathcal G\subseteq \P$ which meets the family of dense sets $$\mathcal D = \set{D_r}{r\in \R} \cup \set{E_r}{r \in \R} \cup \set{F^d_r}{d \in \R^+, r \in \R}$$ because $|\mathcal D|=\aleph_1$ as $\CH$ holds, and since the forcing axiom for countably closed forcing is true. To see this, we may construct a sequence of $\g_\alpha$'s enabling the filter to be defined by $$\mathcal G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}$$ by transfinite induction. The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in \mathcal D_\lambda$.
+Now that we have verified these collections sets are dense, we may find a filter $\mathcal G\subseteq \P$ which meets the family of dense sets $$\mathcal D = \set{D_r}{r\in \R} \cup \set{E_r}{r \in \R} \cup \set{F^d_r}{d \in \R^+, r \in \R}$$ because $|\mathcal D|=\aleph_1$ as $\CH$ holds, and since the forcing axiom for countably closed forcing is true. 
+
+To see why such a filter can be built, simply construct a sequence of $\g_\alpha$'s by transfinite induction, enabling the filter to be defined by 
+	$$\mathcal G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}.$$ 
+The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in \mathcal D_\lambda$.
 
 By construction, $\cup G$ defines a function $\g: \R \To \R$ with the desired properties. \begin{enumerate}
-	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $r \in \R$, the dense sets $D_r$ for injectivity and for meeting $E_r$ for each $r \in \R$ for surjectivity.
-	\item \emph{For each $d \in \R^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense}. above and the dense sets $F^d_r$ for each $r \in \R$.
+	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $r \in \R$, the dense sets $D_r$ for injectivity and for meeting $E_r$ for each $r \in \R$ for surjectivity.\\
+	\item \emph{For each $d \in \R^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense}. above and the dense sets $F^d_r$ for each $r \in \R$. \qedhere
 \end{enumerate}
 \end{proof}
 		
-\begin{question} Is it possible to have a directed $T_\infty$-terrace on $\R$ and $\neg \CH$? \end{question}
-\texttt{From the footnote, just using the above forcing won't answer this question. After forcing with $\P$, it is possible to add a bunch of reals and make $\CH$ fail, but then we have reals not accounted for in the terrace, so it's not a full terrace on $\R$ anymore. So then the question is, if you force, say, $2^{\aleph_0} = \aleph_2$, is there a way to build up the terrace we had on $\omega_1$ (when this had the same size as $\R$) to $\omega_2$? Without forcing $\CH$ to hold again? In this case the indexing set for the old terrace, which is now a partial terrace, would be a subset of $\R$, presumably. And looks like $\langle \R, + \rangle$ I guess?}	
+\begin{corollary} If $\CH$ holds, there is a Vatican square for $\R$. \end{corollary}
+\begin{corollary} There is a real-preserving forcing which adds a Vatican square for $\R$. \end{corollary}
 
-\begin{question} Let $G$ be an abelian group of size continuum with infinitely many non-involutions. Does $G$ have a directed $T_\infty$-terrace? \end{question}
-The better way to phrase this might be to go ahead and ask about groups of size $\aleph_1$. Just to make the statement as general as possible. In that case we need a generalized notion of index sets so we can define terraces. I am going to assume it makes some sense to have an index set be an ordered field (or maybe group but field seems easier).
+\begin{question} Let $G$ be an abelian group of size continuum with continuum-many non-involutions. Does $G$ have a directed $T_\infty$-terrace? \end{question}
 
-By an index set $I$ for $G$ we mean an ordered field that has the same size as $G$, and $I^+$ is all of the elements of the ordered field that are greater than $0$.
-
-Let $G$ be a group of order $\kappa$ with identity element $e$. For a bijection $\a:I \To G$ define a function $\a_{(d)}: I \To G \setminus \{e\}$ for each $d \in I^+$ by $$\a_{(d)}(i)=\a(i)^{-1}\a(i+d).$$ If each $\a_{(d)}$ is a bijection then $\a$ is a \emph{directed $T_\infty$-terrace for $G$}.
-
-Let $G$ be a group of size $\aleph_1$ and let $I$ be an index set for $G$. Let $A \subseteq I$ be countable, with  $\a: A \To G$ an injection. For each $d \in I^+$ let $A_{(d)} = \set{a \in A}{a+d \in A}$. Define functions $\a_{(d)}: A_{(d)} \To G \setminus \{ e \}$ by $$\a_{(d)}(a) = \a(a)^{-1}\a(a+d).$$ If each $\a_{(d)}$ is injective then call $\a$ a \emph{countable partial directed $T_\infty$-terrace on $\R$}. We call each $\a_{(d)}$ the \emph{partial $T_{(d)}$-sequencing corresponding to $\a$}.
+The answer is yes. See Matt's note.
+%The better way to phrase this might be to go ahead and ask about groups of size $\aleph_1$. Just to make the statement as general as possible. In that case we need a generalized notion of index sets so we can define terraces. I am going to assume it makes some sense to have an index set be an ordered field (or maybe group but field seems easier).
+%
+%By an index set $I$ for a group $G$ we mean an ordered field that has the same size as $G$, and $I^+$ is all of the elements of the ordered field that are greater than $0$.
+%
+%Let $G$ be a group of order $\kappa$ with identity element $e$. For a bijection $\a:I \To G$ define a function $\a_{(d)}: I \To G \setminus \{e\}$ for each $d \in I^+$ by $$\a_{(d)}(i)=\a(i)^{-1}\a(i+d).$$ If each $\a_{(d)}$ is a bijection then $\a$ is a \emph{directed $T_\infty$-terrace for $G$}.
+%
+%Let $G$ be a group of size $\aleph_1$ and let $I$ be an index set for $G$. Let $A \subseteq I$ be countable, with  $\a: A \To G$ an injection. For each $d \in I^+$ let $A_{(d)} = \set{a \in A}{a+d \in A}$. Define functions $\a_{(d)}: A_{(d)} \To G \setminus \{ e \}$ by $$\a_{(d)}(a) = \a(a)^{-1}\a(a+d).$$ If each $\a_{(d)}$ is injective then call $\a$ a \emph{countable partial directed $T_\infty$-terrace on $\R$}. We call each $\a_{(d)}$ the \emph{partial $T_{(d)}$-sequencing corresponding to $\a$}.
 
 \begin{theorem}
 Let $G$ be an abelian group of size $\aleph_1$ with $\aleph_1$-many non-involutions. Then $G$ has a directed $T_\infty$-terrace. 
 \end{theorem}
-\begin{proof}
-Let $I$ be an index set for $G$. Consider the poset $\P$ consisting of conditions which are partial directed $T_\infty$-terraces on $G$ partially ordered so that $\a \leq \c$ if and only if $\dom \c \subseteq \dom \a$ and $\a \rest \dom \c = \c$.
+%\begin{proof}
+%Let $I$ be an index set for $G$. Consider the poset $\P$ consisting of conditions which are partial directed $T_\infty$-terraces on $G$ partially ordered so that $\a \leq \c$ if and only if $\dom \c \subseteq \dom \a$ and $\a \rest \dom \c = \c$.
+%
+%Need to establish: \begin{enumerate}
+%	\item \emph{$\P$ is countably closed:} Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces on $G$. Then the union of all of them is a countable partial directed $T_\infty$-terrace on $G$.
+%	\item \label{item:GroupDomainDense} \emph{It is dense to add a value to the domain of a condition in $\P$:} i.e., for each $i \in I$, the set $D_i=\set{\d \in \P}{i \in \dom \d }$ is dense. To see this, let $\a \in \P$ with domain $A$. Choose $i \in I \setminus A$. We need to find $\d \in D_i$ satisfying $\d \leq \a$. But in order to find such a $\d$, first we must ensure that $\d(i) \neq \a(a)$ for each $a \in A$. Secondly, for each pair $a, a+d \in A$, where $d \in I^+$, we must ensure that each of the following are not equal to each other:
+%	\begin{eqnarray*} \a(a)^{-1}\a(a+d) &\neq& \d(i)^{-1}\a(i+d)\\
+%								&\neq& \a(i-d)^{-1}\d(i)
+%	\end{eqnarray*} if $i+d$ and/or $i-d \in A$. 
+%	
+%	(Insert more of a justification here about $G$ being such-and-such.) As $A$ and the ranges of $\a$ and $\a_{(d)}$ are countable, the set of values to rule out for $\d(i)$ is at most countable, and we just need to make sure it's not one of those values. As $I$ is uncountable, this can be done. 
+%	\item \emph{It is dense to add a group member the range of a condition in $\P$:} i.e., for each $g \in G$, the set $E_g=\set{\e \in \P}{g \in \ran \e }$ is dense. Again the idea should be that we only have to avoid countably many scenarios, but we have room in $G$ for that. Choose $g \in G \setminus \ran \a$. We need to find $\e \in E_g$ satisfying $\e \leq \a$. This amounts to finding $i \notin A = \dom \a$ so that we can let $\d(i)=g$, subject to the further restriction that if some element of $A$ happens to have the form $i+d$ (or $i-d$) for some $d \in I^+$, then $\e(i)^{-1}\a(i+d) \neq \a(a)^{-1}\a(a+d)$ (or $\a(i-d)^{-1}\e(i) \neq \a(a)^{-1}\a(a+d)$) for all $a\in A$ with $a+d \in A$. If both $i+d$ and $i+d$ are in $A$ for $d \in I^+$, we also must have that $\a(i-d)^{-1}\e(i)  \neq \e(i)^{-1}\a(i+d)$. All of our searches here involve checking against what is already in $A$ or the range of $\a$, both of which are countable, and as $G$ is uncountable we are able to find such values.
+%	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in I^+$ it is dense to add an element $i \in I$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by \ref{item:GroupDomainDense}., since we may add both $i$ and $d+i$ to the domain of a condition.
+%	\item \emph{For each $d \in I^+$ it is dense to add a group member to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $g \in G$ and each $d \in I^+$, the set $F^d_g=\set{\f \in \P}{g \in \ran \f_{(d)}}$ is dense in $\P$. 
+%	
+%	To see this, fix $d \in I^+$ and let $g \in G$. Let $\a \in \P$, and suppose that $g \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_g$ such that $g=\f(i)^{-1}\f(i+d)$ for some $i \in I$. This amounts to finding a suitable $i$, so first of all we choose $i$ so that neither $i$, $i+d$, nor $i-d$ are in $A = \dom \a$. Of course then we need to ensure that $\f(i), \f(i+d) \notin \ran \a$, and $g=\f(i)^{-1}\f(i+d)$. 
+%	
+%	We need to have that for each pair $a, a+l \in A$, then: $$\f(i)^{-1}\a(i+l)\neq \a(a)^{-1}\a(a+l)\neq \a(l-i)^{-1}\f(i)$$ whenever $i+l$ or $l-i$ happen to be in $A$, and   $$\f(i+d)^{-1}\a(i+d+l)\neq \a(a)^{-1}\a(a+l)\neq \a(l-i-d)^{-1}\f(i+d)$$ if $l+i+d$ and/or $l-i-d$ happen to be in $A$. 
+%	
+%	Moreover, we can't inadvertently mess up another sequencing. In particular, whenever we have that $i+l, i+d+l \in \dom A$, we must have that $$\f(\r)^{-1}\a(i+l)\neq \f(i+d)^{-1}\a(i+d+l),$$ meaning that $$g= \f(i+d)^{-1}\f(i) \neq \a(i+l)^{-1}\a(i+d+l).$$ Since $G$ is abelian, this contradicts $g \notin \ran \a_{(d)}$. Dually, we need that whenever $i-l, i-d-l \in \dom A$, we must have that $$\a(i-l)^{-1}\f(i) \neq \a(i+d-l)^{-1}\f(i+d),$$ which again contradicts $g \notin \ran \a_{(d)}$.
+%	
+%	Since we have only eliminated countably many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room in $I$ to choose such an $i$ as desired.
+%
+%\end{enumerate}
+%
+%We may find a filter $\mathcal G \subseteq \P$ which meets the family of dense sets $$\mathcal D = \set{D_i}{i\in I} \cup \set{E_g}{g \in G} \cup \set{F^d_g}{d \in I^+, g \in G}$$ because $|\mathcal D|=\aleph_1$ as $\CH$ holds, and since the forcing axiom for countably closed forcing is true. To see this, we may construct a sequence of $\g_\alpha$'s enabling the filter to be defined by $$G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}$$ by transfinite induction. The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in D_\lambda$.
+%
+%By construction, $\cup G$ defines a function $\g: I \To G$ with the desired properties. \begin{enumerate}
+%	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $i \in I$, the dense sets $D_i$ for injectivity and $E_g$ for each $g \in G$  for surjectivity.
+%	\item \emph{For each $d \in I^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense}. above and the dense sets $F^d_g$ for each $g \in G$.
+%\end{enumerate}
+%\end{proof}
 
-Need to establish: \begin{enumerate}
-	\item \emph{$\P$ is countably closed:} Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces on $G$. Then the union of all of them is a countable partial directed $T_\infty$-terrace on $G$.
-	\item \label{item:DomainDense} \emph{It is dense to add a value to the domain of a condition in $\P$:} i.e., for each $i \in I$, the set $D_i=\set{\d \in \P}{i \in \dom \d }$ is dense. To see this, let $\a \in \P$ with domain $A$. Choose $i \in I \setminus A$. We need to find $\d \in D_i$ satisfying $\d \leq \a$. But in order to find such a $\d$, first we must ensure that $\d(i) \neq \a(a)$ for each $a \in A$. Secondly, for each pair $a, a+d \in A$, where $d \in I^+$, we must ensure that each of the following are not equal to each other:
-	\begin{eqnarray*} \a(a)^{-1}\a(a+d) &\neq& \d(i)^{-1}\a(i+d)\\
-								&\neq& \a(i-d)^{-1}\d(i)
-	\end{eqnarray*} if $i+d$ and/or $i-d \in A$. 
-	
-	(Insert more of a justification here about $G$ being such-and-such.) As $A$ and the ranges of $\a$ and $\a_{(d)}$ are countable, the set of values to rule out for $\d(i)$ is at most countable, and we just need to make sure it's not one of those values. As $I$ is uncountable, this can be done. 
-	\item \emph{It is dense to add a group member the range of a condition in $\P$:} i.e., for each $g \in G$, the set $E_g=\set{\e \in \P}{g \in \ran \e }$ is dense. Again the idea should be that we only have to avoid countably many scenarios, but we have room in $G$ for that. Choose $g \in G \setminus \ran \a$. We need to find $\e \in E_g$ satisfying $\e \leq \a$. This amounts to finding $i \notin A = \dom \a$ so that we can let $\d(i)=g$, subject to the further restriction that if some element of $A$ happens to have the form $i+d$ (or $i-d$) for some $d \in I^+$, then $\e(i)^{-1}\a(i+d) \neq \a(a)^{-1}\a(a+d)$ (or $\a(i-d)^{-1}\e(i) \neq \a(a)^{-1}\a(a+d)$) for all $a\in A$ with $a+d \in A$. If both $i+d$ and $i+d$ are in $A$ for $d \in I^+$, we also must have that $\a(i-d)^{-1}\e(i)  \neq \e(i)^{-1}\a(i+d)$. All of our searches here involve checking against what is already in $A$ or the range of $\a$, both of which are countable, and as $G$ is uncountable we are able to find such values.
-	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in I^+$ it is dense to add an element $i \in I$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by \ref{item:DomainDense}., since we may add both $i$ and $d+i$ to the domain of a condition.
-	\item \emph{For each $d \in I^+$ it is dense to add a group member to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $g \in G$ and each $d \in I^+$, the set $F^d_g=\set{\f \in \P}{g \in \ran \f_{(d)}}$ is dense in $\P$. 
-	
-	To see this, fix $d \in I^+$ and let $g \in G$. Let $\a \in \P$, and suppose that $g \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_g$ such that $g=\f(i)^{-1}\f(i+d)$ for some $i \in I$. This amounts to finding a suitable $i$, so first of all we choose $i$ so that neither $i$, $i+d$, nor $i-d$ are in $A = \dom \a$. Of course then we need to ensure that $\f(i), \f(i+d) \notin \ran \a$, and $g=\f(i)^{-1}\f(i+d)$. 
-	
-	We need to have that for each pair $a, a+l \in A$, then: $$\f(i)^{-1}\a(i+l)\neq \a(a)^{-1}\a(a+l)\neq \a(l-i)^{-1}\f(i)$$ whenever $i+l$ or $l-i$ happen to be in $A$, and   $$\f(i+d)^{-1}\a(i+d+l)\neq \a(a)^{-1}\a(a+l)\neq \a(l-i-d)^{-1}\f(i+d)$$ if $l+i+d$ and/or $l-i-d$ happen to be in $A$. 
-	
-	Moreover, we can't inadvertently mess up another sequencing. In particular, whenever we have that $i+l, i+d+l \in \dom A$, we must have that $$\f(\r)^{-1}\a(i+l)\neq \f(i+d)^{-1}\a(i+d+l),$$ meaning that $$g= \f(i+d)^{-1}\f(i) \neq \a(i+l)^{-1}\a(i+d+l).$$ Since $G$ is abelian, this contradicts $g \notin \ran \a_{(d)}$. Dually, we need that whenever $i-l, i-d-l \in \dom A$, we must have that $$\a(i-l)^{-1}\f(i) \neq \a(i+d-l)^{-1}\f(i+d),$$ which again contradicts $g \notin \ran \a_{(d)}$.
-	
-	Since we have only eliminated countably many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room in $I$ to choose such an $i$ as desired.
+\begin{question} Can we force to add a terrace of size $\aleph_{n+1}$ given that there is a partial terrace of size $\aleph_n$? \end{question}
 
-\end{enumerate}
-
-We may find a filter $\mathcal G \subseteq \P$ which meets the family of dense sets $$\mathcal D = \set{D_i}{i\in I} \cup \set{E_g}{g \in G} \cup \set{F^d_g}{d \in I^+, g \in G}$$ because $|\mathcal D|=\aleph_1$ as $\CH$ holds, and since the forcing axiom for countably closed forcing is true. To see this, we may construct a sequence of $\g_\alpha$'s enabling the filter to be defined by $$G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}$$ by transfinite induction. The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in D_\lambda$.
-
-By construction, $\cup G$ defines a function $\g: I \To G$ with the desired properties. \begin{enumerate}
-	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $i \in I$, the dense sets $D_i$ for injectivity and $E_g$ for each $g \in G$  for surjectivity.
-	\item \emph{For each $d \in I^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense}. above and the dense sets $F^d_g$ for each $g \in G$.
-\end{enumerate}
-\end{proof}
-
-
-\begin{question} Can we extend the definition of $T_\infty$-terraces and so on to groups that have size bigger than $2^{\aleph_0}$? \end{question}
-\texttt{We would need to write down exactly what we should mean by an index set. Graphs with distinguished nodes (so that distances are unique)?} 
-\texttt{Clearly I should look at the Hilton-Wojciechowski paper.}
 
 
 
