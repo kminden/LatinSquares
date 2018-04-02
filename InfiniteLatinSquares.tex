@@ -41,7 +41,7 @@
 \newtheorem*{claim}{Claim}
 \newtheorem{claimno}{Claim}
 
-\renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
 %\renewcommand{\baselinestretch}{1.2}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -96,7 +96,7 @@ If instead we have that $A \subseteq \R$ is countable, and $\a:A \To G$ and $\a_
 Assume $\CH$. The group $(\R, +)$ has a directed $T_\infty$-terrace $\g: \R \To \R$. 
 \end{theorem}
 \begin{proof}
-Consider the poset $\P$ consisting of conditions which are countable partial directed $T_\infty$-terraces on $\R$ partially ordered so that $\a \leq \b$ (following convention in set theory, we say $\a$ is \emph{stronger} than $\b$) if and only if $\dom \b \subseteq \dom \b$ and $\a \rest \dom \b = \b$.
+Consider the poset $\P$ consisting of conditions which are countable partial directed $T_\infty$-terraces on $\R$ partially ordered so that $\a \leq \b$ (following convention in set theory, we say $\a$ is \emph{stronger} than $\b$) if and only if $\dom \b \subseteq \dom \a$ and $\a \rest \dom \b = \b$.
 
 It is not hard to see that $\P$ is countably closed. Suppose we have an decreasing chain of countable partial directed $T_\infty$-terraces, $\a_n$ for $n \in \N$, on $\R$. Then the union of all of them, $\a$, is a countable partial directed $T_\infty$-terrace on $\R$. Indeed, $\a$ is a bijection since each $\a_n$ in the chain is. For each $d \in \R^+$, we have that $\a_{(d)}$ is injective since $\dom\a_{(d)} \subseteq \dom\a$. Moreover $\a_{(d)}$ is a surjection since if $\a_{(d)}(i)=\a_{(d)}(j)$ then it must be that for some $n,m \in \N$, say $n\leq m$, we have that $\a_n(i+d)-\a_n(i)=\a_m(j+d)-\a_m(j)$, but this would imply that $i=j$ since then $\a_m \leq \a_n$ and $\a_m$ is surjective.
 
@@ -121,7 +121,7 @@ Need to establish: \begin{enumerate}
 	
 	Both $A$ and $A_{(d)} \subseteq A$ are countable, so this can be done. \\
 		
-	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by \ref{item:DomainDense}., since we may add both $r$ and $d+r$ to the domain of a condition.\\
+	\item \label{item:StepFunctionDomainDense} \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the domain of a condition's partial $T_{(d)}$-sequencing:} This is captured by (\ref{item:DomainDense}), since we may add both $r$ and $d+r$ to the domain of a condition.\\
 	\item \emph{For each $d \in \R^+$ it is dense to add a real number $r$ to the range of a condition's partial $T_{(d)}$-sequencing:} In other words, we would like to show that for each $r \in \R$ and each $d \in \R^+$, the set $F^d_r=\set{\f \in \P}{r \in \ran \f_{(d)}}$ is dense in $\P$. 
 	
 	To see this, fix $d \in \R^+$ and let $r \in \R$. Let $\a \in \P$, and suppose that $r \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\f \in F^d_r$ such that $r=\f(\r+d)-\f(\r)$ for some $\r \in \R$. This amounts to finding a suitable $\r$. First we need $\r$ to be so that neither $\r$ nor $\r+d$ are in $A = \dom \a$. Then we need to ensure that $\f(\r), \f(\r+d) \notin \ran \a$, and also that $r=\f(\r+d)-\f(\r)$. 
@@ -141,14 +141,17 @@ To see why such a filter can be built, simply construct a sequence of $\g_\alpha
 	$$\mathcal G=\set{\f \in \P}{\f \geq \g_\alpha \text{ for some } \alpha<\omega_1}.$$ 
 The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, ensuring that the filter is closed downward. Enumerate the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\omega_1}$. Let $\g_0 \in \mathcal D_0$. Then at stage $n \leq \omega$, let $\g_n \leq \g_{n-1}$ satisfy $\g_n \in \mathcal D_n$. Density allows us to continue the construction through all successor stages. At limit stages, say $\lambda <\omega_1$, we use the fact that $\P$ is countably closed to find a condition strengthening the chain of our constructed $\g_\alpha$s for $\alpha<\gamma$, and then strengthen this condition to obtain $\g_\lambda \in \mathcal D_\lambda$.
 
-By construction, $\cup G$ defines a function $\g: \R \To \R$ with the desired properties. \begin{enumerate}
+By construction, $\cup G$ defines a function $\g: \R \To \R$ with the desired properties. 
+
+\begin{enumerate}
 	\item \emph{$\g$ is a bijection:} This is ensured by meeting, for each $r \in \R$, the dense sets $D_r$ for injectivity and for meeting $E_r$ for each $r \in \R$ for surjectivity.\\
-	\item \emph{For each $d \in \R^+$, $\g_{(d)}$ is a bijection:} This is ensured by item \ref{item:StepFunctionDomainDense}. above and the dense sets $F^d_r$ for each $r \in \R$. \qedhere
+	\item \emph{For each $d \in \R^+$, $\g_{(d)}$ is a bijection:} This is ensured by (\ref{item:StepFunctionDomainDense}) and the dense sets $F^d_r$ for each $r \in \R$. \qedhere
 \end{enumerate}
 \end{proof}
 		
 \begin{corollary} If $\CH$ holds, there is a Vatican square on $\R$. \end{corollary}
-\begin{corollary} There is a real-preserving forcing which adds a Vatican square on $\R$. \end{corollary}
+\begin{corollary} There is a real-preserving forcing which adds a Vatican square on $\R$ and forces $\CH$. \end{corollary}
+We could also force with conditions of size less than $2^{\aleph_0}$. This should not affect the size of $\R$, but should also add a terrace. Should be $<2^{\aleph_0}$-closed. So in this case we can have a terrace on $\R$ without $\CH$.
 
 \begin{question} Let $G$ be an abelian group of size continuum with continuum-many non-involutions. Does $G$ have a directed $T_\infty$-terrace? \end{question}
 
@@ -198,7 +201,9 @@ Let $G$ be an abelian group of size $\aleph_1$ with $\aleph_1$-many non-involuti
 %\end{proof}
 
 \begin{question} Can we force to add a terrace of size $\aleph_{n+1}$ given that there is a partial terrace of size $\aleph_n$? \end{question}
-Poset would consist of partial terraces, as usual, and should be $<\aleph_{n+1}$-closed, so that no new elements are added to the group of size $\aleph_{n+1}$.
+Yes. Poset would consist of partial terraces, as usual, and should be $<\aleph_{n+1}$-closed, so that no new elements are added to the group of size $\aleph_{n+1}$. 
+
+Can find a Vatican square of any order in this way, since all we need is an ordered field of the same size to have an index set. Ordered fields exist of any size by L\"owenheim-Skolem?
 
 
 
