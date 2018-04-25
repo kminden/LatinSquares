@@ -1,0 +1,469 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\bibliographystyle{plain}
+\usepackage{fullpage}
+
+%environments
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{exa}[thm]{Example}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prob}[thm]{Problem}
+
+
+%notation
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\ub}{\underbrace}
+\newcommand{\ep}{\mathop{\rm EP}\nolimits}
+\newcommand{\rowrev}{\mathop{\rm rowrev}\nolimits}
+\newcommand{\colrev}{\mathop{\rm colrev}\nolimits}
+\newcommand{\rot}{\mathop{\rm rot}\nolimits}
+\newcommand{\subsoma}{\mathop{\rm subSOMA}\nolimits}
+
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+
+
+%\setlength{\parindent}{0in}
+%\setlength{\parskip}{3mm}
+
+
+
+\begin{document}
+
+
+
+\title{Infinite Latin Squares: Neighbor Balance and Orthogonality}
+
+\author{Gage~N.~Martin$^{1}$, Kaethe Minden$^2$ and M.~A.~Ollis$^{2,}$\footnote{Corresponding author, email address: \texttt{matt@marlboro.edu.}}   \\
+              \\
+              {\it ${}^1$Boston College, Somewhere in Boston, } \\
+              {\it Massachusetts 12345, USA.}
+              \\
+              \\
+              {\it ${}^2$Marlboro College, P.O.~Box A, Marlboro,} \\    
+              {\it Vermont 05344, USA.}  }
+              
+%\date{}
+
+\maketitle
+
+
+
+\begin{abstract}
+Regarding neighbor balance, we consider natural generalizations of $D$-complete Latin squares and Vatican squares from the finite to the infinite.   We show that if~$G$ is an infinite abelian group such that the number of square elements is equinumerous with the whole group then it is possible to permute the rows and columns of the Cayley table to give an infinite Vatican square.  We also construct an Vatican square of every infinite order that is not obtainable by permuting the rows and columns of a Cayley table.  Regarding orthogonality, we show that if~$G$ is as above then $G$ has a set of~$|G|$ mutually orthogonal orthomorphisms and hence there is a set of~$|G|$ mutually orthogonal Latin squares based on~$G$.  \texttt{[And we can maybe do a bit better than this last sentence.]}
+
+
+
+\vspace{3mm}
+\noindent
+{\bf Keywords:} complete Latin square; complete mapping; directed terrace; infinite design; infinite Latin square; mutually orthogonal Latin squares; orthomorphism; R-sequencing; sequencing; Vatican square.
+\end{abstract}
+
+
+
+\section{Introduction}\label{sec:intro}
+
+
+A finite Latin square is {\em row complete} or {\em Roman} if  any two distinct symbols appear in adjacent cells within rows once in each order.  If the transpose of a Latin square is row complete then the square is {\em column complete}; a square that is row complete and column complete is {\em complete}.  Finite row complete squares exist for all composite orders~\cite{Higham98} and finite complete squares are known to exist for all even orders~\cite{Gordon61} and many odd composite orders at which a nonabelian group exists; see, for example, \cite{Ollis14}.
+
+Vatican and $D$-complete  squares strengthen this notion of completeness. 
+A Latin square is is {\em row D-complete} if any two distinct symbols appear in cells that are distance~$d$ apart in rows at most once in each order for each~$d \leq D$. {\em Column D-completeness} is defined analogously and a square that is both row and column D-complete is {\em D-complete}.  The 1-completeness property is the same as completeness.
+
+An $(n-1)$-complete square of order~$n$ is called {\em Vatican}; that is, Vatican squares have the pair-occurrence restriction at every possible distance.
+
+Vatican squares are known to exist for all orders that are one less than a prime.  In addition to this, 2-complete squares are known to exist at orders~$2p$ where~$p$ is a prime congruent to 5, 7 or 19 modulo~24, orders~$2m$ where~$5 \leq m \leq 25$, and order~21 \cite{TuscanCRC,OllisTFSG}.
+
+
+In this paper we extend these notions to the infinite and prove various existence results.  As in \cite{CW02}, we use Zermelo-Fraenkel set theory with the axiom of choice.  \texttt{[Do we need to say more about what we need to work with the infinite stuff here?]}
+
+We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are natually embedded in~$\R^2$.
+
+Let~$\F$ be an ordered field and let~$I \subseteq \F$.   For each~$d \in \F^+$ let~$I_{(d)} = \{ i \in I | i+d \in I \}$.  If $|I| = |\F|$ and for each~$d$ we have either $|I_{(d)}| = |\F|$ or~$|I_{(d)}| = 0$, then~$I$ is an {\em index set}.   For our purposes, we may assume that~$I_{(1)} \neq \emptyset$ without loss of generality.
+
+Given an index set~$|I|$, a {\em Latin square} on~$|I|$ with symbol set~$X$ is a function $L: I \times I \rightarrow X$ such that for each~$i \in I$ the restriction of $L$ to $I \times \{i\}$ is a bijection with~$X$, as is the restriction to~$\{i\} \times I$.   In other words, each symbol appears once in each ``row" and once in each ``column."  
+
+This definition is  compatible with the definition for Latin squares of arbitrary cardinality of Hilton and Wojciechowski~\cite{HW05}.  In the countable case with~$I = \N \subseteq \Q$ or $I = \Z \subseteq \Q$ we get the ``quarter-plane Latin squares" and ``full-plane Latin squares" respectively of Caulfield~\cite{Caulfield96}.
+
+
+
+
+The definition of completeness for infinite squares is obtained by identifying the ideas of adjacency and being at distance~1.  This is perfectly natural when~$I \in \{ \N ,\Z\}$ and again matches the definition of Caulfield~\cite{Caulfield96}.   It does not seem to capture a property of particular combinatorial interest otherwise, but when we move to generalizing Vatican squares we get the very natural notion of pairs appearing once at all distances.  Indeed, the definition of an infinite Vatican square is arguably more natural than the finite version as it allows every pair to appear exactly once at every distance rather than merely at most once.
+
+Formally, an infinite Latin square on an index set~$I$  is {\em row complete} or {\em Roman} if each pair of distinct symbols appears exactly once in each order at distance~1 in rows.  The square is {\em complete} if the corresponding property also holds in columns.   An infinite Latin square with indexing set~$I$ is {\em row $D$-complete} if each pair of symbols appear exactly once in each order at distance~$d$ in rows for each~$d$ such that~$I_{(d)} \neq \emptyset$ and $0 < d \leq D$. The square is~{\em $D$-complete} if the corresponding property also holds in columns. Further, the square is {\em Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in each order in rows and once in each order in columns.
+
+
+
+Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  In the next section we show that similar notions are sufficient to construct infinite $D$-complete and Vatican  squares.  Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$.  If~$G$ is an abelian squareful group and~$I$ is an index set with~$|I| = |G|$, then we can construct an infinite Vatican square using the Cayley table of~$G$. 
+
+In Section~\ref{sec:notgp} we explore non-group-based methods.  We show that there is a Vatican square of each infinite order that cannot be produced from the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  We also show that there is a Latin square of each infinite order such that with no orderings of its rows and columns gives a Vatican (or even row-complete) square.
+
+
+As infinite sets can be bijective with proper subsets of themselves, we can define a variation on Vatican squares that only makes sense for infinite orders.
+Say that an infinite Latin square on index set~$I$ is {\em semi-Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
+
+All of the results for Vatican squares transfer to the semi-Vatican case with little modification.  In addition to this, looking at the semi-Vatican case allows for an explicit construction of one in the case~$I = \R$ using only the tools of undergraduate Calculus.
+
+
+Moving to orthogonality, two finite Latin squares on a symbol set~$X$ are orthogonal if for  each pair~$(x_1, x_2) \in X \times X$ there is exactly one position such that~$x_1$ is in that position in the first square and~$x_2$ is in that position in the second pair.  This definition carries over without modification to the infinite case (the countable version of which is given in \cite[p.~116]{DK15}).
+
+In Section~\ref{sec:orth} we see that the methods from Section~\ref{sec:cayley} may be quickly adapted to produce sets of~$\kappa$ mutually orthogonal Latin squares of order~$\kappa$ for all infinite orders~$\kappa$ via Cayley tables of abelian squareful groups.  This is analgous to the finite construction of ``orthomorphisms" via ``R-sequencings".  \texttt{[And we maybe do even more stuff with orthomorphisms]}  
+
+
+\section{Vatican squares from groups}\label{sec:cayley}
+
+
+Let~$I$ be an index set in an ordered field~$\F$.  Let~$G$ be a group of order~$|I|$.  For a bijection~${\bf a}: I \rightarrow G$ define a function~${\bf a}_{(d)}: I \rightarrow G \setminus \{ e \}$ for each~$d \in \F^+$ with~$I_{(d)} \neq \emptyset$ by
+$${\bf a}_{(d)}(i) = {\bf a}(i)^{-1}{\bf a}(i+d).$$
+If there is a~$D$ such that for all~$d < D$ with~$I_{(d)} \neq \emptyset$ we have that each ${\bf a}_{(d)}$ is a bijection, then~${\bf a}$ is a {\em directed $T_D$-terrace for~$G$}.  If ${\bf a}_{(d)}$ is a bijection for all~$d$  with~$I_{(d)} \neq \emptyset$ then ${\bf a}$ is  a {\em directed $T_{\infty}$-terrace} for~$G$.
+
+These definitions closely mimic the versions for finite groups~\cite{Anderson90}.   They can be used to produce Latin squares with neighbor balance properties in much the same way.  Theorem~\ref{th:terrace2square} generalizes Gordon's result~\cite{Gordon61} for finite complete squares and Anderson's~\cite{Anderson90} and Etzion, Golomb and Taylor's results~\cite{EGT89} for finite Vatican squares to the infinite.  
+
+For any bijection~${\bf a}: I \rightarrow G$ define a square~$L({\bf a}) = (\ell_{ij})$ by $\ell_{ij} = a(i)^{-1}a(j)$.   As~${\bf a}$ is a bijection, each row and column contains each symbol exactly once and so~$L$ is a Latin square.  Call a Latin square created in this way {\em based on~$G$}, or simply {\em group-based}.
+
+\begin{thm}\label{th:terrace2square}
+Let~$G$ be a group of infinite order~$\kappa$.  If~$G$ has a directed $T_{D}$-terrace for an index set~$I$ then there is a $D$-complete Latin square of order~$|G|$ on~$I$.  Further, if~$G$ has a directed $T_{\infty}$-terrace then there is a Vatican square of order~$|G|$.
+\end{thm}
+
+\begin{proof}
+Let~${\bf a}$ be a directed~$T_D$-terrace for~$G$ on~$I$ and consider $L({\bf a})$.
+
+Take~$x$ and~$y$ to be distinct elements of~$G$.  As~${\bf a}_(d)$ is a bijection, there is a unique~$j$ with ${\bf a}(j)^{-1}{\bf a}(j+d) = x^{-1}y$ and a unqiue~$i$ with ${\bf a}(i)^{-1}{\bf a}(j)=x$.  We therefore have that~$x$ appears in row~$i$ and column~$j$ of~$L({\bf a})$ and that~$y$ appears in row~$i$ and column~$j+d$ of~$L({\bf a})$ and that~$x$ and~$y$ do not appear anywhere else with~$y$ exactly distance~$d$  to the right of~$x$.
+
+There is also a unique~$i$ with $xy^{-1} = {\bf a}(i)^{-1}{\bf a}(i+d)$ and then a unique~$j$ with ${\bf a}(i)^{-1}{\bf a}(j)=x$.  This identifies a unique place where~$y$ appears at exactly distance~$d$ above~$x$ in the square.  Therefore $L({\bf a})$ is a $D$-complete square on~$I$.
+
+If we replace~${\bf a}$ with a directed $T_{\infty}$-terrace in the above argument we see that~$L({\bf a})$ is a Vatican square on~$I$.
+\end{proof}
+
+The 1-complete case with~$I \in \{ \N, \Z \}$ of Theorem~\ref{th:terrace2square} is equivalent to results of Caulfield~\cite{Caulfield96}.
+
+We wish to know which infinite groups have directed $T_D$- and~$T_{\infty}$-terraces.  
+
+\texttt{[talk about tools for working with infinite stuff here?]}
+
+
+\begin{thm}\label{th:T_infty}
+Let~$G$ be an abelian squareful group of infinite order.   Then~$G$ has a directed $T_{\infty}$-terrace.
+\end{thm}
+
+\begin{proof}
+
+\end{proof}
+
+
+\begin{cor}\label{cor:vatsquares}
+For every index set~$I$ there is a Vatican square on~$I$.  In particular, there is a Vatican square of every infinite order.
+\end{cor}
+
+\begin{proof}
+For every infinite order~$\kappa$ there is an abelian squareful group~$G$ of order~$\kappa$. Use~$G$ in Theorems~\ref{th:terrace2square} and~\ref{th:T_infty} to produce the required Vatican square.
+\end{proof}
+
+The question of which infinite groups admit directed $T_D$- and~$T_{\infty}$-terraces arises.  Vanden Eynden shows that all countably infinite groups have a directed 1-terrace on~$\N$ \cite{VE78} and the proof is easily adapted to apply to index set~$\Z$.  
+
+The method of Theorem~\ref{th:T_infty} can be applied to an additional family of groups:
+
+\begin{prop}\label{prop:allinv}
+If every non-identity element of an infinite abelian group $G$ is an involution then $G$ has a directed~$T_{\infty}$-terrace for any index set of size~$|G|$. 
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+\section{Squares not based on groups}\label{sec:notgp}
+
+
+
+The results of the previous section raise the question about what is and is not possible for infinite squares more generally.   Perhaps {\em all} countably infinite squares may be made complete, or even Vatican, with a suitable permutation of their rows and columns?   In a similar vein, it is known that all infinite Steiner triple systems are resolvable~\cite{DHW14}, an uncommon property among finite systems. However, Theorem~\ref{th:notrcls} scuppers this possibility, showing that for every index set (and hence every infinite order) there is a square that cannot be made row-complete via permuting columns.
+
+In the other direction, a question asked (and answered positively) about finite squares was whether there exist row-complete Latin squares that are not based on groups, see \cite{CE91, DK15, Owens76}.  We answer the infinite version of this question, also positively, in Theorem~\ref{th:infvat}.  Indeed, this result gives a Vatican square that is not group-based for every index set.   All known finite Vatican squares are based on groups.
+
+\begin{thm}\label{th:notrcls}
+For every index set~$I$, there is a Latin square on~$I$ that cannot be made row-complete by permuting columns.
+\end{thm}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+Prior to giving Theorem~\ref{th:infvat} we need a result that lets us be sure that a square is not group-based.  The {\em quadrangle criterion} states that in a square based on a group if the three equations
+$$a_{i_1j_1} = a_{i_2j_2}, \ a_{k_1j_1} = a_{k_2j_2}, \ a_{i_1l_1} = a_{i_2l_2}$$
+are satisfied then $a_{k_1l_1} = a_{k_2l_2}$ \cite[Theorem~1.2.1]{DK15}.  That is, if two ``quadrangles" in a group-based square agree on three points then they agree on the fourth.
+
+
+\begin{thm}\label{th:infvat}
+For every index set~$I$ there is a Vatican square on~$I$ that is not based on a  group.
+\end{thm}
+
+\begin{proof}
+
+\end{proof}
+
+
+\section{Semi-Vatican squares}\label{sec:semivat}
+
+Infinite Semi-Vatican squares---recall that these are squares in which each pair of symbols appears exactly once at each distance~$d$ in rows and columns, rather than exactly once in each order---behave very similarly to Vatican squares.  
+
+The required generalization of~directed $T_{D}$- and~$T_{\infty}$-terraces are directed $S_{D}$- and~$S_{\infty}$-terraces.  As before, let~$I$ be an index set in an ordered field~$\F$.  Let~$G$ be a group of order~$|I|$.  For a bijection~${\bf a}: I \rightarrow G$ define a function~${\bf a}_{(d)}: I \rightarrow G \setminus \{ e \}$ for each~$d \in \F^+$ with~$I_{(d)} \neq \emptyset$ by
+$${\bf a}_{(d)}(i) = {\bf a}(i)^{-1}{\bf a}(i+d).$$
+If~$G$ has no involutions, and if there is a~$D$ such that for all~$d < D$ with~$I_{(d)} \neq \emptyset$ we have that the image of ${\bf a}_{(d)}$ contains exactly one occurrence from each set~$\{ x,x^{-1} : x \in G\setminus \{e\} \}$, then~${\bf a}$ is a {\em directed $S_D$-terrace for~$G$}.  If ${\bf a}_{(d)}$ has this property for all~$d$ with~$I_{(d)} \neq \emptyset$ then ${\bf a}$ is  a {\em directed $S_{\infty}$-terrace} for~$G$.
+
+The requirement that~$G$ has no involutions comes into play when we consider constructing semi-Vatican squares using the method of Theorem~\ref{th:terrace2square}.  Suppose~$z \in G$ is an involution and~${\bf a}_{(d)} = z$ for some bijection~${\bf a}$ with the usual definition for~${\bf a}_{(d)}$.  If~${\bf a}(i) = x$, then ${\bf a}(i+d) = xz$.  There is a~$j$ such that~${\bf a}(j) = xz$ and now~${\bf a}(i+d) = xz^2 = x$.  Thus the pair~$\{ x, xz \}$ occurs twice at distance~$d$ in~$L({\bf a})$, once in each order.  Hence a square constructed with this method using a group with an involution cannot be semi-Vatican.
+
+
+
+The proofs of the previous two sections require only minor modifications to give the following slate of results:
+
+\begin{thm}\label{th:semi_terrace2square}
+Let~$G$ be a group of infinite order~$\kappa$ with no involutions.  If~$G$ has a directed $S_{\infty}$-terrace for an index set~$I$ then there is a semi-Vatican square of order~$|G|$.
+\end{thm}
+
+\begin{thm}\label{th:semi_T_infty}
+Let~$G$ be an involution-free abelian squareful group of infinite order~$\kappa$.   Then~$G$ has a directed $S_{\infty}$-terrace.
+\end{thm}
+
+\begin{cor}\label{cor:semi_vatsquares}
+For every index set~$I$ there is a semi-Vatican square on~$I$.  In particular, there is a semi-Vatican square of every infinite order.
+\end{cor}
+
+\begin{thm}\label{th:semi_infvat}
+For every index set~$I$ there is a semi-Vatican square on~$I$ that is not based on a  group.
+\end{thm}
+
+All of the existence results presented so far are non-constructive and rely on transfinite induction.  Perhaps surprisingly, in the case when the group is~$(\R, +)$, the tools of undergraduate calculus are sufficient to construct to a semi-Vatican square.
+
+
+\begin{thm}\label{th:svr}
+There is a semi-Vatican square on index set~$\R$ based on~$(\R,+)$.
+\end{thm} 
+
+\noindent
+Proof.   We give a direct definition for a directed $S_{\infty}$-terrace~${\bf a}$:
+\begin{equation*}
+    {\bf a}(x) = \begin{cases}
+               e^x   -1            & x \geq 0\\
+               -\ln (1-x)       & \text{otherwise}
+           \end{cases}
+\end{equation*}
+This is a continuous, strictly increasing bijection from~$\R$ to~$\R$.  Its derivative is:
+\begin{equation*}
+    {\bf a}'(x) = \begin{cases}
+               e^x               & x \geq 0\\
+              \frac{1}{1-x}       & \text{otherwise}
+           \end{cases}
+\end{equation*}
+which is a continuous, strictly increasing bijection from~$\R^+$ to~$\R^+$.
+
+Therefore, for each~$d \in \R^+$, we have that ${\bf a_{(d)}}$ is a bijection from~$\R^+$ to~$\R^+$.  Hence~${\bf a}$ is a directed $S_{\infty}$-terrace and Theorem~\ref{th:semi_terrace2square} gives a semi-Vatican square based on~$I = \R$.
+\qed
+
+
+
+
+
+\section{Orthogonality}\label{sec:orth}
+
+Let~$G$ be a group and~$\theta: G \rightarrow G$ a bijection.  If $g \mapsto g^{-1}\theta(g)$ is a bijection then~$\theta$ is an {\em orthomorphism}; if  $g \mapsto g\theta(g)$ is a bijection then~$\theta$ is a {\em complete mapping}.  Two orthomorphisms, $\theta, \phi$ are {\em orthogonal} if $g \mapsto \theta(g)^{-1} \phi(g)$ is a bijection.
+
+\texttt{[orthomorphisms $\rightarrow$ orthogonal latin squares.]}
+
+It's known that every infinite group has an orthomorphism~\cite{Bateman50}, so there is a pair of orthogonal Latin squares at every infinite order.
+
+
+The work of Section~\ref{sec:cayley} may be adapted to give families of mutually orthogonal orthomorphisms. \texttt{[$R_{\infty}$ stuff.]}
+
+
+
+\begin{thm}
+Let~$G$ be a group of infinite order~$\kappa$.  If~$G$ has a directed $R_{\infty}$-terrace then~$G$ has a set of~$ \kappa$ mutually orthogonal orthomorphisms. 
+\end{thm}
+
+\begin{proof}
+Let~${\bf a}$ be a directed $T_{\infty}$-terrace for~$G$ over some index set~$I$.  For each~$d$ such that~$I_d \neq \emptyset$ (of which there are~$\kappa$) define~$\theta_d(e) = e$ and $\theta_d( {\bf a}(i) ) = {\bf a}(i+d)$.  This gives us the orthogonal orthomorphisms we're looking for:
+
+First, they are orthomorphisms: given~$g \in G \setminus \{ e \}$ with~${\bf a}(i) = g$ we get
+$$g^{-1}\theta_d(g) = {\bf a}(i)^{-1}{\bf a}(i+d) = {\bf a}_{(d)}(i)$$
+which, when we also consider that~$\theta_d(e)=e$, gives us a bijection on~$G$.
+
+Second, they are orthogonal: again taking~$g \in G \setminus \{ e \}$ with~${\bf a}(i) = g$, if~$d_2 > d_1$ we get: 
+$$\theta_{d_1}^{-1}(g) \theta_{d_2}(g) =  {\bf a}(i+d_1)^{-1}{\bf a}(i+d_2)  = {\bf a}_{(d_2 - d_1)}(i+d_1) .       $$
+If~$d_1 < d_2$ we get:
+$$\theta_{d_1}^{-1}(g) \theta_{d_2}(g) =  {\bf a}(i+d_1)^{-1}{\bf a}(i+d_2)  = {\bf a}_{(d_1 - d_2)}(i+d_2)^{-1} .       $$
+Also~$\theta_{d_1}(e)^{-1}\theta_{d_2}(e) =e$ in each case, giving bijections on~$G$.
+\end{proof}
+
+If we have a directed~$R_D$-terrace, with the obvious definition, then the same argument gives $ | \{ d \leq D : I_d \neq \emptyset \} |$ mutually orthogonal orthomorphisms for~$G$.
+
+\begin{thm}\label{th:R_infty}
+Let~$G$ be an abelian squareful group of infinite order.   Then~$G$ has a directed $R_{\infty}$-terrace.
+\end{thm}
+
+\begin{proof}
+The only difference between a directed~$R_{\infty}$-terrace and a directed $T_{\infty}$-terrace is that the identity is not in the domain of a directed~$R_{\infty}$-terrace.  The presence of the identity is not relied upon in the Theorem~\ref{th:T_infty}'s proof that abelian squareful groups of infinite order have a  directed $T_{\infty}$ terrace; a simple adjustment of the argument produces the required directed~$R_{\infty}$-terrace.
+\end{proof}
+
+This immediately gives:
+
+\begin{cor}
+There is a set of~$\kappa$ mututally orthogonal squares of order~$\kappa$ for all infinite cardinalities~$\kappa$.
+\end{cor}
+
+
+\texttt{[Prove stronger result about orthomorphisms that does not go via directed $R_{\infty}$-terraces?]}
+
+
+
+
+
+Another embellishment of the complete mapping concept is the strong complete mapping:
+If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.  Every countably infinite group has a strong complete mapping~\cite{Evans12}.
+
+\texttt{[Prove that all infinite groups have strong complete mappings?]}
+
+
+
+
+
+\section*{Acknowledgements}
+
+This work was partly funded by a Marlboro College Faculty Professional Development Grant and a Marlboro College Town Meeting Scholarship Fund award.  The authors are grateful for this assistance.
+
+
+\begin{thebibliography}{99}
+
+
+\bibitem{Anderson90} 
+B.~A.~Anderson, Some quasi-2-complete latin squares, {\em Congr. Numer.} {\bf 70} (1990) 65--79.
+
+%\bibitem{AandI92}
+%B.~A.~Anderson and E.~C.~Ihrig.
+%\newblock All groups of odd order have starter-translate 2-sequencings,
+%\newblock {\em Australas. J. Combin.} {\bf 6} (1992) 135--146.
+
+%\bibitem{AandI93} B.~A.~Anderson and E.~C.~Ihrig,
+%Symmetric sequencings of non-solvable groups,
+%{\em Congr. Numer.} {\bf 93} (1993) 73--82.
+
+
+%\bibitem{Bailey84}
+%R.~A.~Bailey,
+%Quasi-complete {L}atin squares: construction and randomization,
+%{\em J.~Royal Statist. Soc. Ser. B} {\bf 46} (1984) 323--334.
+
+
+
+\bibitem{Bateman50}
+P.~T.~Bateman, A remark on infinite groups, {\em Amer.~Math.~Monthly} {\bf 57} (1950), 623--624.
+
+\bibitem{BM91}
+J.~V.~Brawley and G.~L.~Mullen, Infinite latin squares containing nested sets of mutually orthogonal finite latin squares, {\em Publicationes Mathematicae-Debrecen} {\bf 39} (1991) 135--141.
+
+
+\bibitem{CW02}
+P.~J.~Cameron and B.~S.~Webb, What is an infinite design? {\em J.~Combin.~Des.} {\bf 10} (2002) 79--91.
+
+\bibitem{Caulfield96}
+M.~J.~Caulfield, Full and quarter plane complete infinite Latin squares, {\em Discrete Math.} {\bf 159} (1996) 251--253.
+
+\bibitem{TuscanCRC}
+W.~Chu, S.~W.~Golomb and H.-Y.~Song, Tuscan Squares, in {\em The Handbook of Combinatorial Designs (2nd Edition), Eds. C.~J.~Colbourn and J.~H.~Dinitz}, Chapman and Hall/CRC, (2007).
+
+\bibitem{CE91}
+D.~Cohen and T.~Etzion, Row complete Latin squares that are not column complete, {\em Ars Combin.}~{\bf 32} (1991) 193--201.
+
+\bibitem{DHW14}
+P.~Danziger, D.~Horsley and B.~S.~Webb, Resolvability of infinite designs, {\em J.~Combin.~Thy.~A} {\bf 123} (2014) 73--85.
+
+\bibitem{DK15}
+J.~D{\'e}nes and A.~D.~Keedwell, {\em Latin Squares and Their Applications (2nd Ed.)}, Elsevier (2015).
+
+\bibitem{EGT89}
+T.~Etzion, S.~W.~Golomb, and H.~Taylor, Tuscan-$K$ squares, {\em Advances in Applied Math.} {\bf 10} (1989) 164--174.
+
+
+\bibitem{Evans12}
+A.~B.~Evans, The existence of strong complete mappings, {\em Electronic J.~Combin.}~{\bf 19} (2012), \#P34.
+
+%\bibitem{Gallian}
+%J.~A.~Gallian, A dynamic survey of graph labellings, Electron. J. Combin. {\bf DS6} (2001--2010), 246pp.
+
+%\bibitem{gap}
+%{{G}{A}{P} group}.
+%\newblock {G}{A}{P}---{G}roups, {A}lgorithms, and {P}rogramming, {V}ersion 4, 1999.
+
+\bibitem{Gordon61} B.~Gordon, Sequences in groups with distinct partial products, {\em Pacific J. Math.} {\bf 11} (1961) 1309--1313.
+
+\bibitem{Higham98} 
+J.~Higham, Row-complete Latin squares of every composite order exist, {\em J. Combin. Des.} {\bf 6} (1998) 63--77. 
+
+\bibitem{HW05}
+A.~J.~W.~Hilton and J.~Wojciechowski, Amalgamating infinite Latin squares, {\em Discrete Math.} {\bf 292} (2005) 67--81.
+
+%\bibitem{HLW}
+%Y.-S.~Hwang, D.~B.~Leep and A.~R.~Wadsworth,
+%Galois groups of order $2n$ that contain a cyclic subgroup of order $n$, {\em Pacific J. Math.} {\bf 212} (2003) 297--319.
+
+%\bibitem{Lucas92}
+%\'{E}.~Lucas, {\em R\'{e}cr\'{e}ations Math\'{e}mathiques}, T\^{o}me II, Albert Blanchard, Paris, 1892 (reprinted 1975).
+
+%\bibitem{survey}
+%M.~A. Ollis, Sequenceable groups and related topics, {\em Electron. J. Combin.} {\bf DS10} (2002) 34pp.
+
+%\bibitem{Ollis05}
+%M.~A.~Ollis, On terraces for abelian groups, {\em Disc. Math.} {\bf 305} (2005) 250--263.
+
+%\bibitem{Ollis12}
+%M.~A.~Ollis,  A note on terraces for abelian groups,  {\em Australas.~J.~Combin.}  {\bf 52} (2012),  229--234.
+
+%\bibitem{OW1}
+%M.~A.~Ollis and D.~T.~Willmott, On twizzler, zigzag and graceful terraces, {\em Australas.~J.~Combin.} {\bf 51} (2011) 243--257.
+
+\bibitem{Ollis14}
+M.~A.~Ollis, New complete Latin squares of odd order, {\em Europ.~J.~Combin.}~{\bf 41} (2014) 35--46.
+
+\bibitem{OllisTFSG}
+M.~A.~Ollis, Terraces for small groups, {\em submitted}, \texttt{arXiv:1603.01496}.
+
+\bibitem{Owens76}
+P.~J.~Owens,  Solutions to two problems of Denes and Keedwell on row-complete
+Latin squares, {\em J.~Combin.~Thy.}~A {\bf 21} (1976) 299--308.
+
+%\bibitem{PreeceZF}
+%D.~A.~Preece, Zigzag and foxtrot terraces for $\Z_n$, {\em Australas. J. Combin.} {\bf 42} (2008) 261--278.
+
+%\bibitem{Scott64}
+%W.~R.~Scott, {\em Group Theory}, Prentice-Hall, New Jersey (1964).
+
+
+\bibitem{VE78}
+C.~Vanden Eynden, Countable sequenceable groups, {\em Discrete Math.} {\bf 23} (1978) 317--318.
+
+
+%\bibitem{Williams49}
+%E.~J. Williams,
+%Experimental designs balanced for the estimation of residual effects of treatments,
+%{\em Aust. J. Scient. Res. A}, {\bf 2} (1949) 149--168.
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
