@@ -102,7 +102,8 @@ An $(n-1)$-complete square of order~$n$ is called {\em Vatican}; that is, Vatica
 Vatican squares are known to exist for all orders that are one less than a prime.  In addition to this, 2-complete squares are known to exist at orders~$2p$ where~$p$ is a prime congruent to 5, 7 or 19 modulo~24, orders~$2m$ where~$5 \leq m \leq 25$, and order~21 \cite{TuscanCRC,OllisTFSG}.
 
 
-In this paper we extend these notions to the infinite and prove various existence results.  As in \cite{CW02}, we use Zermelo-Fraenkel set theory with the axiom of choice.  \texttt{[Do we need to say more about what we need to work with the infinite stuff here?]}
+In this paper we extend these notions to the infinite and prove various existence results.  As in \cite{CW02}, we use Zermelo-Fraenkel set theory with the axiom of choice. In order to work with arbitrary sizes of infinity, we work with ordinals and cardinals. Ordinals are order types of well-ordered sets. Two well-ordered sets have the same order type if there is an isomorphism between them preserving order. Every natural number is an ordinal, with limit $\omega$, the order type of the natural numbers. Then we can keep going, and obtain $\omega+1, \omega+2$, and so on, reaching the limit of that process, which is $\omega+\omega$ or $\omega\cdot 2$. And so on. We work with transfinite induction. This works exactly like with the natural numbers. Just as the natural numbers are defined recursively, and statements are proved about them by induction, such is the case with ordinals. The only difference is that now we have not just successor ordinals, like natural numbers, but also limit ordinals, like $\omega$ and $\omega\cdot 2$ and $\omega^2$ and $\omega^\omega$ and so on - these ordinals cannot be seen as a successor of any ordinal. Thus with transfinite induction we have a base case, the successor case (inductive step) and also the limit stages. The cardinality of a set $x$ is the least ordinal $\alpha$ bijective with it. Such ordinals are cardinal numbers. 
+%The least infinite cardinal is $\aleph_0 = \omega$, this is the size of any countable infinity. The next larger cardinal we denote by $\aleph_1$, the first uncountable cardinal. 
 
 We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are natually embedded in~$\R^2$.
 
@@ -166,7 +167,7 @@ The 1-complete case with~$I \in \{ \N, \Z \}$ of Theorem~\ref{th:terrace2square}
 
 We wish to know which infinite groups have directed $T_D$- and~$T_{\infty}$-terraces.  
 
-\texttt{[talk about tools for working with infinite stuff here?]}
+We use transfinite induction to build such terraces, and later to build the squares more generally. In order to do this we will use posets of the form $\P=\langle \P, \leq\rangle$. Following convention in set theory, we refer to elements of posets as conditions. We will typically start off the transfinite induction with a condition, and then obtain what we will call strengthenings (a strengthening of a condition $q$ is a condition $p$ satisfying $p\leq q$) of this condition to form a chain of approximations to the object we are attempting to build. In order to organize the induction to give us the properties we ultimately want in the union of the chain of conditions, we will build the chain in each stage by meeting (by getting conditions which are inside of) judiciously chosen dense sets. Density here is in the sense of the order topology: a set $D \subseteq \P$ is dense so long as for all $p \in \P$ there is at least one $d \in D$ satisfying $d\leq p$. The union of this chain will then give us the desired square, hopefully. 
 
 
 \begin{thm}\label{th:T_infty}
@@ -174,9 +175,9 @@ Let~$G$ be an abelian squareful group of infinite order.   Then~$G$ has a direct
 \end{thm}
 
 \begin{proof}
-Let $I$ be an index set in an ordered field $\F$, where $|I|=\kappa$ is the order of $G$. We build a $T_\infty$-terrace for $G$ by transfinite induction on $\kappa$. Consider the poset $\P$ consisting of partial directed $T_\infty$-terraces on $G$. Such partial terraces are defined as in the definition of a directed $T_\infty$-terrace, except the functions $\a$ and $\a_{(d)}$ for each $d \in I$ are only required to be injective partial functions from $I$ to $G$. Here $\P$ should be partially ordered so that $\a \leq \b$ if and only if $\dom \b \subseteq \dom \a$ and $\a \rest \dom \b = \b$.
+Let $I$ be an index set in an ordered field $\F$, where $|I|=\kappa$ is the order of $G$. We build a $T_\infty$-terrace for $G$ by transfinite induction on $\kappa$. Consider the poset $\P$ consisting of partial directed $T_\infty$-terraces on $G$. Such partial terraces are defined as in the definition of a directed $T_\infty$-terrace, except the functions $\a$ and $\a_{(d)}$ for each $d \in \F^+$ with $I_{(d)} \neq \emptyset$ are only required to be injective partial functions from $I$ to $G$. Here $\P$ should be partially ordered so that $\a \leq \b$ if and only if $\dom \b \subseteq \dom \a$ and $\a \rest \dom \b = \b$.
 
-It is not hard to see that $\P$ is $<\kappa$-closed. Suppose we have an decreasing chain of partial directed $T_\infty$-terraces, $\a_{\alpha}$ for $\alpha < \kappa$, on $G$. Then the union of all of them, $\a$, is itself partial directed $T_\infty$-terrace on $G$. Indeed, $\a$ is an injection since each $\a_\alpha$ in the chain is. For each $d \in \F^+$, we have that $\a_{(d)}$ is injective since $\dom\a_{(d)} \subseteq \dom\a$. 
+It is not hard to see that $\P$ is $<\kappa$-closed. Suppose we have an decreasing chain of partial directed $T_\infty$-terraces, $\a_{\alpha}$ for $\alpha < \kappa$, on $G$. Then the union of all of them, $\a$, is itself partial directed $T_\infty$-terrace on $G$. Indeed, $\a$ is an injection since each $\a_\alpha$ in the chain is. For each $d \in \F^+$ with $I_{(d)} \neq \emptyset$, we have that $\a_{(d)}$ is injective since $\dom\a_{(d)} \subseteq \dom\a$. 
 %Moreover $\a_{(d)}$ is a surjection since if $\a_{(d)}(i)=\a_{(d)}(j)$ for $i, j \in I$ then it must be that for some $\alpha, \beta <\kappa$, say $\alpha \leq \beta$, we have that $\a_\alpha(i+d)-\a_n(i)=\a_\beta(j+d)-\a_\beta(j)$, but this would imply that $i=j$ since $\a_\beta \leq \a_\alpha$ and of course $\a_\beta$ is surjective.
 
 We will perform transfinite induction on $\kappa$ by meeting $\kappa$-many dense sets, one at a time. The fact that $\P$ is $<\kappa$-closed is what will carry us through the construction. Below, we establish 3 families of dense sets, each of size $\kappa$.
@@ -197,13 +198,13 @@ We will perform transfinite induction on $\kappa$ by meeting $\kappa$-many dense
 	
 	Again, as in the above case, the idea should be that we only have to avoid less than $\kappa$ many scenarios, but we have room in $\R$ for that. 
 	
-	Suppose $g \in G \setminus \ran \a$. We need to find $\d \in D_g$ satisfying $\d \leq \a$. This amounts to finding $\overline g \notin A = \dom \a$ so that we can let $\d(\overline g)=g$, satisfying $\overline g \notin A_{(d)}$ whenever $A_{(d)}$ is nonempty for some $d \in I^+$.
+	Suppose $g \in G \setminus \ran \a$. We need to find $\d \in D_g$ satisfying $\d \leq \a$. This amounts to finding $\overline g \notin A = \dom \a$ so that we can let $\d(\overline g)=g$, satisfying $\overline g \notin A_{(d)}$ whenever $A_{(d)}$ is nonempty for some $d \in \F^+$.
 	
-	Both $A$ and each $A_{(d)} \subseteq A$ have size less than $\kappa$, so this can be done. \\ %Doesn't this tell us we need $\kappa$ to be regular, since this should work for every possible $d$?
+	Both $A$ and each $A_{(d)} \subseteq A$ have size less than $\kappa$, so this can be done. \\
 		
-	\item For each $g \in G$ and each $d \in I^+$, the set $D^d_g=\set{\d \in \P}{g \in \ran \d_{(d)}}$ is dense. 
+	\item For each $g \in G$ and each $d \in \F^+$ with $I_{(d)}\neq \emptyset$, the set $D^d_g=\set{\d \in \P}{g \in \ran \d_{(d)}}$ is dense. 
 	
-	To see this, fix $d \in I^+$ and let $g \in G$. Let $\a \in \P$, and suppose that $g \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\d \in D^d_g$ such that $g=\d(\overline g)^{-1}\d(\overline g+d)$ for some $\overline g \in I$. This amounts to finding a suitable $\overline g$. First we need $\overline g$ to be so that $\overline g \notin A_{(d)}$ where $A = \dom \a$. Then we need to ensure that $\d(\overline g), \d(\overline g+d) \notin \ran \a$, and also obviously that $g=\d(\overline g)^{-1}\d(\overline g+d)$. 
+	To see this, fix $d \in \F^+$ such that $I_{(d)}\neq \emptyset$ and let $g \in G$. Let $\a \in \P$, and suppose that $g \notin \ran\a_{(d)}$. We want to see that it is possible to extend $\a$ to a condition $\d \in D^d_g$ such that $g=\d(\overline g)^{-1}\d(\overline g+d)$ for some $\overline g \in I$. This amounts to finding a suitable $\overline g$. First we need $\overline g$ to be so that $\overline g \notin A_{(d)}$ where $A = \dom \a$. Then we need to ensure that $\d(\overline g), \d(\overline g+d) \notin \ran \a$, and also obviously that $g=\d(\overline g)^{-1}\d(\overline g+d)$. 
 
 	It must also be the case that for any $a \in A$, we have that 
 		$$\a(a)^{-1}\d(\overline g) \notin \ran \a_{(\overline g-a)}, \ \  \d(d)^{-1}\a(a) \notin \ran \a_{(a-\overline g)},$$ 
@@ -214,7 +215,7 @@ Moreover, we can't inadvertently mess up another sequencing. In particular, when
 Since we have only eliminated less than $\kappa$ many options, as we are restricted by $A$ and its image under $\a$, we have plenty of room to choose such an $\overline g$ as desired.\\
 \end{enumerate}
 
-Let $$\mathcal D = \set{D_i}{i\in I} \cup \set{D_g}{g\in G} \cup \set{D^d_g}{d \in I^+, g \in G},$$ and note that $|\mathcal D|=\kappa$, so we may enumerate all of the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\kappa}$. 
+Let $$\mathcal D = \set{D_i}{i\in I} \cup \set{D_g}{g\in G} \cup \set{D^d_g}{d \in \F^+\text{ with } I_{(d)}\neq \emptyset, g \in G},$$ and note that $|\mathcal D|=\kappa$, so we may enumerate all of the dense sets as $\mathcal D = \seq{\mathcal D_\alpha}{\alpha<\kappa}$. 
 We define a function $\b$ by transfinite induction on $\kappa$. Start with any partial $T_\infty$-terrace on $\kappa$, say a finite one, for example, call it $\b_{-1}$.
 The idea is to start meeting each of the dense sets in $\mathcal D$ one-by-one, in order to grow our partial $T_\infty$-terrace on $\kappa$. At stage $\alpha=0$ or when $\alpha \leq \omega$ is a successor ordinal, let $\b_\alpha \leq \b_{\alpha-1}$ satisfy $\b_\alpha \in \mathcal D_\alpha$. Density allows us to continue the construction from stage $0$ through all successor stages. At limit stages, say $\lambda <\kappa$, we use the fact that $\P$ is $<\kappa$-closed to find a condition strengthening the chain of our constructed $\b_\alpha$s for $\alpha<\gamma$ (the union of them will do), and then strengthen that condition to get inside the relevant dense set so that $\b_\lambda \in \mathcal D_\lambda$. 
 
@@ -263,12 +264,12 @@ For every index set~$I$, there is a Latin square on~$I$ that cannot be made row-
 \begin{proof}
 We build a Latin square on $\kappa=|I|$, which gives us one on $I$ via any bijection between $I$ and $\kappa$, with symbol set $\kappa$ as well. We will proceed as in the previous constructions by transfinite induction on $\kappa$. 
 
-Consider the poset $\P$ consisting of partial Latin squares on $\kappa$, in a sense rectangles; more precisely injective partial functions from $\kappa\times\kappa\To\kappa$ whose domains are initial segments of $\kappa\times\kappa$ of size strictly less than $\kappa$. We think of these as rectangles consisting of numbers less than $\kappa$, rather than as functions. These rectangles must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the for a Latin rectangle to be in the poset it is what we will call \textit{immune}, meaning it can't be made row-complete by permuting the columns. Partially order the immune Latin rectangles by $l\leq m$ if and only if $m$ is an initial segment of $m$.
+Consider the poset $\P$ consisting of partial Latin squares on $\kappa$, in a sense rectangles; more precisely injective partial functions from $\kappa\times\kappa\To\kappa$ whose domains are initial segments of $\kappa\times\kappa$ of size strictly less than $\kappa$. We think of these as rectangles, with ordinals less than $\kappa$ arranged in a matrix/grid on $\kappa$, rather than as functions. These rectangles must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the for a Latin rectangle to be in the poset it is what we will call \textit{immune}, meaning it can't be made row-complete by permuting the columns. Partially order the immune Latin rectangles by $l\leq m$ if and only if $m$ is an initial segment of $m$.
 
 We proceed by transfinite induction on $\kappa$, by first starting with the following immune Latin rectangle on $\kappa$, an element of $\P$, which we name $l_{-1}$:
 $$
 \begin{array}{ccc}
-2  & 0   &  1 \\ 
+2  & 0 & 1 \\ 
 1 & 2 &  0  \\
  0  & 1 & 2 
 \end{array}
@@ -328,7 +329,7 @@ Then we can fill in the above with whatever values we would like, so long as the
 To ensure that the new condition we produce is row complete under permuting columns, run through the same exact immunization procedure as outlined above, to produce a new condition which extends $l'$ (and thus also $l$) in the dense set as required.
 \end{enumerate}
 
-We enumerate the $\kappa$-many dense sets and meet them one-by-one as described, using the fact that $\P$ is $<\kappa$-closed to pass through limit stages. Then we produce $L=\cup \set{l_\alpha}{\alpha<\kappa}$, which defines a Latin square with the desired properties. It isn't possible to permute columns in $L$ to obtain a row-complete square, since then it would be possible to permute the columns in some large enough $l_\alpha$, but each $l_\alpha$ is immune so that can't happen. Similarly, $L$ is Latin since each $l_\alpha$ is. Moreover, by meeting the dense sets we've ensured that the square is total, every column and row contains all ordinals below $\kappa$.
+We enumerate the $\kappa$-many dense sets and meet them one-by-one as described, using the fact that $\P$ is $<\kappa$-closed to pass through limit stages. Then we produce $L=\cup \set{l_\alpha}{\alpha<\kappa}$, which defines a Latin square with the desired properties. Indeed, it isn't possible to permute columns in $L$ to obtain a row-complete square, since then it would be possible to permute the columns in some large enough $l_\alpha$, but each $l_\alpha$ is immune so that can't happen. Similarly, $L$ is Latin since each $l_\alpha$ is. Moreover, by meeting the dense sets we've ensured that the square is total, every column and row contains all ordinals below $\kappa$.
 \end{proof}
 
 
@@ -343,7 +344,73 @@ For every index set~$I$ there is a Vatican square on~$I$ that is not based on a 
 \end{thm}
 
 \begin{proof}
+Let $\F_\kappa$ be an ordered field on $\kappa=|I|$.
+We build a Vatican square $L$ on $\F_\kappa$ with symbol set $\kappa$ by transfinite induction. The strategy to build one on an arbitrary index set is exactly the same as outlined below, potentially starting with a different starting sub-square we call $p_{-1}$ depending on your index set and symbol set.
 
+Again we find it useful to define an appropriate poset, to build the Vatican square by growing a finite one via meeting dense sets. The conditions in our poset $\P$ consist of partial Vatican squares which are not group based. These are injective partial functions of the form $p:\F_\kappa \times \F_\kappa\To\kappa$ whose domains are initial segments of $\F_\kappa \times \F_\kappa$ of size strictly less than $\kappa$. Moreover, these squares should be Vatican in the sense of a finite square, in that for each $d\leq \F_\kappa^+$ such that ${\F_\kappa}_{(d)}\neq\emptyset$ we have that each ordered pair of distinct symbols coming from $\kappa$ appear at distance $d$ at most once in each order in rows and at most once in each order in columns. We partially order $\P$ by $p \leq q$ so long as rows and columns of $q$ form initial segments of rows and columns of $p$ respectively.
+
+Clearly $\P$ is $<\kappa$-closed.
+
+We start the induction with the following partial Vatican square on $\kappa$, call it $p_{-1}$:
+$$\begin{array}{cccc}
+	\color{blue} 0 & 5 & 6 & \color{blue} 1 \\ 
+	7 & \color{blue} 0 & \color{blue}1 & 8  \\
+	9 & \color{blue}2 & \color{blue} 3 & 10 \\
+	\color{blue} 2 & 11 & 12 & \color{blue} 4 
+\end{array}$$
+No square containing this as a subsquare can be group-based since it fails to satisfy the quadrangle criterion.
+We then begin meeting dense sets in some enumeration of the following four families of dense sets. We successively extend $p_{-1}$ and each other, with a chain of $p_\alpha$'s, in $\kappa$ many stages, using the $<\kappa$-closure of $\P$ to get through limit stages. 
+
+\begin{enumerate}
+	\item For each $\alpha, \beta <\kappa$, the set $D_{\alpha,\beta}=\set{p \in \P}{\alpha \text{ appears in row } \beta \text{ of } p}$ is dense.
+	
+	The trick here is not to mess up the Vatican property on the square. If $\alpha$ does not appear in row $\beta$ of a condition $p$ yet, it is not necessarily enough to simply add it to the end of row $\beta$, since it is possible that then $\alpha$ appears more than once at some distance from another element in that row or column. We are only guaranteed to be safe with that method if $\alpha$ doesn't already appear anywhere in the partial square. Thus the idea is to fill up the necessary entries of the square with new symbols that haven't appeared anywhere in the partial square yet. Since the partial Vatican squares in $\P$ are bounded in each row by $\kappa$, we know that there are many entries above the maximum value of an entry already in each row and column. We can keep adding such entries until we are safe to add $\alpha$ in row $\beta$. 
+	
+	If $p$ doesn't even have a row $\beta$ yet, then add new rows which have the same length as the longest row in $p$, with symbols not already in $p$. On the $\beta$th row, do the same thing, but add $\alpha$ at the end, creating a new column with just $\alpha$ in it.
+	
+	Otherwise, $p$ already has entries in row $\beta$, this can again at worst amount to essentially doubling $p$ in size, by adding enough new elements (at worst the length of its longest row plus $\beta$) to row $\beta$ so that no column or row distance between an element of row $\beta$ of $p$ and $\alpha$ could even have occurred in $p$ initially.
+	
+	For example, with the above square $p_{-1}$, if we would like to add 0 to the bottom row:
+	$$\begin{array}{cccccccc}
+	0 & 5 & 6 & 1 \\ 
+	7 &  0 & 1 & 8  \\
+	9 & 2 & 3 & 10 \\
+	2 & 11 & 12 & 4 & \color{ForestGreen} 13 & \color{ForestGreen} 14 & \color{ForestGreen}15 & \color{red}0
+\end{array}$$
+and if we would like to add 0 to the sixth row:
+$$\begin{array}{ccccccc}
+	\color{ForestGreen}17 & \color{ForestGreen}18 & \color{ForestGreen}19 & \color{ForestGreen}20 & \color{red} 0\\
+	\color{ForestGreen}13 &  \color{ForestGreen}14 & \color{ForestGreen}15 & \color{ForestGreen}16\\
+	0 & 5 & 6 & 1 \\ 
+	7 &  0 & 1 & 8 \\
+	9 & 2 & 3 & 10 \\
+	2 & 11 & 12 & 4
+\end{array}$$
+
+	
+	\item For each $\alpha, \beta <\kappa$, the set $D^{\alpha,\beta}=\set{p \in \P}{\alpha \text{ appears in column } \beta \text{ of } p}$ is dense.
+	
+	Same procedure as with rows.
+	
+	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E^d_{\alpha, \beta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some row}}$$ is dense.
+	
+	If $\alpha$ and $\beta$ already do not appear distance $d$ apart anywhere in a partial Vatican square $p$, what we should do to absolutely guarantee we have no conflicts is start a new row. Add new entries to this row with symbols different than all of the symbols appearing in $p$ so far, up to the length of the longest row. Then add $\alpha$, followed by $d-1$ many symbols, and then $\beta$. This indeed will still be a condition, since $\beta$ and $d$ are less than $\kappa$.
+	
+	For example, with our starting square $p_{-1}$, this is how we would extend it to have 0 and 1 at distance 2 apart:
+$$\begin{array}{ccccccc}
+	\color{ForestGreen} 13 & \color{ForestGreen}14 & \color{ForestGreen}15 & \color{ForestGreen}16 & \color{red}0 &\color{ForestGreen}17 &\color{red}1\\
+	0 & 5 & 6 & 1 \\ 
+	7 &  0 & 1 & 8  \\
+	9 & 2 & 3 & 10 \\
+	2 & 11 & 12 & 4 
+\end{array}$$
+	
+	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E_d^{\alpha, \beta, \delta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some column}}$$ is dense.
+	
+	Same procedure as with rows.
+\end{enumerate}
+
+We produce a square $L$ at the end of this construction by taking the union of all of the $p_\alpha$'s in the chain we described building above. Clearly $L$ is Latin, since at some stage every ordinal less than $\kappa$ was added to every row and every column as guaranteed by our first two families of dense sets. It must be that $L$ is Vatican as well. First of all, we know that the pair occurrence for each row and column must be satisfied at least once in each row and column by meeting the last two families of dense sets described above. Moreover if this happened somewhere more than once, it would have to happen in some condition $p_\alpha$, but conditions in $\P$ are not allowed to have this property.
 \end{proof}
 
 
