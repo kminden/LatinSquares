@@ -143,7 +143,7 @@ In Section~\ref{sec:notgp} we explore non-group-based methods.  We show that the
 
 
 As infinite sets can be bijective with proper subsets of themselves, we can define a variation on Vatican squares that only makes sense for infinite orders.
-Say that an infinite Latin square on index set~$I$ is {\em semi-Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
+Say that an infinite Latin square on index set~$I$ is {\em semi-Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of even finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
 
 All of the results for Vatican squares transfer to the semi-Vatican case with little modification.  In addition to this, looking at the semi-Vatican case allows for an explicit construction of one in the case~$I = \R$ using only the tools of undergraduate Calculus.
 
@@ -185,7 +185,7 @@ We wish to know which infinite groups have directed $T_D$- and~$T_{\infty}$-terr
 We use transfinite induction to build such terraces, and later to build the squares more generally. 
 The construction will proceed by building better and better approximations to the object in transfinitely many steps, using each step to satisfy a requirement. Our approximations will be coherent and, at the end of the construction, we will end up with an object that satisfies all the requirements for the object we are trying to build.
 
-We will organize these constructions as follows. In each case we will consider the partially ordered set $\P=\langle \P, \leq\rangle$, consisting of the approximations under consideration. We call elements of $\P$ conditions, and they are ordered so that $p\leq q$ if $p$ is a better approximation than $q$ (we say that $p$ is a stronger condition than $q$, or that it extends $q$).\footnote{Both the term condition and the direction of the order $\leq$, while seemingly ad hoc, are well established in set-theoretic practice.} Our inductive construction will thus amount to building a descending chain of conditions, at each step meeting a requirement. A major part of our proofs will be showing that, given a requirement, any condition can be extended to meet it. This is usually phrased in terms of the set of conditions which satisfy the requirement being dense (in the sense of the order topology, i.e., for a set to be dense, any condition has an extensions in this set). The key is is to judiciously pick out the dense sets in the poset which will enable the object we are trying to build to clearly satisfy our desired properties.
+We will organize these constructions as follows. In each case we will consider the partially ordered set $\P=\langle \P, \leq\rangle$, consisting of the approximations under consideration. We call elements of $\P$ conditions, and they are ordered so that $p\leq q$ if $p$ is a better approximation than $q$ (we say that $p$ is a stronger condition than $q$, or that it extends $q$).\footnote{Both the term condition and the direction of the order $\leq$, while seemingly ad hoc, are well established in set-theoretic practice.} Our inductive construction will thus amount to building a descending chain of conditions, at each step meeting a requirement. A major part of our proofs will be showing that, given a requirement, any condition can be extended to meet it. This is usually phrased in terms of the set of conditions which satisfy the requirement being dense (in the sense of the order topology, i.e., for a set to be dense, any condition has an extension in this set). The key is is to judiciously pick out the dense sets in the poset which will enable the object we are trying to build to clearly satisfy our desired properties.
 
 \begin{thm}\label{th:T_infty}
 Let~$G$ be an abelian squareful group% of regular infinite order
@@ -219,9 +219,9 @@ Below we identify the requirements the approximations have to meet and establish
 	Again, as in the above case, the idea should be that we only have to avoid fewer than $\kappa$ many cases, but we have room in $I$ for that.
 	
 	Let $\a$ be a condition with $g \in G \setminus \ran \a$. We need to find $\d \in D_g$ satisfying $\d \leq \a$. This amounts to finding $\g$ so that we can let $\d(\g)=g$.
-	This $\g$ of course cannot be in $A=\dom \a$, but also $\g\pm d$ should not
-	be in $A$ for any $d$ such that $A_{(d)}$ is nonempty, and $\g$ should not
-	equal $\frac{a+a'}{2}$ for any pair $a,a'\in A$. This again forbids only fewer than $\kappa$
+	This $\g$ of course cannot be in $A=\dom \a$. We also choose such that $\g\pm d$ is not
+	in $A$ for any $d$ such that $A_{(d)}$ is nonempty, and such that $\g \neq \frac{a+a'}{2}$ 
+	for any pair $a,a'\in A$. This avoids any issues in the partial $T_d$-sequencings and again forbids only fewer than $\kappa$
 	many values for $\g$, so we can make a suitable choice. 
 		
 	\item For each $g \in G$ and each $d \in \F^+$ with $I_{(d)}\neq \emptyset$, the set $D^d_g=\set{\d \in \P}{g \in \ran \d_{(d)}}$ is dense. 
@@ -247,7 +247,7 @@ so it itself is smaller than $\kappa$. %since $\kappa$ is regular.~\footnote{Thi
 We can now let $\b_\lambda$ be any extension of $\b_\lambda'$ in $\mathcal{D}_\lambda$; such an extension exists since we showed that
 $\mathcal{D}_\lambda$ is dense.
 
-By construction, $\bigcup_{\alpha<\lambda}\b_\alpha$ defines a $T_\infty$-terrace $\b: I \To G$ as desired:
+By construction, $\bigcup_{\alpha<\lambda}\b_\alpha$ defines a directed $T_\infty$-terrace $\b: I \To G$ as desired:
 
 \begin{enumerate}
 	\item \emph{$\b$ is a bijection:} This is ensured by meeting, for each $i \in I$, the dense sets $D_i$ for injectivity and for meeting $D_g$ for each $g \in G$ for surjectivity.
@@ -264,15 +264,18 @@ For every index set~$I$ there is a Vatican square on~$I$.  In particular, there 
 For every infinite order~$\kappa$ there is an abelian squareful group~$G$ of order~$\kappa$. Use~$G$ in Theorems~\ref{th:terrace2square} and~\ref{th:T_infty} to produce the required Vatican square.
 \end{proof}
 
-The question of which infinite groups admit directed $T_D$- and~$T_{\infty}$-terraces arises.  Vanden Eynden shows that all countably infinite groups have a directed 1-terrace on~$\N$ \cite{VE78} and the proof is easily adapted to apply to index set~$\Z$.  
+The constraints on~$G$ in Theorem~\ref{th:T_infty} were due to the method of proof rather than fundamental impediments.  Which other  infinite groups admit directed $T_D$- and~$T_{\infty}$-terraces?  Are there any that do not?  Vanden Eynden shows that all countably infinite groups have a directed 1-terrace on~$\N$ \cite{VE78} and the proof is easily adapted to apply to index set~$\Z$.  
 
-The method of Theorem~\ref{th:T_infty} can be applied to an additional family of groups:
+The proof method of Theorem~\ref{th:T_infty} can be applied to an additional family of groups:
 
-\begin{prop}\label{prop:allinv}
-If every non-identity element of an infinite abelian group $G$ is an involution then $G$ has a directed~$T_{\infty}$-terrace for any index set of size~$|G|$. 
-\end{prop}
+\begin{thm}\label{th:allinv}
+If every non-identity element of an infinite abelian group $G$ is an involution, then $G$ has a directed~$T_{\infty}$-terrace for any index set of size~$|G|$. 
+\end{thm}
 
 \begin{proof}
+Such a group~$G$ is not squareful, but otherwise meets the constraints of Theorem~\ref{th:T_infty}.  Apply the same proof (with the same notation).  There is only one point at which we use squarefulness: given a value of~$i$ we need to choose a value for~${\bf d}(i)$ such that
+$$(\d(i))^2 \neq \a(i+d)\a(i-d)$$
+for all~$d$ for which $\a(i+d)$ and $\a(i-d)$ are both defined.  As $(\d(i))^2$ is necessarily the identity and $\a(i+d) \neq \a(i-d)$, this inequality unavoidably holds in~$G$.
 \end{proof}
 
 
@@ -293,7 +296,7 @@ there is a Latin square on~$I$ that cannot be made row-complete by permuting col
 \begin{proof}
 We build a Latin square on $\kappa=|I|$ by approximations to it, by transfinite induction on $\kappa$. At the end this will give us one on $I$ via any bijection between $I$ and $\kappa$, with symbol set $\kappa$ as well.  
 
-Consider the poset $\P$ consisting of injective partial functions from $\kappa\times\kappa$ to $\kappa$ whose domains are initial segments of $\kappa\times\kappa$ of size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$-- each condition fills in a lower left block of the full grid. These rectangles must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin rectangles in $\P$ are \textit{immune}, meaning that they cannot be made row-complete by permuting its columns. Again, partially order the immune Latin rectangles by $l\leq m$ if $l$ extends $m$ as functions.
+Consider the poset $\P$ consisting of injective partial functions from $\kappa\times\kappa$ to $\kappa$ whose domains are initial segments of $\kappa\times\kappa$ of size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in a lower left block of the full grid. These rectangles must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin rectangles in $\P$ are immune: a Latin rectangle is \textit{immune} if every Latin rectangle obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin rectangles by $l\leq m$ if $l$ extends $m$ as functions.
 
 We will start our transfinite induction with the following immune Latin rectangle, a condition which we name $l_{-1}$:
 $$
@@ -357,7 +360,7 @@ Then we can fill in the above with whatever values we would like, so long as the
 %To ensure that the new condition we produce is row complete under permuting columns, run through the same exact immunization procedure as outlined above, to produce a new condition which extends $l'$ (and thus also $l$) in the dense set as required.
 \end{enumerate}
 
-We enumerate the listed dense sets into a sequence $\set{D_\alpha}{\alpha<\kappa}$ and build a descending chain of conditions $\seq{l_\alpha}{\alpha<\kappa}$ by transfinite induction, ensuring that \(l_\alpha\in D_\alpha\) at each step and that $|l_\alpha|<|\alpha+\omega|$ so that the sequence isn't growing at too fast a rate. This goes the same way as in the proof of theorem~\ref{th:T_infty}. Given an initial segment of this sequence $\seq{l_\alpha}{\alpha<\lambda}$, notice that $l_\lambda'=\bigcup_{\alpha<\lambda}l_\alpha$ is a condition. We then let $l_\lambda$ be any extension of $l_\lambda'$ in $D_\lambda$.
+We enumerate the listed dense sets into a sequence $\set{D_\alpha}{\alpha<\kappa}$ and build a descending chain of conditions $\seq{l_\alpha}{\alpha<\kappa}$ by transfinite induction, ensuring that \(l_\alpha\in D_\alpha\) at each step and that $|l_\alpha|<|\alpha+\omega|$ so that the sequence isn't growing at too fast a rate. This goes the same way as in the proof of Theorem~\ref{th:T_infty}. Given an initial segment of this sequence $\seq{l_\alpha}{\alpha<\lambda}$, notice that $l_\lambda'=\bigcup_{\alpha<\lambda}l_\alpha$ is a condition. We then let $l_\lambda$ be any extension of $l_\lambda'$ in $D_\lambda$.
 
 We have produced $L=\cup \set{l_\alpha}{\alpha<\kappa}$, which defines a Latin square with the desired properties. Indeed, by meeting the dense sets we have ensured that the square is total and that every column and row contain all ordinals below $\kappa$. Moreover, if $L$ failed to be Latin, this failure would show up in some approximation $l_\alpha$, but these are all Latin, so $L$ must be as well. Finally, it isn't possible to permute columns in $L$ to obtain a row-complete square, since then it would be possible to permute the columns in some large enough $l_\alpha$, but each $l_\alpha$ is immune so that can't happen. 
 %Say more here? Like, find some closure point for the permutation and also for the symbols used in the smaller rectangle.
@@ -471,6 +474,11 @@ Let~$G$ be an involution-free abelian squareful group of infinite order~$\kappa$
 \begin{cor}\label{cor:semi_vatsquares}
 For every index set~$I$ there is a semi-Vatican square on~$I$.  In particular, there is a semi-Vatican square of every infinite order.
 \end{cor}
+
+\begin{thm}\label{th:semi_notrcls}
+For every index set~$I$ 
+there is a Latin square on~$I$ that cannot be made semi-Vatican by permuting columns.
+\end{thm}
 
 \begin{thm}\label{th:semi_infvat}
 For every index set~$I$ there is a semi-Vatican square on~$I$ that is not based on a  group.
@@ -668,7 +676,7 @@ A.~J.~W.~Hilton and J.~Wojciechowski, Amalgamating infinite Latin squares, {\em 
 M.~A.~Ollis, New complete Latin squares of odd order, {\em Europ.~J.~Combin.}~{\bf 41} (2014) 35--46.
 
 \bibitem{OllisTFSG}
-M.~A.~Ollis, Terraces for small groups, {\em submitted}, \texttt{arXiv:1603.01496}.
+M.~A.~Ollis, Terraces for small groups, {\em J. Combin. Math. Comput.} (to appear).
 
 \bibitem{Owens76}
 P.~J.~Owens,  Solutions to two problems of Denes and Keedwell on row-complete
