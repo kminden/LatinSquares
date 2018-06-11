@@ -382,7 +382,7 @@ there is a Vatican square on~$I$ that is not based on a  group.
 Let $\F_\kappa$ be an ordered field on $\kappa=|I|$.
 We build a Vatican square $L$ on $\F_\kappa$ with symbol set $\kappa$ by transfinite induction. The strategy to build one on an arbitrary index set is exactly the same as outlined below, potentially starting with a different starting sub-square we call $p_{-1}$ depending on your index set and symbol set.
 
-Again we find it useful to define an appropriate poset, to build the Vatican square by growing a finite one via meeting dense sets. The conditions in our poset $\P$ consist of partial Vatican squares which are not group based. These are injective partial functions of the form $p:\F_\kappa \times \F_\kappa\To\kappa$ whose domains restrict on any coordinate to initial segments of $\F_\kappa \times \F_\kappa$ of size strictly less than $\kappa$. In particular, for each $\alpha <\kappa$, we have that $p \rest (\{\alpha\}\times \kappa)$ and $p\rest (\kappa \times \{\alpha\})$ form an initial segment of $\kappa$ on its relevant coordinate. Again we think of these populating $\kappa\times\kappa$ grid from the bottom left corner outward, although distances between columns and rows are computed by the ordered field $\F_\kappa$. Moreover, these squares should be Vatican in the sense of a finite square, in that for each $d\in \F_\kappa^+$ such that ${(\F_\kappa)}_{(d)}\neq\emptyset$ we have that each ordered pair of distinct symbols coming from $\kappa$ appear at distance $d$ at most once in each order in rows and at most once in each order in columns. We partially order $\P$ by letting $p \leq q$ so long as $p$ extends $q$ as functions.
+Again we find it useful to define an appropriate poset, to build the Vatican square by growing a finite one via meeting dense sets. The conditions in our poset $\P$ consist of partial Vatican squares which are not group based. These are injective partial functions of the form $p:\F_\kappa \times \F_\kappa\To\kappa$. Again we think of these populating $\kappa\times\kappa$ grid from the bottom left corner outward, although distances between columns and rows are computed by the ordered field $\F_\kappa$. Moreover, these squares should be Vatican in the sense of a finite square, in that for each $d\in \F_\kappa^+$ such that ${(\F_\kappa)}_{(d)}\neq\emptyset$ we have that each ordered pair of distinct symbols coming from $\kappa$ appear at distance $d$ at most once in each order in rows and at most once in each order in columns. We partially order $\P$ by letting $p \leq q$ so long as $p$ extends $q$ as functions.
 
 We start the induction with the following partial Vatican square on $\kappa$, call it $p_{-1}$:
 $$\begin{array}{cccc}
@@ -393,28 +393,28 @@ $$\begin{array}{cccc}
 \end{array}$$
 No square containing this as a subsquare can be group-based since it fails to satisfy the quadrangle criterion.
 We then begin meeting dense sets in some enumeration of the following four families of dense sets.
-We build a descending chain of conditions $p_\alpha$, starting with $p_{-1}$, in $\kappa$ many stages exactly as before. At each stage we use the fact that the union of a descending chain of fewer than $\kappa$ many conditions is itself a condition, making sure that the sequence doesn't grow at too fast a rate, and then extend into the dense set under consideration at that stage.
+We build a descending chain of conditions $p_\alpha$, starting with $p_{-1}$, in $\kappa$ many stages exactly as before. At each stage we use the fact that the union of a descending chain of fewer than $\kappa$ many conditions is itself a condition, making sure that the sequence doesn't grow at too fast a rate (we see below that it is possible to meet each dense set by only adding at most 2 symbols to a condition), and then extend into the dense set under consideration at that stage.
 
 \begin{enumerate}
 	\item For each $\alpha, \beta <\kappa$, the set $D_{\alpha,\beta}=\set{p \in \P}{\alpha \text{ appears in row } \beta \text{ of } p}$ is dense.
 	
-	The trick here is not to mess up the Vatican property on the square. If $\alpha$ does not appear in row $\beta$ of a condition $p$ yet, it is not necessarily enough to simply add it to the end of row $\beta$, since it is possible that then $\alpha$ appears more than once at some distance from another element in that row or column. We are only guaranteed to be safe with that method if $\alpha$ doesn't already appear anywhere in the partial square. Thus the idea is to fill up the necessary entries of the square with new symbols that haven't appeared anywhere in the partial square yet. We can keep adding such entries until we are safe to add $\alpha$ in row $\beta$.
+	The trick here is not to mess up the Vatican property on the square. If $\alpha$ does not appear in row $\beta$ of a condition $p$ yet, it is not necessarily enough to simply add it to the end of row $\beta$, since it is possible that then $\alpha$ appears more than once at some distance from another element in that row or column. We are only guaranteed to be safe with that method if $\alpha$ doesn't already appear anywhere in the partial square. Thus the idea is to go far enough out to where it is safe to add $\alpha$ in row $\beta$.
 	
-	If $p$ doesn't even have a row $\beta$ yet, then add new rows which have the same length as the longest row in $p$, with symbols not already in $p$. On the $\beta$th row, do the same thing, but add $\alpha$ at the end, creating a new column with just $\alpha$ in it.
+	If $p$ doesn't even have a row $\beta$ yet, then on the $\beta$th row, add $\alpha$ at the end, creating a new column with just $\alpha$ in it.
 	
-	Otherwise, $p$ already has entries in row $\beta$, this can again at worst amount to essentially doubling $p$ in size, by adding enough new elements (at worst the length of its longest row plus $\beta$ in the field addition of $\F_\kappa$) to row $\beta$ so that no column or row distance between an element of row $\beta$ of $p$ and $\alpha$ could even have occurred in $p$ initially.
+	Otherwise, $p$ already has entries in row $\beta$, go far enough out in row $\beta$ (at worst the length of its longest row plus $\beta$ in the field addition of $\F_\kappa$) so that no column or row distance between an element of row $\beta$ of $p$ and $\alpha$ could even have occurred in $p$ initially.
 	
 	For example, if $\F_\kappa$ has the usual ordering on the natural numbers, in the above square $p_{-1}$, this is how we would add 0 to the bottom row:
 $$\begin{array}{cccccccc}
 	0 & 5 & 6 & 1 \\ 
 	7 &  0 & 1 & 8  \\
 	9 & 2 & 3 & 10 \\
-	2 & 11 & 12 & 4 & \color{ForestGreen} 13 & \color{ForestGreen} 14 & \color{ForestGreen}15 & \color{red}0
+	2 & 11 & 12 & 4 & & & & \color{red}0
 \end{array}$$
 and if we would like to add 0 to the sixth row:
 $$\begin{array}{ccccccc}
-	\color{ForestGreen}17 & \color{ForestGreen}18 & \color{ForestGreen}19 & \color{ForestGreen}20 & \color{red} 0\\
-	\color{ForestGreen}13 &  \color{ForestGreen}14 & \color{ForestGreen}15 & \color{ForestGreen}16\\
+	 & & & & \color{red} 0\\
+	 &  & & \\
 	0 & 5 & 6 & 1 \\ 
 	7 &  0 & 1 & 8 \\
 	9 & 2 & 3 & 10 \\
@@ -426,22 +426,26 @@ $$\begin{array}{ccccccc}
 	
 	Same procedure as with rows.
 	
-	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E^d_{\alpha, \beta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some row}}$$ is dense.
+	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E^d_{\alpha, \beta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some row of $p$, in that order}}$$ is dense.
 	
-	If $\alpha$ and $\beta$ already do not appear distance $d$ apart anywhere in a partial Vatican square $p$, what we should do to absolutely guarantee we have no conflicts is start a new row. Add new entries to this row with symbols different than all of the symbols appearing in $p$ so far, up to the length of the longest row. Then add $\alpha$, followed by enough symbols so as to be able to add $\beta$ at distance $d$. This indeed will still be a condition, since $\beta$ and $d$ are less than $\kappa$.
+	If $\alpha$ and $\beta$ already do not appear distance $d$ apart anywhere in a partial Vatican square $p$, what we should do to absolutely guarantee we have no conflicts is start a new row. Go far enough out in this row, up to the length of the longest row. Then add $\alpha$, followed by enough symbols so as to be able to add $\beta$ at distance $d$. This indeed will still be a condition, since $\beta$ and $d$ are less than $\kappa$.
 	
 	For example, with our starting square $p_{-1}$, this is how we would extend it to have 0 and 1 be distance 2 apart (if the field $\F_\kappa$ has the same ordering on finite numbers that the natural numbers do):
 $$\begin{array}{ccccccc}
-	\color{ForestGreen} 13 & \color{ForestGreen}14 & \color{ForestGreen}15 & \color{ForestGreen}16 & \color{red}0 &\color{ForestGreen}17 &\color{red}1\\
+	& & & & \color{red}0 & &\color{red}1\\
 	0 & 5 & 6 & 1 \\ 
 	7 &  0 & 1 & 8  \\
 	9 & 2 & 3 & 10 \\
 	2 & 11 & 12 & 4 
 \end{array}$$
 	
-	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E_d^{\alpha, \beta, \delta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some column}}$$ is dense.
+	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E_d^{\alpha, \beta}=\set{p \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some column of $p$, in that order}}$$ is dense.
 	
 	Same procedure as with rows.
+	
+	\item For each $\alpha, \beta < \kappa$, the set $F_{\alpha, \beta}=\set{p \in \P}{\text{there is a symbol in row $\alpha$, column $\beta$ of $p$}}$ is dense.
+	
+	If there isn't already an entry in coordinate $(\alpha, \beta)$ of $p$, then pick a symbol that hasn't appeared yet in $p$ and add it to that entry. The condition produced is Latin since that entry only appears once. Since this symbol did not previously appear in any of the entries of $p$, it must also be Vatican.
 \end{enumerate}
 
 We produce a square $L$ at the end of this construction by taking the union of all of the $p_\alpha$'s in the chain we described building above. Clearly $L$ is Latin, since at some stage every ordinal less than $\kappa$ was added to every row and every column as guaranteed by our first two families of dense sets. It must be that $L$ is Vatican as well. First of all, we know that the pair occurrence for each row and column must be satisfied at least once in each row and column by meeting the last two families of dense sets described above. Moreover if this happened somewhere more than once, it would have to happen in some condition $p_\alpha$, but conditions in $\P$ are not allowed to have this property. And $L$ is not
