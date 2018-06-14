@@ -361,7 +361,7 @@ We again list the requirements that the approximations will have to meet and sho
 		Meeting this dense set ensures that we fill up all the holes we might have left when we met other dense sets. Given an immune Latin region $l$, in order to add something to position $(\alpha, \beta)$ simply place a symbol that is not in $l$ in that position to produce $l'$. If $l$ did not have anything in column $\beta$ yet, run through the immunization procedure outlined above on $l'$ to make it immune.
 \end{enumerate}
 
-We enumerate the listed dense sets into a sequence $\set{D_\alpha}{\alpha<\kappa}$ and build a descending chain of conditions $\seq{l_\alpha}{\alpha<\kappa}$ by transfinite induction, ensuring that $l_\alpha\in D_\alpha$ at each step and that $|l_\alpha|<|\alpha+\omega|$ so that the sequence isn't growing at too fast a rate. Note that if a condition $l$ has infinite size $\theta$, the immunization process will add at most $|\theta\cdot 9|$ many new entries to a condition, which has size $\theta$. So the growth constraint on the sequence is reasonable given how we chose to meet dense sets in the above.
+We enumerate the listed dense sets into a sequence $\set{D_\alpha}{\alpha<\kappa}$ and build a descending chain of conditions $\seq{l_\alpha}{\alpha<\kappa}$ by transfinite induction, ensuring that $l_\alpha\in D_\alpha$ at each step and that $|l_\alpha|<|\alpha+\omega|$ so that the sequence isn't growing at too fast a rate. Note that if a condition $l$ has infinite size $\theta$, the immunization process will add at most $|\theta^3 \cdot 9|$ many new entries to a condition, which has size $\theta$. So the growth constraint on the sequence is reasonable given how we chose to meet dense sets in the above.
 
 Proceed the same way as in the proof of Theorem~\ref{th:T_infty}. Given an initial segment of this sequence $\seq{l_\alpha}{\alpha<\lambda}$, notice that $l_\lambda'=\bigcup_{\alpha<\lambda}l_\alpha$ is a condition, since the growth rate of the sequence is not too high. We then let $l_\lambda$ be any extension of $l_\lambda'$ in $D_\lambda$.
 
@@ -528,13 +528,16 @@ Similar approaches for Vatican squares quickly run into difficulties.
 
 Let~$G$ be a group and~$\theta: G \rightarrow G$ a bijection.  If $g \mapsto g^{-1}\theta(g)$ is a bijection then~$\theta$ is an {\em orthomorphism}; if  $g \mapsto g\theta(g)$ is a bijection then~$\theta$ is a {\em complete mapping}.  Two orthomorphisms, $\theta, \phi$ are {\em orthogonal} if $g \mapsto \theta(g)^{-1} \phi(g)$ is a bijection.
 
-\texttt{[orthomorphisms $\rightarrow$ orthogonal latin squares.]}
+Let~$L$ be the Cayley table of a group~$G = \{ g_i : i \in I \}$ that has $ij$th entry $g_i g_j$ and for any bijection~$\theta: G \rightarrow G$ define~$L_\theta$ to be the Latin square with $ij$th entry $g_i \theta(g_j)$.  If~$\theta$ is an orthomorphism then~$L_\theta$ is orthogonal to~$L$ and if~$\theta$ and~$\phi$ are orthomorphisms then~$L_\theta$ is orthogonal to~$L_\phi$; see, for example, \cite{Evans07}.
 
-It's known that every infinite group has an orthomorphism~\cite{Bateman50}, so there is a pair of orthogonal Latin squares at every infinite order.
+It's known that every infinite group has an orthomorphism~\cite{Bateman50}, so there is a pair of orthogonal Latin squares at every infinite order.  In~\cite{BM91}, countably many orthogonal Latin squares of countable order are constructed using mutually orthogonal orthomorphisms (although without using this terminology) of a specific countably infinite group.
 
 
-The work of Section~\ref{sec:cayley} may be adapted to give families of mutually orthogonal orthomorphisms. \texttt{[$R_{\infty}$ stuff.]}
+The work of Section~\ref{sec:cayley} may be adapted to give families of mutually orthogonal orthomorphisms.  In the finite case, directed terraces and directed R-terraces are similar objects, with directed terraces giving rise to complete Latin squares and directed R-terraces giving rise to orthogonal Latin squares via orthomorphisms.  Our definitions and results preserve these connections as we move to the infinite.
 
+Let~$I$ be an index set in an ordered field~$\F$.  Let~$G$ be a group of order~$|I|$.  For a bijection~${\bf a}: I \rightarrow G \setminus \{ e \}$ define a function~${\bf a}_{(d)}: I_{(d)} \rightarrow G \setminus \{ e \}$ for each~$d \in \F^+$ with~$I_{(d)} \neq \emptyset$ by
+$${\bf a}_{(d)}(i) = {\bf a}(i)^{-1}{\bf a}(i+d).$$ Such a function is called a $R_d$-sequencing for $\a$, if it is a bijection.
+If there is a~$D$ such that for all~$d < D$ with~$I_{(d)} \neq \emptyset$ we have that each ${\bf a}_{(d)}$ is a bijection, then~${\bf a}$ is a {\em directed $R_D$-terrace for~$G$}.  If ${\bf a}_{(d)}$ is a bijection for all~$d$  with~$I_{(d)} \neq \emptyset$ then ${\bf a}$ is  a {\em directed $R_{\infty}$-terrace} for~$G$.
 
 
 \begin{thm}
@@ -542,7 +545,7 @@ Let~$G$ be a group of infinite order~$\kappa$.  If~$G$ has a directed $R_{\infty
 \end{thm}
 
 \begin{proof}
-Let~${\bf a}$ be a directed $T_{\infty}$-terrace for~$G$ over some index set~$I$.  For each~$d$ such that~$I_d \neq \emptyset$ (of which there are~$\kappa$) define~$\theta_d(e) = e$ and $\theta_d( {\bf a}(i) ) = {\bf a}(i+d)$.  This gives us the orthogonal orthomorphisms we're looking for:
+Let~${\bf a}$ be a directed $R_{\infty}$-terrace for~$G$ over some index set~$I$.  For each~$d$ such that~$I_d \neq \emptyset$ (of which there are~$\kappa$) define~$\theta_d(e) = e$ and $\theta_d( {\bf a}(i) ) = {\bf a}(i+d)$.  This gives us the orthogonal orthomorphisms we're looking for.
 
 First, they are orthomorphisms: given~$g \in G \setminus \{ e \}$ with~${\bf a}(i) = g$ we get
 $$g^{-1}\theta_d(g) = {\bf a}(i)^{-1}{\bf a}(i+d) = {\bf a}_{(d)}(i)$$
@@ -555,7 +558,7 @@ $$\theta_{d_1}^{-1}(g) \theta_{d_2}(g) =  {\bf a}(i+d_1)^{-1}{\bf a}(i+d_2)  = {
 Also~$\theta_{d_1}(e)^{-1}\theta_{d_2}(e) =e$ in each case, giving bijections on~$G$.
 \end{proof}
 
-If we have a directed~$R_D$-terrace, with the obvious definition, then the same argument gives $ | \{ d \leq D : I_d \neq \emptyset \} |$ mutually orthogonal orthomorphisms for~$G$.
+If we have a directed~$R_D$-terrace, then the same argument gives $ | \{ d \leq D : I_{(d)} \neq \emptyset \} |$ mutually orthogonal orthomorphisms for~$G$.
 
 \begin{thm}\label{th:R_infty}
 Let~$G$ be an abelian squareful group of infinite order.   Then~$G$ has a directed $R_{\infty}$-terrace.
@@ -568,21 +571,106 @@ The only difference between a directed~$R_{\infty}$-terrace and a directed $T_{\
 This immediately gives:
 
 \begin{cor}
-There is a set of~$\kappa$ mututally orthogonal squares of order~$\kappa$ for all infinite cardinalities~$\kappa$.
+There is a set of~$\kappa$ mututally orthogonal Latin squares of order~$\kappa$ for all infinite cardinalities~$\kappa$.
 \end{cor}
 
+As with directed $T_{\infty}$-terraces, we can now ask which infinite groups have (or do not have) directed $R_{\infty}$-terraces.
 
-\texttt{[Prove stronger result about orthomorphisms that does not go via directed $R_{\infty}$-terraces?]}
+If we do not insist that our orthomorphisms come from directed R-terraces we can completely remove the restrictions on the groups:
+
+\begin{thm}
+Let~$G$ be a group of infinite order~$\kappa$.  Then~$G$ has a set of $\kappa$ mutually orthogonal orthomorphisms and can hence be used to construct a set of~$\kappa$ mututally orthogonal squares of order~$\kappa$.
+\end{thm}
+
+\begin{proof}
+We build the required set of mutually orthogonal orthomorphisms of~$G$ by transfinite induction on~$\kappa$.
+
+Let~$I$ be a set of size~$\kappa$.  Let $\P$ be the poset whose elements are sets of the form~$\d=\{ \theta_i : i \in I \}$ of partial injective functions from~$G$ to~$G$ with $|\bigcup_{i} \dom \theta_i|  < \kappa$ and are sets of mutually orthogonal partial orthomormorphisms in the sense that the partial functions $\eta_i: g \mapsto g^{-1}\theta_i(g)$ and~$\eta_{ij}: g \mapsto \theta_i^{-1}(g)\theta_j(g)$ (where~$i \neq j$) are also injective.
+
+There are four requirements that the approximations have to meet.  We show that the set of conditions satisfying each of them is dense.
+
+\begin{enumerate}
+
+\item For each~$i \in I$ and~$g \in G$, the set $D_i^g = \{ {\bf d} \in \P : g \in \dom \theta_i \}$ is dense.
+
+Let~${\bf a}$ in~$\P$ with~$g \not\in \dom \theta_i$.  We need a~${\bf d} \in D_i^g$ with~$g \in \dom \theta_i$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose an $h$ such that $h \not\in \ran \theta_i$, $g^{-1}h \not\in \ran \eta_i$ and $h^{-1}\theta_j(g) \not\in \ran \eta_{ij}$ and set~$\theta_i(g) = h$.  Such an~$h$ exists as the ranges of each of the $\eta_i$ and~$\eta_{ij}$ are smaller than~$\kappa$.
+
+
+\item For each~$i \in I$ and~$h \in G$, the set $D_i^h = \{ {\bf d} \in \P : h \in \ran \theta_i \}$ is dense.
+
+Let~${\bf a}$ in~$\P$ with~$h \not\in \ran \theta_i$.  We need a~${\bf d} \in D_i^h$ with~$h \in \ran \theta_i$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose a~$g$ such that $g \not\in \dom \theta_j$ for any~$j$ (including $j=i$) and $g^{-1}h \not\in \ran \eta_i$.  These choices are possible because the restricted sets in each case have size smaller than~$\kappa$.
+Set~$\theta_i(g) = h$.
+
+\item For each~$i \in I$ and~$h \in G$, the set $E_i^h = \{ {\bf d} \in \P : h \in \ran \eta_i \}$ is dense.
+
+Let~${\bf a}$ in~$\P$ with~$h \not\in \ran \eta_i$.  We need a~${\bf d} \in E_i^h$ with~$h \in \ran \eta_i$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose a~$g$ such that $g \not\in \dom \theta_j$ for any~$j$ (including $j=i$) and $gh \not\in \ran \theta_i$.  These choices are possible because the restricted sets in each case have size smaller than~$\kappa$.  Define~$\theta_i(g) = gh$  and hence $\eta_i(g) = h$.   
+
+
+\item For each~$i,j \in I$, with~$i \neq j$, and~$h \in G$, the set $E_{ij}^h = \{ {\bf d} \in \P : h \in \ran \eta_{ij} \}$ is dense.
+
+Let~${\bf a}$ in~$\P$ with~$h \not\in \ran \eta_{ij}$.  We need a~${\bf d} \in E_{ij}^h$ with~$h \in \ran \eta_{ij}$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose a~$g$ such that $g \not\in \dom \theta_k$ for any~$k$.   Choose a pair~$(h_i,h_j)$ from $(G \setminus \ran \theta_i) \times (G \setminus \ran \theta_j)$ such that~$h_i^{-1}h_j = h$, $g^{-1}h_i \not\in \ran \eta_i$ and $g^{-1}h_j \not\in \eta_j$. These choices are possible because the restricted sets in each case have size smaller than~$\kappa$.
+ Set~$\theta_i(g) = h_i$ and~$\theta_j(g) = h_j$.
+
+
+\end{enumerate}
+
+The transfinite induction now goes through as usual.
+\end{proof}
+
+
+
+
+
+
+
 
 
 
 
 
 Another embellishment of the complete mapping concept is the strong complete mapping:
-If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.  Every countably infinite group has a strong complete mapping~\cite{Evans12}.
+If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.  The following result generalises that every countably infinite group has a strong complete mapping, proved in~\cite{Evans12}.
 
-\texttt{[Prove that all infinite groups have strong complete mappings?]}
+\begin{thm}
+Let~$G$ be a group of infinite order~$\kappa$.  Then~$G$ has a strong complete mapping.
+\end{thm}
 
+\begin{proof}
+
+Let $\P$ be the poset whose elements are partial strong complete mappings (i.e.~injective partial functions~$\theta$ such that~$\eta: g \mapsto g^{-1}\theta(g)$ and~$\zeta: g \mapsto g\theta(g)$ are also injective) with domain of size less than~$\kappa$.
+
+
+
+\begin{enumerate}
+
+\item For each~$g \in G$ the set  $D_g = \{ \theta \in \P : g \in \dom \theta \}$ is dense.
+
+Let~$\theta$ in~$\P$ with~$g \not\in \dom \theta$.  We need a~$\theta' \in D_g$ with~$g \in \dom \theta'$ and $\theta' \leq \theta$.  To extend~$\theta$ to~$\theta'$, choose an $h$ such that $h \not\in \ran \theta$, $g^{-1}h \not\in \ran \eta$ and $gh \not\in \ran \zeta$ and set~$\theta'(g) = h$.  Such an~$h$ exists as the ranges of each of the partial functions are smaller than~$\kappa$.
+
+
+\item For each~$h \in G$ the set  $D_h = \{ \theta \in \P : g \in \ran \theta \}$ is dense.
+
+Let~$\theta$ in~$\P$ with~$h \not\in \ran \theta$.  We need a~$\theta' \in D_h$ with~$h \in \ran \theta'$ and $\theta' \leq \theta$.
+To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $g^{-1}h \not\in \ran \eta$ and $gh \not\in \ran \zeta$ and set~$\theta'(g) = h$.  Such a~$g$ exists as the number of restricted elements is less than~$\kappa$.
+
+
+\item For each~$h \in G$ the set  $D_h^{\eta} = \{ \theta \in \P : g \in \ran \eta \}$ is dense.
+
+Let~$\theta$ in~$\P$ with~$h \not\in \ran \eta$.  We need a~$\theta' \in D_h$ with~$h \in \ran \eta'$ and $\theta' \leq \theta$.
+To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $gh \not\in \ran \theta$ and $g^2h \not\in \ran \zeta$ and set~$\theta'(g) = gh$.  Such a~$g$ \texttt{might not exist unless we insist on squarefulness or something.}
+
+
+\item For each~$h \in G$ the set  $D_h^{\zeta} = \{ \theta \in \P : g \in \ran \zeta \}$ is dense.
+
+Let~$\theta$ in~$\P$ with~$h \not\in \ran \zeta$.  We need a~$\theta' \in D_h$ with~$h \in \ran \zeta'$ and $\theta' \leq \theta$.
+To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $g^{-1}h \not\in \ran \theta$ and $g^{-2}h \not\in \ran \eta$ and set~$\theta'(g) = h$.  Such a~$g$ \texttt{also might not exist unless we insist on squarefulness or something.}
+
+
+
+
+\end{enumerate}
+
+\end{proof}
 
 
 
@@ -643,6 +731,9 @@ J.~D{\'e}nes and A.~D.~Keedwell, {\em Latin Squares and Their Applications (2nd 
 \bibitem{EGT89}
 T.~Etzion, S.~W.~Golomb, and H.~Taylor, Tuscan-$K$ squares, {\em Advances in Applied Math.} {\bf 10} (1989) 164--174.
 
+\bibitem{Evans07}
+A.~B.~Evans, 
+Complete mappings and sequencings of finite groups, in {\em The Handbook of Combinatorial Designs (2nd Edition), Eds. C.~J.~Colbourn and J.~H.~Dinitz}, Chapman and Hall/CRC, (2007).
 
 \bibitem{Evans12}
 A.~B.~Evans, The existence of strong complete mappings, {\em Electronic J.~Combin.}~{\bf 19} (2012), \#P34.
