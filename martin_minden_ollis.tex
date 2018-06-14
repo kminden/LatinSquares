@@ -64,8 +64,9 @@
 
 \author{Gage~N.~Martin$^{1}$, Kaethe Minden$^2$ and M.~A.~Ollis$^{2,}$\footnote{Corresponding author, email address: \texttt{matt@marlboro.edu.}}   \\
               \\
-              {\it ${}^1$Boston College, Somewhere in Boston, } \\
-              {\it Massachusetts 12345, USA.}
+              {\it ${}^1$Department of Mathematics, Boston College,} \\
+               {\it 140 Commonwealth Ave, Chestnut Hill,  } \\
+              {\it  Massachusetts 02467-3804, USA.}
               \\
               \\
               {\it ${}^2$Marlboro College, P.O.~Box A, Marlboro,} \\    
@@ -78,13 +79,12 @@
 
 
 \begin{abstract}
-Regarding neighbor balance, we consider natural generalizations of $D$-complete Latin squares and Vatican squares from the finite to the infinite.   We show that if~$G$ is an infinite abelian group such that the number of square elements is equinumerous with the whole group then it is possible to permute the rows and columns of the Cayley table to give an infinite Vatican square.  We also construct an Vatican square of every infinite order that is not obtainable by permuting the rows and columns of a Cayley table.  Regarding orthogonality, we show that if~$G$ is as above then $G$ has a set of~$|G|$ mutually orthogonal orthomorphisms and hence there is a set of~$|G|$ mutually orthogonal Latin squares based on~$G$.  \texttt{[And we can maybe do a bit better than this last sentence.]}
-
+Regarding neighbor balance, we consider natural generalizations of $D$-complete Latin squares and Vatican squares from the finite to the infinite.   We show that if~$G$ is an infinite abelian group with~$|G|$ square elements, then it is possible to permute the rows and columns of the Cayley table to give an infinite Vatican square.  We also construct a Vatican square of every infinite order that is not obtainable by permuting the rows and columns of a Cayley table.  Regarding orthogonality, we show that every infinite group~$G$ has a set of~$|G|$ mutually orthogonal orthomorphisms and hence there is a set of~$|G|$ mutually orthogonal Latin squares based on~$G$.  We also show that an infinite group~$G$ with~$|G|$ square elements has a strong complete mapping.
 
 
 \vspace{3mm}
 \noindent
-{\bf Keywords:} complete Latin square; complete mapping; directed terrace; infinite design; infinite Latin square; mutually orthogonal Latin squares; orthomorphism; R-sequencing; sequencing; Vatican square.
+{\bf Keywords:} complete Latin square; complete mapping; directed terrace; infinite design; infinite Latin square; mutually orthogonal Latin squares; orthomorphism; R-sequencing; sequencing; strong complete mapping; Vatican square.
 \end{abstract}
 
 
@@ -107,17 +107,11 @@ the unique well-ordered sets with 0 or 1 or 2 etc. as elements), but there are a
 The first infinite ordinal, denoted $\omega$, corresponds to the well-ordered set of natural numbers.
 The ordinal corresponding to the well-order of the natural numbers with an added maximal element is
 denoted $\omega+1$, and we can keep going after this to obtain $\omega+2, \omega+3$, and so on, reaching the limit $\omega+\omega$ (aka $\omega\cdot 2$), and beyond. 
-%Ordinals fall into two classes: successor ordinals, which have maximal elements (such as 1, 28, or $\omega+3$), and limit ordinals, which do not (such as $\omega$ and $\omega+\omega$).
 
 As ordinals represent canonical well-orderings, they each support a notion of induction similar to the usual one on the natural numbers. Fixing an ordinal $\lambda$, transfinite induction up to $\lambda$ allows us to prove that a property $P$ holds for all ordinals below $\lambda$ by showing, from the hypothesis that $P$ holds for all ordinals below some $\alpha<\lambda$, that $P$ holds for $\alpha$ (in this formulation
 the induction principle is analogous to strong induction on the natural numbers, and in fact reduces to it if we set $\lambda=\omega$).
 
 It follows from the axiom of choice that for any set $X$, there is a bijection between $X$ and some ordinal. In the usual set-theoretic practice, the cardinality of $X$ is defined as the least such ordinal. 
-%We say that an ordinal $\lambda$ is regular if the union of fewer than $\lambda$ many sets, all of which have cardinality less than $\lambda$, itself has cardinality less than $\lambda$.
-%Reference a suitable set theory textbook
-
-%We work with transfinite induction. This works exactly like with the natural numbers. Just as the natural numbers are defined recursively, and statements are proved about them by induction, such is the case with ordinals. The only difference is that now we have not just successor ordinals, like natural numbers, but also limit ordinals, like $\omega$ and $\omega\cdot 2$ and $\omega^2$ and $\omega^\omega$ and so on - these ordinals cannot be seen as a successor of any ordinal. Thus with transfinite induction we have a base case, the successor case (inductive step) and also the limit stages. The cardinality of a set $x$ is the least ordinal $\alpha$ bijective with it. Such ordinals are cardinal numbers. 
-%The least infinite cardinal is $\aleph_0 = \omega$, this is the size of any countable infinity. The next larger cardinal we denote by $\aleph_1$, the first uncountable cardinal. 
 
 We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are natually embedded in~$\R^2$.
 
@@ -137,20 +131,22 @@ Formally, an infinite Latin square on an index set~$I$  is {\em row complete} or
 
 
 
-Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  In the next section we show that similar notions are sufficient to construct infinite $D$-complete and Vatican  squares.  Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$.  If~$G$ is an abelian squareful group and~$I$ is an index set with~$|I| = |G|$, then we can construct an infinite Vatican square using the Cayley table of~$G$. 
+Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  In the next section we show that similar notions are sufficient to construct infinite $D$-complete and Vatican  squares.  
 
-In Section~\ref{sec:notgp} we explore non-group-based methods.  We show that there is a Vatican square of each infinite order that cannot be produced from the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  We also show that there is a Latin square of each infinite order such that with no orderings of its rows and columns gives a Vatican (or even row-complete) square.
+Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$.  If~$G$ is an abelian squareful group and~$I$ is an index set with~$|I| = |G|$, then we can construct an infinite Vatican square on~$I$ using the Cayley table of~$G$. 
+
+In Section~\ref{sec:notgp} we explore non-group-based methods.  We show that there is a Vatican square of each infinite order that cannot be produced by permuting the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  We also show that there is a Latin square of each infinite order such that no permutation of its rows and columns gives a Vatican (or even Roman) square.
 
 
 As infinite sets can be bijective with proper subsets of themselves, we can define a variation on Vatican squares that only makes sense for infinite orders.
-Say that an infinite Latin square on index set~$I$ is {\em semi-Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for Vatican squares of even finite order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
+Say that an infinite Latin square on index set~$I$ is {\em semi-Vatican} if for each~$d$ with~$I_{(d)} \neq \emptyset$ we have that each pair of distinct symbols appears at distance~$d$ exactly once in rows and once in columns.  Although this does not have a finite analogue, all known constructions for finite Vatican squares of even order~$n$ have $n/2$ rows that together form a ``row semi-Vatican rectangle" and the remaining $n/2$ rows are the reverse of these ones.
 
 All of the results for Vatican squares transfer to the semi-Vatican case with little modification.  In addition to this, looking at the semi-Vatican case allows for an explicit construction of one in the case~$I = \R$ using only the tools of undergraduate Calculus.
 
 
 Moving to orthogonality, two finite Latin squares on a symbol set~$X$ are orthogonal if for  each pair~$(x_1, x_2) \in X \times X$ there is exactly one position such that~$x_1$ is in that position in the first square and~$x_2$ is in that position in the second pair.  This definition carries over without modification to the infinite case (the countable version of which is given in \cite[p.~116]{DK15}).
 
-In Section~\ref{sec:orth} we see that the methods from Section~\ref{sec:cayley} may be quickly adapted to produce sets of~$\kappa$ mutually orthogonal Latin squares of order~$\kappa$ for all infinite orders~$\kappa$ via Cayley tables of abelian squareful groups.  This is analgous to the finite construction of ``orthomorphisms" via ``R-sequencings".  \texttt{[And we maybe do even more stuff with orthomorphisms]}  
+In Section~\ref{sec:orth} we see that the methods from Section~\ref{sec:cayley} may be quickly adapted to produce sets of~$\kappa$ mutually orthogonal Latin squares of order~$\kappa$ for all infinite orders~$\kappa$ via Cayley tables of abelian squareful groups.  This is analagous to the finite construction of ``orthomorphisms" via ``R-sequencings".   We also construct orthomorphisms directly, finding $\kappa$ mutually orthogonal orthomorphisms for each group of infinite order~$\kappa$ and show that some infinite groups have strong complete mappings.
 
 
 \section{Vatican squares from groups}\label{sec:cayley}
@@ -185,7 +181,8 @@ We wish to know which infinite groups have directed $T_D$- and~$T_{\infty}$-terr
 We use transfinite induction to build such terraces, and later to build the squares more generally. 
 The construction will proceed by building better and better approximations to the object in transfinitely many steps, using each step to satisfy a requirement. Our approximations will be coherent and, at the end of the construction, we will end up with an object that satisfies all the requirements for the object we are trying to build.
 
-We will organize these constructions as follows. In each case we will consider the partially ordered set $\P=\langle \P, \leq\rangle$, consisting of the approximations under consideration. We call elements of $\P$ conditions, and they are ordered so that $p\leq q$ if $p$ is a better approximation than $q$ (we say that $p$ is a stronger condition than $q$, or that it extends $q$).\footnote{Both the term condition and the direction of the order $\leq$, while seemingly ad hoc, are well established in set-theoretic practice.} Our inductive construction will thus amount to building a descending chain of conditions, at each step meeting a requirement. A major part of our proofs will be showing that, given a requirement, any condition can be extended to meet it. This is usually phrased in terms of the set of conditions which satisfy the requirement being dense (in the sense of the order topology, i.e., for a set to be dense, any condition has an extension in this set). The key is is to judiciously pick out the dense sets in the poset which will enable the object we are trying to build to clearly satisfy our desired properties.
+
+We organize these constructions as follows. In each case we consider the partially ordered set $\P=\langle \P, \leq\rangle$, consisting of the approximations under consideration. Following established set-theoretic practice, we call elements of $\P$ conditions, and they are ordered so that $p\leq q$ if $p$ is a better approximation than $q$ (we say that $p$ is a stronger condition than $q$, or that it extends $q$).  Our inductive construction thus amounts to building a descending chain of conditions, at each step meeting a requirement. A major part of our proofs is showing that, given a requirement, any condition can be extended to meet it. This is usually phrased in terms of the set of conditions which satisfy the requirement being dense (in the sense of the order topology, i.e., for a set to be dense, any condition has an extension in this set). The key is is to judiciously pick out the dense sets in the poset which enable the object we are trying to build to clearly satisfy our desired properties.
 
 \begin{thm}\label{th:T_infty}
 Let~$G$ be an abelian squareful group% of regular infinite order
@@ -193,7 +190,7 @@ Let~$G$ be an abelian squareful group% of regular infinite order
 \end{thm}
 
 \begin{proof}
-Let $I$ be an index set in an ordered field $\F$, where $|I|=\kappa$ is the order of $G$. We build a $T_\infty$-terrace for $G$ by transfinite induction on $\kappa$. Consider the poset $\P$ consisting of partial directed $T_\infty$-terraces on $G$. These partial terraces are as in the definition of a directed $T_\infty$-terrace, except the functions $\a$ and its $T_d$-sequencings $\a_{(d)}$ for each $d \in \F^+$ with $I_{(d)} \neq \emptyset$ are only required to be injective partial functions from $I$ to $G$ with domains of cardinality less than $\kappa$. Here $\P$ should be partially ordered so that $\a \leq \b$ if and only if $\a$ extends $\b$ as a function, i.e.\ $\dom \b \subseteq \dom \a$ and $\a \rest \dom \b = \b$.
+Let $I$ be an index set in an ordered field $\F$, where $|I|=\kappa$ is the order of $G$. We build a directed $T_\infty$-terrace for $G$ by transfinite induction on $\kappa$. Consider the poset $\P$ consisting of partial directed $T_\infty$-terraces on $G$. These partial terraces are as in the definition of a directed $T_\infty$-terrace, except the functions $\a$ and its $T_d$-sequencings $\a_{(d)}$ for each $d \in \F^+$ with $I_{(d)} \neq \emptyset$ are only required to be injective partial functions from $I$ to $G$ with domains of cardinality less than $\kappa$. Here $\P$ should be partially ordered so that $\a \leq \b$ if and only if $\a$ extends $\b$ as a function, i.e.\ $\dom \b \subseteq \dom \a$ and $\a \rest \dom \b = \b$.
 
 Below we identify the requirements the approximations have to meet and establish that the set of conditions satisfying each of them is dense.
 
@@ -293,9 +290,9 @@ there is a Latin square on~$I$ that cannot be made row-complete by permuting col
 \end{thm}
 
 \begin{proof}
-We build a Latin square on $\kappa=|I|$ by approximations to it, by transfinite induction on $\kappa$. At the end this will give us one on $I$ via any bijection between $I$ and $\kappa$, with symbol set $\kappa$ as well.  
+We build a Latin square on an ordered field $\F_\kappa$ of size $\kappa=|I|$ by approximations to it, by transfinite induction on $\kappa$. The same procedure would give one on $I$.
 
-Consider the poset $\P$ consisting of injective partial functions from $\kappa\times\kappa$ to $\kappa$ whose domains are subsets of $\kappa\times\kappa$ of size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as functions.
+Consider the poset $\P$ consisting of injective partial functions from $\F_\kappa\times\F_\kappa$ to $\kappa$ whose domains have size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as functions.
 
 We will start our transfinite induction with the following finite immune Latin region, a condition which we name $l_{-1}$:
 $$
@@ -310,8 +307,6 @@ We again list the requirements that the approximations will have to meet and sho
 	\item For each $\alpha, \beta<\kappa$, the set $D_{\alpha,\beta}=\set{l \in \P}{\alpha \text{ appears in row } \beta \text{ of } l}$ is dense.
 	
 	In other words, we need to see how to add a desired number $\alpha$ to row $\beta$ of a condition $l$, if it isn't already there. Place $\alpha$ into the $\beta$-th row, again without violating the Latin constraint (this might require us to introduce a new column).
-%	If row $\beta$ is not already in the rectangle $l$, then we simply add rows with whatever values in them that we would like, without violating the Latin constraints, until reaching row $\beta$ where we make sure to include $\alpha$; if necessary we can add new columns in order to have $\alpha$ in row $\beta$. We thus arrive at a larger Latin rectangle $l'$ which extends $l$, but may not immune.
-%	Otherwise we would like to add an entry to an already existing row in $l$. Add a column with the desired entry, $\alpha$, in the desired row $\beta$, and put whatever you want for the other entries of the column, without violating the Latin constraints, to produce a new rectangle $l'$.
 	
 	We have produced a larger Latin rectangle $l'$ which contains $l$ and has $\alpha$ in the $\beta$-th row but may not be immune, if we introduced a new column. We now perform the following immunization procedure to extend $l'$ to an immune Latin region in $D_{\alpha,\beta}$.
 \begin{description}
@@ -320,7 +315,7 @@ We again list the requirements that the approximations will have to meet and sho
 			\gamma+2  && \gamma   &&  \gamma+1 \\ 
 			\gamma+1  && \gamma+2 &&  \gamma \\
 			\gamma  && \gamma+1 && \gamma+2
-		\end{array}$$ in whatever order you would like. Keep doing this with every possible combination of three different columns until all of the possible combinations of 3 different columns have been exhausted. Then fill in the gaps with whatever you would like without contravening the Latin constraints. %By design, this produces a new condition $l''$ extending $l'$ but in the dense set $D_{\alpha, \beta}$.
+		\end{array}$$ in whatever order you would like. Keep doing this with every possible combination of three different columns until all of the possible combinations of 3 different columns have been exhausted. Then fill in the gaps with whatever you would like without contravening the Latin constraints. 
 		\end{description}
 		To illustrate the technique, let's say that we would like to add the number $3$ to row $0$ in our initial immune Latin rectangle $l_{-1}$. Following the described algorithm, we first produce
 		the following region $l_{-1}'$ 
@@ -351,10 +346,6 @@ We again list the requirements that the approximations will have to meet and sho
 		\item For each $\alpha, \beta<\kappa$, the set $D^{\alpha, \beta}=\set{l\in \P}{\alpha \text{ appears in column } \beta \text{ of } l}$ is dense. 
 		
 		Here we need to add a specified number $\alpha$ to the column number $\beta$ of a condition $l$, if it isn't already there. The strategy is the same as before: place $\alpha$ in column $\beta$ as required so that the region $l'$ produced is still Latin. Then run through the immunization procedure as outlined above if $l$ doesn't have any entries in column $\alpha$ to begin with, to produce a new condition extending $l'$ that is in $D^{\alpha, \beta}$.
-%		If $l$ already has at least $\beta$-many columns, then we can just add a new row to the top of $l$ to produce a new condition in the dense set extending $l$; with the desired value $\alpha$ in the desired column position, and anything else we want that doesn't contravene the Latin constraints. 
-%		
-%		If the condition has less than $\beta$-many columns, add as many columns as necessary, placing whatever values we want while ensuring the rectangle we produce is Latin. Once we get to the $\beta$th column we then put $\alpha$ somewhere in that column (potentially adding a new row to do this if we've already put $\alpha$ in all of the existing rows) producing the Latin rectangle $l'$ extending $l$. We've produced a Latin rectangle with the right value in the right position. 
-%To ensure that the new condition we produce is row complete under permuting columns, run through the same exact immunization procedure as outlined above, to produce a new condition which extends $l'$ (and thus also $l$) in the dense set as required.
 		
 		\item For each $\alpha, \beta < \kappa$, the set $E_{\alpha, \beta}=\set{l \in \P}{\text{$l$ has a symbol in row $\alpha$, column $\beta$}}$ is dense.
 		
@@ -365,8 +356,7 @@ We enumerate the listed dense sets into a sequence $\set{D_\alpha}{\alpha<\kappa
 
 Proceed the same way as in the proof of Theorem~\ref{th:T_infty}. Given an initial segment of this sequence $\seq{l_\alpha}{\alpha<\lambda}$, notice that $l_\lambda'=\bigcup_{\alpha<\lambda}l_\alpha$ is a condition, since the growth rate of the sequence is not too high. We then let $l_\lambda$ be any extension of $l_\lambda'$ in $D_\lambda$.
 
-We have produced $L=\cup \set{l_\alpha}{\alpha<\kappa}$, which defines a Latin square with the desired properties. Indeed, by meeting the dense sets we have ensured that the square is total and that every column and row contain all ordinals below $\kappa$. Moreover, if $L$ failed to be Latin, this failure would show up in some approximation $l_\alpha$, but these are all Latin, so $L$ must be as well. Finally, it isn't possible to permute columns in $L$ to obtain a row-complete square, since then it would be possible to permute the columns in some large enough $l_\alpha$, but each $l_\alpha$ is immune so that can't happen. 
-%Say more here? Like, find some closure point for the permutation and also for the symbols used in the smaller rectangle.
+We have produced $L=\cup \set{l_\alpha}{\alpha<\kappa}$, which defines a Latin square with the desired properties. Indeed, by meeting the dense sets we have ensured that the square is total and that every column and row contain all ordinals below $\kappa$. Moreover, if $L$ failed to be Latin, this failure would show up in some approximation $l_\alpha$, but these are all Latin, so $L$ must be as well. Finally, it isn't possible to permute columns in $L$ to obtain a row-complete square. To see this, suppose otherwise, that we could produce a row-complete Latin square $L^*$ by permuting columns of $L$. Then take the first three columns of $L^*$. These correspond to some columns, say $\alpha$, $\beta$, and $\gamma$, of $L$. There has to be a condition, say $l_\delta$, in which all three of these columns are nonempty for the first time. In that stage, we made sure that $l_\delta$ was immune; meaning every region obtained by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance one. In the way we performed the immunization procedure, we made sure that if you were to permute columns so that columns $\alpha$, $\beta$, and $\gamma$ were all ``next" to each other (according to the ordered field $\F_\kappa$), there would be a three by three Latin square somewhere, which can't be row-complete. This contradicts $L'$ being row-complete. So $L$ is a Latin square of size $\kappa$ which cannot be made row-complete by permuting columns, as desired.
 \end{proof}
 
 
@@ -528,7 +518,7 @@ Similar approaches for Vatican squares quickly run into difficulties.
 
 Let~$G$ be a group and~$\theta: G \rightarrow G$ a bijection.  If $g \mapsto g^{-1}\theta(g)$ is a bijection then~$\theta$ is an {\em orthomorphism}; if  $g \mapsto g\theta(g)$ is a bijection then~$\theta$ is a {\em complete mapping}.  Two orthomorphisms, $\theta, \phi$ are {\em orthogonal} if $g \mapsto \theta(g)^{-1} \phi(g)$ is a bijection.
 
-Let~$L$ be the Cayley table of a group~$G = \{ g_i : i \in I \}$ that has $ij$th entry $g_i g_j$ and for any bijection~$\theta: G \rightarrow G$ define~$L_\theta$ to be the Latin square with $ij$th entry $g_i \theta(g_j)$.  If~$\theta$ is an orthomorphism then~$L_\theta$ is orthogonal to~$L$ and if~$\theta$ and~$\phi$ are orthomorphisms then~$L_\theta$ is orthogonal to~$L_\phi$; see, for example, \cite{Evans07}.
+Let~$L$ be the Cayley table of a group~$G = \{ g_i : i \in I \}$ that has $ij^{\rm th}$ entry $g_i g_j$ and for any bijection~$\theta: G \rightarrow G$ define~$L_\theta$ to be the Latin square with $ij^{\rm th}$ entry $g_i \theta(g_j)$.  If~$\theta$ is an orthomorphism then~$L_\theta$ is orthogonal to~$L$ and if~$\theta$ and~$\phi$ are orthogonal orthomorphisms then~$L_\theta$ is orthogonal to~$L_\phi$; see, for example, \cite{Evans07}.
 
 It's known that every infinite group has an orthomorphism~\cite{Bateman50}, so there is a pair of orthogonal Latin squares at every infinite order.  In~\cite{BM91}, countably many orthogonal Latin squares of countable order are constructed using mutually orthogonal orthomorphisms (although without using this terminology) of a specific countably infinite group.
 
@@ -571,7 +561,7 @@ The only difference between a directed~$R_{\infty}$-terrace and a directed $T_{\
 This immediately gives:
 
 \begin{cor}
-There is a set of~$\kappa$ mututally orthogonal Latin squares of order~$\kappa$ for all infinite cardinalities~$\kappa$.
+There is a set of~$\kappa$ muttally orthogonal Latin squares of order~$\kappa$ for all infinite cardinalities~$\kappa$.
 \end{cor}
 
 As with directed $T_{\infty}$-terraces, we can now ask which infinite groups have (or do not have) directed $R_{\infty}$-terraces.
@@ -579,13 +569,15 @@ As with directed $T_{\infty}$-terraces, we can now ask which infinite groups hav
 If we do not insist that our orthomorphisms come from directed R-terraces we can completely remove the restrictions on the groups:
 
 \begin{thm}
-Let~$G$ be a group of infinite order~$\kappa$.  Then~$G$ has a set of $\kappa$ mutually orthogonal orthomorphisms and can hence be used to construct a set of~$\kappa$ mututally orthogonal squares of order~$\kappa$.
+Let~$G$ be a group of infinite order~$\kappa$.  Then~$G$ has a set of $\kappa$ mutually orthogonal orthomorphisms and can hence be used to construct a set of~$\kappa$ mutually orthogonal squares of order~$\kappa$.
 \end{thm}
 
 \begin{proof}
-We build the required set of mutually orthogonal orthomorphisms of~$G$ by transfinite induction on~$\kappa$.
+We build the required set of mutually orthogonal orthomorphisms of~$G$ by transfinite induction on~$\kappa$.  One difference to earlier proofs is that rather than partial functions the approximations to the desired object are sets of partial functions.
 
-Let~$I$ be a set of size~$\kappa$.  Let $\P$ be the poset whose elements are sets of the form~$\d=\{ \theta_i : i \in I \}$ of partial injective functions from~$G$ to~$G$ with $|\bigcup_{i} \dom \theta_i|  < \kappa$ and are sets of mutually orthogonal partial orthomormorphisms in the sense that the partial functions $\eta_i: g \mapsto g^{-1}\theta_i(g)$ and~$\eta_{ij}: g \mapsto \theta_i^{-1}(g)\theta_j(g)$ (where~$i \neq j$) are also injective.
+Let~$I$ be a set of size~$\kappa$.  Let $\P$ be the poset whose elements are sets of the form~$\d=\{ \theta_i : i \in I \}$ of partial injective functions from~$G$ to~$G$ with $|\bigcup_{i} \dom \theta_i|  < \kappa$ and are sets of mutually orthogonal partial orthomormorphisms in the sense that the partial functions $\eta_i: g \mapsto g^{-1}\theta_i(g)$ and~$\eta_{ij}: g \mapsto \theta_i^{-1}(g)\theta_j(g)$ (where~$i \neq j$) are also injective.  Let~$\a = \{ \theta'_i : i \in I \}$ and~$\b = \{ \theta_i : i \in I \}$.
+The relation on~$\P$ is given by~$\a \leq \b$ if and only if for each~$i \in I$ we have that $\theta'_i$ extends~$\theta_i$ as a function;  that is,  $\dom \theta_i \subseteq \dom \theta'_i$ and $\theta'_i \rest \dom \theta_i = \theta_i$.
+
 
 There are four requirements that the approximations have to meet.  We show that the set of conditions satisfying each of them is dense.
 
@@ -603,7 +595,7 @@ Set~$\theta_i(g) = h$.
 
 \item For each~$i \in I$ and~$h \in G$, the set $E_i^h = \{ {\bf d} \in \P : h \in \ran \eta_i \}$ is dense.
 
-Let~${\bf a}$ in~$\P$ with~$h \not\in \ran \eta_i$.  We need a~${\bf d} \in E_i^h$ with~$h \in \ran \eta_i$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose a~$g$ such that $g \not\in \dom \theta_j$ for any~$j$ (including $j=i$) and $gh \not\in \ran \theta_i$.  These choices are possible because the restricted sets in each case have size smaller than~$\kappa$.  Define~$\theta_i(g) = gh$  and hence $\eta_i(g) = h$.   
+Let~${\bf a}$ in~$\P$ with~$h \not\in \ran \eta_i$.  We need a~${\bf d} \in E_i^h$ with~$h \in \ran \eta_i$ and ${\bf d} \leq {\bf a}$.  To extend~${\bf a}$ to~${\bf d}$, choose a~$g$ such that $g \not\in \dom \theta_j$ for any~$j$ (including $j=i$) and $gh \not\in \ran \theta_i$.  These choices are possible because the restricted sets in each case have size smaller than~$\kappa$.  Set~$\theta_i(g) = gh$  and hence $\eta_i(g) = h$.   
 
 
 \item For each~$i,j \in I$, with~$i \neq j$, and~$h \in G$, the set $E_{ij}^h = \{ {\bf d} \in \P : h \in \ran \eta_{ij} \}$ is dense.
@@ -629,17 +621,20 @@ The transfinite induction now goes through as usual.
 
 
 Another embellishment of the complete mapping concept is the strong complete mapping:
-If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.  The following result generalises that every countably infinite group has a strong complete mapping, proved in~\cite{Evans12}.
+If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.   
+
+In~\cite{Evans12} it is claimed that every countably infinite group has a strong complete mapping.  The following result generalizes that to groups of arbitrary infinite order using essentially the same construction.  However, for the argument to go through we need that the group is squareful (recall that~$G$ is squareful if $|\{g^2 : g \in G \}| = |G|$), a condition that also seems to be required for the argument in~\cite{Evans12}.
+
+%The following result generalises that every countably infinite group has a strong complete mapping, proved in~\cite{Evans12}.
 
 \begin{thm}
-Let~$G$ be a group of infinite order~$\kappa$.  Then~$G$ has a strong complete mapping.
+Let~$G$ be a squareful group of infinite order~$\kappa$.  Then~$G$ has a strong complete mapping.
 \end{thm}
 
 \begin{proof}
+We again use transfinite induction on~$\kappa$.   Let $\P$ be the poset whose elements are partial strong complete mappings (i.e.~injective partial functions~$\theta$ such that $\eta: g \mapsto g^{-1}\theta(g)$ and $\zeta: g \mapsto g\theta(g)$ are also injective) with domain of size less than~$\kappa$.  The relation is given by~$\theta' \leq \theta$ when $\dom \theta \subseteq \dom \theta'$ and $\theta' \rest \dom \theta = \theta$.
 
-Let $\P$ be the poset whose elements are partial strong complete mappings (i.e.~injective partial functions~$\theta$ such that~$\eta: g \mapsto g^{-1}\theta(g)$ and~$\zeta: g \mapsto g\theta(g)$ are also injective) with domain of size less than~$\kappa$.
-
-
+We show that the sets of conditions meeting the requirements are dense.
 
 \begin{enumerate}
 
@@ -657,19 +652,16 @@ To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$
 \item For each~$h \in G$ the set  $D_h^{\eta} = \{ \theta \in \P : g \in \ran \eta \}$ is dense.
 
 Let~$\theta$ in~$\P$ with~$h \not\in \ran \eta$.  We need a~$\theta' \in D_h$ with~$h \in \ran \eta'$ and $\theta' \leq \theta$.
-To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $gh \not\in \ran \theta$ and $g^2h \not\in \ran \zeta$ and set~$\theta'(g) = gh$.  Such a~$g$ \texttt{might not exist unless we insist on squarefulness or something.}
+To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $gh \not\in \ran \theta$ and $g^2h \not\in \ran \zeta$ and set~$\theta'(g) = gh$.  Such a~$g$ exists as~$G$ is squareful and so the number of restricted elements is less than~$\kappa$.
 
 
 \item For each~$h \in G$ the set  $D_h^{\zeta} = \{ \theta \in \P : g \in \ran \zeta \}$ is dense.
 
 Let~$\theta$ in~$\P$ with~$h \not\in \ran \zeta$.  We need a~$\theta' \in D_h$ with~$h \in \ran \zeta'$ and $\theta' \leq \theta$.
-To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $g^{-1}h \not\in \ran \theta$ and $g^{-2}h \not\in \ran \eta$ and set~$\theta'(g) = h$.  Such a~$g$ \texttt{also might not exist unless we insist on squarefulness or something.}
-
-
-
-
+To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$, $g^{-1}h \not\in \ran \theta$ and $g^{-2}h \not\in \ran \eta$ and set~$\theta'(g) = h$.  Such a~$g$ exists as~$G$ is squareful and so the number of restricted elements is less than~$\kappa$.
 \end{enumerate}
 
+The result follows.
 \end{proof}
 
 
@@ -776,7 +768,7 @@ A.~J.~W.~Hilton and J.~Wojciechowski, Amalgamating infinite Latin squares, {\em 
 M.~A.~Ollis, New complete Latin squares of odd order, {\em Europ.~J.~Combin.}~{\bf 41} (2014) 35--46.
 
 \bibitem{OllisTFSG}
-M.~A.~Ollis, Terraces for small groups, {\em J. Combin. Math. Comput.} (to appear).
+M.~A.~Ollis, Terraces for small groups, {\em J.~Combin.~Math.~Comput.} (to appear).
 
 \bibitem{Owens76}
 P.~J.~Owens,  Solutions to two problems of Denes and Keedwell on row-complete
