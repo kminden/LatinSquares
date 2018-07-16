@@ -662,14 +662,27 @@ To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$
 The result follows.
 \end{proof}
 
-In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. For a latin square $L$ of countably infinite order we may assume that the rows and columns of $L$ are indexed by $\mathbb{Z}$. The {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in\mathbb{Z}$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in\mathbb{Z}$. We say that a latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
+%In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. For a latin square $L$ of countably infinite order we may assume that the rows and columns of $L$ are indexed by $\mathbb{Z}$. The {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in\mathbb{Z}$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in\mathbb{Z}$. We say that a latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
 
-\begin{thm}
-There exists a Knut Vic design of countably infinite order.
+%\begin{thm}
+%There exists a Knut Vic design of countably infinite order.
+%\end{thm}
+%\begin{proof}
+%Let $\theta$ be a strong complete mapping of $\mathbb{Z}$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the latin square, with rows and columns indexed by $\mathbb{Z}$, with symbol set $\mathbb{Z}$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
+%\end{proof}
+
+In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. 
+
+For a latin square $L$ of infinite order~$\kappa$ we may assume that the rows and columns of $L$ are indexed by an abelian group~$A$ of order~$\kappa$.  For~$k \in A$, the {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in A$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in A$.  When~$A$ is $\Z$ or~$\R$, these definitions naturally extend the geometric sense of the finite case to the plane.   We say that a latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
+
+\begin{thm}\label{th:infKV}
+There exists a Knut Vic design of every infinite order~$\kappa$.
 \end{thm}
 \begin{proof}
-Let $\theta$ be a strong complete mapping of $\mathbb{Z}$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the latin square, with rows and columns indexed by $\mathbb{Z}$, with symbol set $\mathbb{Z}$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
+Let~$A$ be a squareful abelian group of order~$\kappa$ and let $\theta$ be a strong complete mapping of $A$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the latin square, with rows and columns indexed by $A$, with symbol set $A$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
 \end{proof}
+
+Choosing~$A \in \{ \Z, \R \}$ in the proof of Theorem~\ref{th:infKV} gives a Knut Vic design embedded in the plane with a natural geometric interpretation.
 
 Recall that, for a group $G=\{g_i : i\in I\}$, the {\em Cayley table} of $G$ is the latin square with $ij$th entry $g_ig_j$. The {\em normal multiplication table} of $G$ is the latin square with $ij$th entry $g_ig_j^{-1}$.
 
