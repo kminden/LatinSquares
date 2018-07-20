@@ -36,7 +36,6 @@
 \newcommand{\rest}{\mathbin{\upharpoonright}}
 \newcommand{\To}{\longrightarrow}
 
-
 \newcommand{\st}{\; | \;}
 \newcommand{\set}[2]{\left\{#1\st #2 \right\}}
 \newcommand{\seq}[2]{\langle #1 \st #2 \rangle}
@@ -50,11 +49,6 @@
 \newcommand{\e}{\textup{\textbf{e}}}
 \newcommand{\f}{\textup{\textbf{f}}}
 \renewcommand{\r}{\overline r}
-
-%\setlength{\parindent}{0in}
-%\setlength{\parskip}{3mm}
-
-
 
 \begin{document}
 
@@ -76,7 +70,6 @@
               {\it ${}^3$Marlboro College, P.O.~Box A, Marlboro,} \\    
               {\it Vermont 05344, USA.} }
 
-%\date{}
 
 \maketitle
 
@@ -119,7 +112,6 @@ It follows from the axiom of choice that for any set $X$, there is a bijection b
 
 We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are naturally embedded in~$\R^2$.
 
-%Maybe this definition should be moved/repeated in the next section.
 Let~$\F$ be an ordered field and let~$I \subseteq \F$.   For each~$d \in \F^+$ let~$I_{(d)} = \set{ i \in I }{  i+d \in I }$.  If $|I| = |\F|$ and for each~$d$ we have either $|I_{(d)}| = |\F|$ or~$|I_{(d)}| = 0$, then~$I$ is an {\em index set}.   For our purposes, we may assume that~$I_{(1)} \neq \emptyset$ without loss of generality.
 
 Given an index set~$I$, a {\em Latin square} on~$I$ with symbol set~$X$ is a function $L: I \times I \rightarrow X$ such that for each~$i \in I$ the restriction of $L$ to $I \times \{i\}$ is a bijection with~$X$, as is the restriction to~$\{i\} \times I$.   In other words, each symbol appears once in each ``row" and once in each ``column."  
@@ -150,7 +142,7 @@ All of the results for Vatican squares transfer to the semi-Vatican case with li
 
 Moving to orthogonality, two finite Latin squares on a symbol set~$X$ are orthogonal if for  each pair~$(x_1, x_2) \in X \times X$ there is exactly one position such that~$x_1$ is in that position in the first square and~$x_2$ is in that position in the second pair.  This definition carries over without modification to the infinite case (the countable version of which is given in \cite[p.~116]{DK15}).
 
-In Section~\ref{sec:orth} we see that the methods from Section~\ref{sec:cayley} may be quickly adapted to produce sets of~$\kappa$ mutually orthogonal Latin squares of order~$\kappa$ for all infinite orders~$\kappa$ via Cayley tables of abelian squareful groups.  This is analogous to the finite construction of ``orthomorphisms" via ``R-sequencings".   We also construct orthomorphisms directly, finding $\kappa$ mutually orthogonal orthomorphisms for each group of infinite order~$\kappa$ and show that some infinite groups have strong complete mappings.
+In Section~\ref{sec:orth} we see that the methods from Section~\ref{sec:cayley} may be quickly adapted to produce sets of~$\kappa$ mutually orthogonal Latin squares of order~$\kappa$ for all infinite orders~$\kappa$ via Cayley tables of abelian squareful groups.  This is analogous to the finite construction of ``orthomorphisms" via ``R-sequencings".   We also construct orthomorphisms directly, finding $\kappa$ mutually orthogonal orthomorphisms for each group of infinite order~$\kappa$ and show that many infinite groups have strong complete mappings.
 
 
 \section{Vatican squares from groups}\label{sec:cayley}
@@ -189,8 +181,7 @@ The construction will proceed by building better and better approximations to th
 We organize these constructions as follows. In each case we consider the partially ordered set $\P=\langle \P, \leq\rangle$, consisting of the approximations under consideration. Following established set-theoretic practice, we call elements of $\P$ conditions, and they are ordered so that $p\leq q$ if $p$ is a better approximation than $q$ (we say that $p$ is a stronger condition than $q$, or that it extends $q$).  Our inductive construction thus amounts to building a descending chain of conditions, at each step meeting a requirement. A major part of our proofs is showing that, given a requirement, any condition can be extended to meet it. This is usually phrased in terms of the set of conditions which satisfy the requirement being dense (in the sense of the order topology, i.e., for a set to be dense, any condition has an extension in this set). The key is is to judiciously pick out the dense sets in the poset which enable the object we are trying to build to clearly satisfy our desired properties.
 
 \begin{thm}\label{th:T_infty}
-Let~$G$ be an abelian squareful group% of regular infinite order
-. Then~$G$ has a directed $T_{\infty}$-terrace.
+Let~$G$ be an abelian squareful group. Then~$G$ has a directed $T_{\infty}$-terrace.
 \end{thm}
 
 \begin{proof}
@@ -243,8 +234,7 @@ Let $$\mathcal D = \set{D_i}{i\in I} \cup \set{D_g}{g\in G} \cup \set{D^d_g}{d \
 
 We will define a descending sequence of conditions $\seq{\b_\alpha}{\alpha<\kappa}$ by transfinite induction, ensuring that $\b_\alpha\in \mathcal D_\alpha$ and $|\b_\alpha|<|\alpha+\omega|$, so that the sequence isn't growing at too fast a rate, at each step. (We saw it is possible to meet the dense sets without growing the conditions too fast while showing that each set in $\mathcal D$ is dense.) Assume that we have built an initial segment of this sequence $\seq{\b_\alpha}{\alpha<\lambda}$, and we wish to construct the condition $\b_\lambda$ in the next step. First notice that $\b_\lambda'=\bigcup_{\alpha<\lambda}\b_\alpha$ is itself a condition. This is because the only requirements are that $\b_\lambda'$ and $(\b_\lambda')_{(d)}$ be injective functions, and this
 will be true if it was true for every earlier $\b_\alpha$. Furthermore, the domain of $\b_\lambda'$ is just the union of the domains of the earlier $\b_\alpha$ and each $\b_\alpha$ has size at most $|\alpha+\omega|$, 
-so $\b_\lambda'$ itself is smaller than $\kappa$. %since $\kappa$ is regular.~\footnote{This seems to be the only place where regularity is used, and I don't think it is needed, but singular (non-regular) cardinals are weird.}
-We can now let $\b_\lambda$ be any extension of $\b_\lambda'$ in $\mathcal{D}_\lambda$; such an extension exists since we showed that
+so $\b_\lambda'$ itself is smaller than $\kappa$. We can now let $\b_\lambda$ be any extension of $\b_\lambda'$ in $\mathcal{D}_\lambda$; such an extension exists since we showed that
 $\mathcal{D}_\lambda$ is dense.
 
 By construction, $\bigcup_{\alpha<\kappa}\b_\alpha$ defines a directed $T_\infty$-terrace $\b: I \To G$ as desired:
@@ -284,13 +274,12 @@ for all~$d$ for which $\a(i+d)$ and $\a(i-d)$ are both defined.  As $(\d(i))^2$ 
 
 
 
-The results of the previous section raise the question about what is and is not possible for infinite squares more generally.   Perhaps {\em all} countably infinite squares may be made complete, or even Vatican, with a suitable permutation of their rows and columns?   In a similar vein, it is known that all infinite Steiner triple systems are resolvable~\cite{DHW14}, an uncommon property among finite systems. However, Theorem~\ref{th:notrcls} scuppers this possibility, showing that for every index set (and hence every infinite order) there is a square that cannot be made row-complete via permuting columns.
+The results of the previous section raise the question about what is and is not possible for infinite squares more generally.   Perhaps {\em all} countably infinite squares may be made complete, or even Vatican, with a suitable permutation of their rows and columns?   In a similar vein, it is known that all infinite Steiner triple systems are resolvable~\cite{DHW14}, an uncommon property among finite systems. However, Theorem~\ref{th:notrcls} eliminates this possibility, showing that for every index set (and hence every infinite order) there is a square that cannot be made row-complete via permuting columns.
 
 In the other direction, a question asked (and answered positively) about finite squares was whether there exist row-complete Latin squares that are not based on groups, see \cite{CE91, DK15, Owens76}.  We answer the infinite version of this question, also positively, in Theorem~\ref{th:infvat}.  Indeed, this result gives a Vatican square that is not group-based for every index set.   All known finite Vatican squares are based on groups.
 
 \begin{thm}\label{th:notrcls}
-For every index set~$I$ %of regular size, 
-there is a Latin square on~$I$ that cannot be made row-complete by permuting columns.
+For every index set~$I$ there is a Latin square on~$I$ that cannot be made row-complete by permuting columns.
 \end{thm}
 
 \begin{proof}
@@ -324,26 +313,26 @@ We again list the requirements that the approximations will have to meet and sho
 		To illustrate the technique, let's say that we would like to add the number $3$ to row $0$ in our initial immune Latin rectangle $l_{-1}$. Following the described algorithm, we first produce
 		the following region $l_{-1}'$ 
 		$$\begin{array}{cccc}
-			2  & 0   &  1 &  \\ 
-			1 & 2 &  0  &\\
+			2  & 0   &  1 & .  \\ 
+			1 & 2 &  0  & . \\
 			 0  & 1 & 2 & \color{red} 3
-		\end{array}.$$
+		\end{array}$$
 		We added 3 to the first row of a new column. In this example, there are 4 columns available and thus 4 possible combinations of 3 columns, so we end up adding 12 new rows to the top of our condition.		
 		$$\begin{array}{cccc}
-						&\color{blue}15& \color{blue}13&\color{blue}14\\
-						&\color{blue}14&\color{blue}15&\color{blue}13\\
-						&\color{blue}13&\color{blue}14&\color{blue}15\\
-						\color{cyan}12&&\color{cyan}10&\color{cyan}11\\
-						\color{cyan}11&&\color{cyan}12&\color{cyan}10\\
-						\color{cyan}10&&\color{cyan}11&\color{cyan}12\\
-						\color{blue}9&\color{blue}7&&\color{blue}8\\
-						\color{blue}8&\color{blue}9&&\color{blue}7\\
-						\color{blue}7&\color{blue}8&&\color{blue}9\\
-						\color{cyan}6&\color{cyan}4&\color{cyan}5&\\
-						\color{cyan}5&\color{cyan}6&\color{cyan}4&\\
-						\color{cyan}4&\color{cyan}5&\color{cyan}6&\\
-						2  & 0   &  1 &\\ 
-						1 & 2 &  0 &  \\
+						. &\color{blue}15& \color{blue}13&\color{blue}14\\
+						. &\color{blue}14&\color{blue}15&\color{blue}13\\
+						. &\color{blue}13&\color{blue}14&\color{blue}15\\
+						\color{cyan}12&.&\color{cyan}10&\color{cyan}11\\
+						\color{cyan}11&.&\color{cyan}12&\color{cyan}10\\
+						\color{cyan}10&.&\color{cyan}11&\color{cyan}12\\
+						\color{blue}9&\color{blue}7&.&\color{blue}8\\
+						\color{blue}8&\color{blue}9&.&\color{blue}7\\
+						\color{blue}7&\color{blue}8&.&\color{blue}9\\
+						\color{cyan}6&\color{cyan}4&\color{cyan}5&.\\
+						\color{cyan}5&\color{cyan}6&\color{cyan}4&.\\
+						\color{cyan}4&\color{cyan}5&\color{cyan}6&.\\
+						2  & 0   &  1 &. \\ 
+						1 & 2 &  0 & . \\
 						0  & 1 & 2 & {\textcolor{red} 3}
 		\end{array}$$
 	
@@ -371,7 +360,7 @@ are satisfied then $a_{k_1l_1} = a_{k_2l_2}$ \cite[Theorem~1.2.1]{DK15}.  That i
 
 
 \begin{thm}\label{th:infvat}
-For every index set~$I$ %of regular size 
+For every index set~$I$  
 there is a Vatican square on~$I$ that is not based on a  group.
 \end{thm}
 
@@ -403,19 +392,19 @@ We build a descending chain of conditions $l_\alpha$, starting with $l_{-1}$, in
 	
 	For example, if $\F_\kappa$ has the usual ordering on the natural numbers, in the above square $l_{-1}$, this is how we would add 0 to the bottom row:
 $$\begin{array}{cccccccc}
-	0 & 5 & 6 & 1 \\ 
-	7 &  0 & 1 & 8  \\
-	9 & 2 & 3 & 10 \\
-	2 & 11 & 12 & 4 & & & & \color{red}0
+	0 & 5 & 6 & 1 &.&.&.&.\\ 
+	7 &  0 & 1 & 8 &.&.&.&. \\
+	9 & 2 & 3 & 10&.&.&.&. \\
+	2 & 11 & 12 & 4 & . & . & . & \color{red}0
 \end{array}$$
 and if we would like to add 0 to the sixth row:
 $$\begin{array}{ccccccc}
-	 & & & & \color{red} 0\\
-	 &  & & \\
-	0 & 5 & 6 & 1 \\ 
-	7 &  0 & 1 & 8 \\
-	9 & 2 & 3 & 10 \\
-	2 & 11 & 12 & 4
+	. & .& .& .& \color{red} 0\\
+	. & . &. & . & .\\
+	0 & 5 & 6 & 1 & .  \\ 
+	7 &  0 & 1 & 8 & . \\
+	9 & 2 & 3 & 10 & . \\
+	2 & 11 & 12 & 4 & .
 \end{array}$$
 
 	
@@ -433,11 +422,11 @@ $$\begin{array}{ccccccc}
 	
 	For example, with our starting square $l_{-1}$, this is how we would extend it to have 0 and 1 be distance 2 apart (if the field $\F_\kappa$ has the same ordering on finite numbers that the natural numbers do):
 $$\begin{array}{ccccccc}
-	& & & & \color{red}0 & &\color{red}1\\
-	0 & 5 & 6 & 1 \\ 
-	7 &  0 & 1 & 8  \\
-	9 & 2 & 3 & 10 \\
-	2 & 11 & 12 & 4 
+	. &.  &.  & . & \color{red}0 & . &\color{red}1\\
+	0 & 5 & 6 & 1 &. &. &. \\ 
+	7 &  0 & 1 & 8 &. &. &.  \\
+	9 & 2 & 3 & 10 &. &. &. \\
+	2 & 11 & 12 & 4 &. &. &. 
 \end{array}$$
 	
 	\item For each $\alpha, \beta<\kappa$ and $d \in \F_\kappa^+$, the set $$E_d^{\alpha, \beta}=\set{l \in \P}{\text{$\alpha$, $\beta$ appear at distance $d$ apart in some column of $p$, in that order}}$$ is dense.
@@ -621,9 +610,7 @@ The transfinite induction now goes through as usual.
 Another embellishment of the complete mapping concept is the strong complete mapping:
 If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.   
 
-In~\cite{Evans12} it is claimed that every countably infinite group has a strong complete mapping.  The following result generalizes that to groups of arbitrary infinite order using essentially the same construction.  However, for the argument to go through we need that the group is squareful (recall that~$G$ is squareful if $|\{g^2 : g \in G \}| = |G|$), a condition that is required for the argument in~\cite{Evans12}, but which was not included.
-
-%The following result generalises that every countably infinite group has a strong complete mapping, proved in~\cite{Evans12}.
+In~\cite{Evans12} it is claimed that every countably infinite group has a strong complete mapping.  The following result generalizes that to groups of arbitrary infinite order using essentially the same construction.  However, for the argument to go through we need that the group is squareful (recall that~$G$ is squareful if $|\{g^2 : g \in G \}| = |G|$), a condition that is required for the argument in~\cite{Evans12}, but which was not included.  In Theorem~\ref{thm:InftyAbSCM} we construct strong complete mappings for many non-squareful abelian groups.
 
 \begin{thm}\label{thm:squarefulSCM}
 Let~$G$ be a squareful group of infinite order~$\kappa$.  Then~$G$ has a strong complete mapping.
@@ -662,37 +649,6 @@ To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$
 The result follows.
 \end{proof}
 
-%In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct Latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a Latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a Latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. For a Latin square $L$ of countably infinite order we may assume that the rows and columns of $L$ are indexed by $\mathbb{Z}$. The {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in\mathbb{Z}$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in\mathbb{Z}$. We say that a Latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
-
-%\begin{thm}
-%There exists a Knut Vic design of countably infinite order.
-%\end{thm}
-%\begin{proof}
-%Let $\theta$ be a strong complete mapping of $\mathbb{Z}$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the Latin square, with rows and columns indexed by $\mathbb{Z}$, with symbol set $\mathbb{Z}$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
-%\end{proof}
-
-In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct Latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a Latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a Latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. 
-
-For a Latin square $L$ of infinite order~$\kappa$ we may assume that the rows and columns of $L$ are indexed by an abelian group~$A$ of order~$\kappa$.  For~$k \in A$, the {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in A$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in A$.  When~$A$ is $\Z$ or~$\R$, these definitions naturally extend the geometric sense of the finite case to the plane.   We say that a Latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
-
-\begin{thm}\label{th:infKV}
-There exists a Knut Vic design of every infinite order~$\kappa$.
-\end{thm}
-\begin{proof}
-Let~$A$ be a squareful abelian group of order~$\kappa$ and let $\theta$ be a strong complete mapping of $A$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the Latin square, with rows and columns indexed by $A$, with symbol set $A$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
-\end{proof}
-
-Choosing~$A \in \{ \Z, \R \}$ in the proof of Theorem~\ref{th:infKV} gives a Knut Vic design embedded in the plane with a natural geometric interpretation.
-
-Recall that, for a group $G=\{g_i : i\in I\}$, the {\em Cayley table} of $G$ is the Latin square with $ij$th entry $g_ig_j$. The {\em normal multiplication table} of $G$ is the Latin square with $ij$th entry $g_ig_j^{-1}$.
-
-\begin{thm}
-If a group $G$ has a strong complete mapping, then there exists a Latin square orthogonal to both the Cayley table of $G$ and the normal multiplication table of $G$.
-\end{thm}
-\begin{proof}
-Let $\theta$ be a strong complete mapping of $G$. Let $L$ be the Latin square with $ij$th entry $g_i\theta(g_j)$. It is routine to show that $L$ is orthogonal to both the Cayley table of $G$ and the normal multiplication table of $G$.
-\end{proof}
-
 Given groups $G_i$, $i\in I$, the {\em direct product}, $\prod_{i\in I}G_i$, is the group with elements $\prod_{i\in I}g_i$, $g_i\in G_i$, multiplication given by $\prod_{i\in I}g_i\prod_{i\in I}h_i=\prod_{i\in I}g_ih_i$. The {\em direct sum}, $\sum_{i\in I}G_i$, is the subgroup of $\prod_{i\in I}G_i$ consisting of elements $\prod_{i\in I}g_i$ in which $g_i\ne 1$ for finitely many values of $i$. 
 
 \begin{thm}\label{thm:direct}
@@ -728,36 +684,46 @@ It is routine to show that $\beta$ is a strong complete mapping of $G$.
 
 It should be noted that no proof of Theorem~\ref{thm:G/H} has been given for non-abelian groups, even in the finite case.
 
-Having answered the question for finite abelian groups, let us turn to infinite abelian groups. The structure of infinite abelian groups is studied in~\cite{Fuchs:2015},~\cite{Kaplansky:1969}, and Chapter 10 of~\cite{Rotman:1995}. Let $A$ be an abelian group written additively. The subgroup 
-\[
-tA=\{a\in A : na=0 \text{ for some positive integer $n$}\}
-\]
- is the {\em torsion subgroup} of $A$: $A$ is a {\em torsion group} if $tA=A$, and a {\em torsion-free group} if $tA=\{0\}$. $A$ is the extension of its torsion subgroup by a torsion free group, $A/tA$ is torsion free. 
- 
- The torsion group of $A$ can be broken down into $p$-primary subgroups. If $p$ is a prime, then the {\em $p$-primary subgroup} of $A$ is defined by 
-\[
-P_p=\{a\in tA : p^na=0\text{ for some positive integer $n$}\}.
-\]
- The torsion subgroup of $A$ is the internal direct sum of its $p$-primary subgroups, $tA\cong\sum_{p\text{ prime}}P_p$.
- 
- An abelian group $G$ is {\em divisible} if, for any $g\in G$ and any positive integer $n$, there exists $h\in G$ satisfying $nh=g$: we say that $g$ is {\em divisible} by $n$. A non-zero element, $g$, of a $p$-primary subgroup, $P_p$, has {\em height} $n$, $n$ a positive integer, if $g$ is divisible by $p^n$ but not $p^{n+1}$: $g$ has {\em infinite height} if $g$ is divisible by all positive integers $n$. The identity has height $0$. Any non-zero element of a divisible group has infinite height. Trivially, the trivial group is a torsion-free group, a torsion group, a divisible group, and a squareful group.
- 
-Each $p$-primary group, $P_p$, of $A$ can be broken down further. Let $F_p$ be the subgroup of $P_p$ consisting of all elements of finite height, and let us define the {\em restricted $p$-subgroup} of $A$ to be the subgroup $E_p$ consisting of the identity and those elements of $F_p$ of height $1$. Now $P_p/F_p$ is divisible, and every non-zero element of $F_p/E_p$ has height greater than one. 
 
-% For an abelian group $A$ and prime $p$, let $F_p$ be the subgroup of the $p$-primary subgroup $P_p$ of $A$ consisting of all elements of finite height: $P_p/F_p$ is divisible. Let us define the {\em restricted $p$-subgroup} of $A$ to be the subgroup $E_p$ consisting of the identity and those elements of $F_p$ of height $1$: every non-zero element of $F_p/E_p$ has height greater than one. 
+Having answered the question for finite abelian groups, let us turn to infinite abelian groups. The structure of infinite abelian groups is studied in~\cite{Fuchs:2015},~\cite{Kaplansky:1969}, and Chapter 10 of~\cite{Rotman:1995}. Let $A$ be an abelian group written additively and let us define the {\em restricted $2$-subgroup} of $A$ to be the subgroup $E_2$ consisting of the identity and involutions that are not squares. 
 
 \begin{thm}\label{thm:InftyAbSCM}
-Let $A$ be an infinite abelian group with $p$-primary subgroups $P_p$, $p$ prime, and restricted $2$-subgroup $E_2$. Then $A$ has a strong complete mapping except, possibly, when $A/E_2$ is finite and $P_3$ is non-trivial and cyclic.
+Let $A$ be an infinite abelian group with restricted $2$-subgroup $E_2$. Then $A$ has a strong complete mapping except, possibly, when $A/E_2$ is finite and has a non-trivial, cyclic Sylow $3$-subgroup.
 \end{thm}
 \begin{proof}
 If $A$ is squareful, then it has a strong complete mapping by Theorem~\ref{thm:squarefulSCM}. Thus, we may assume $A$ not to be squareful, and hence that $E_2$ is infinite. 
 
 We may think of $E_2$ as the additive group of a field $K$. Let $a\in K\setminus\{0,1\}$: $E_2$ has a strong complete mapping, as the mapping $x\mapsto ax$ is a strong complete mapping of $E_2$.
 
-Let $F_2$ be the subgroup of $P_2$ consisting of all elements of finite height. Torsion-free groups are squareful; divisible groups are squareful; if $p\ne 2$ and $P_p$ is infinite, then $P_p$ is squareful; and if $F_2/E_2$ is infinite, then $F_2/E_2$ is squareful. More generally, if $A/E_2$ is infinite, then $A/E_2$ is squareful. By Theorem~\ref{thm:G/H}, it follows that, if $A/E_2$ is infinite, then $A$ has a strong complete mapping.
+If $A/E_2$ is infinite, then $A/E_2$ is squareful. By Theorem~\ref{thm:G/H}, it follows that, if $A/E_2$ is infinite, then $A$ has a strong complete mapping.
 
-If $A/E_2$ is finite, then, by Theorem~\ref{thm:finite2gps}, $A/E_2$ has a strong complete mapping if $P_3$ is trivial or non-cyclic, and $F_2/E_2$ is trivial or non-cyclic. If $F_2/E_2$ is non-trivial and cyclic, let $g\in F_2$ be an element of maximum possible height and let $h\in F_2\setminus\langle g\rangle$ have height $1$. The subgroup $H=\langle g,h\rangle$ has a strong complete mapping by Theorem~\ref{thm:finite2gps}, and $F_2/H\cong E_2$. Thus $F_2$ has a strong complete mapping by Theorem~\ref{thm:G/H}. Hence, if $P_3$ is trivial or non-cyclic, then $A/E_2$ has a strong complete mapping, and hence $A$ has a strong complete mapping.
+If $A/E_2$ is finite, then, by Theorem~\ref{thm:finite2gps}, $A/E_2$ has a strong complete mapping if the Sylow $2$-subgroup of $A/E_2$ is trivial or non-cyclic, and the Sylow $3$-subgroup of $A/E_2$ is trivial or non-cyclic. Let $S$ be the Sylow $2$-subgroup of $A$. If $S/E_2$ is non-trivial and cyclic, let $g\in S$ be of maximum possible order and let $h\in E_2$. The subgroup $H=\langle g,h\rangle$ has a strong complete mapping by Theorem~\ref{thm:finite2gps}, and $S/H\cong E_2$. Thus $S$ has a strong complete mapping by Theorem~\ref{thm:G/H}. Hence, if the Sylow $3$-subgroup of $A/E_2$ is trivial or non-cyclic, then $A/E_2$ has a strong complete mapping, and hence $A$ has a strong complete mapping.
 \end{proof}
+
+
+
+In the finite case, strong complete mappings can be used to construct Knut Vic designs and to construct Latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a Latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vic design} of order $n$ is a Latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set. In~\cite{Hedayat:1977} and~\cite{Hedayat/Federer:1975} it is shown that a Knut Vic design of order $n$ exists if and only if $\gcd(n,6)=1$. 
+
+For a Latin square $L$ of infinite order~$\kappa$ we may assume that the rows and columns of $L$ are indexed by an abelian group~$A$ of order~$\kappa$.  For~$k \in A$, the {\em $k$th left diagonal} of $L$ consists of the cells $(i,k+i)$, $i\in A$; and the {\em $k$th right diagonal} of $L$ consists of the cells $(i,k-i)$, $i\in A$.  When~$A$ is $\Z$ or~$\R$, these definitions naturally extend the geometric sense of the finite case to the plane.   We say that a Latin square $L$ is a {\em Knut Vic design} if each left diagonal, and each right diagonal contains each symbol exactly once.
+
+\begin{thm}\label{th:infKV}
+There exists a Knut Vic design of every infinite order~$\kappa$.
+\end{thm}
+\begin{proof}
+Let~$A$ be a squareful abelian group of order~$\kappa$ and let $\theta$ be a strong complete mapping of $A$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the Latin square, with rows and columns indexed by $A$, with symbol set $A$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vic design.
+\end{proof}
+
+Choosing~$A \in \{ \Z, \R \}$ in the proof of Theorem~\ref{th:infKV} gives a Knut Vic design embedded in the plane with a natural geometric interpretation.
+
+Recall that, for a group $G=\{g_i : i\in I\}$, the {\em Cayley table} of $G$ is the Latin square with $ij$th entry $g_ig_j$. The {\em normal multiplication table} of $G$ is the Latin square with $ij$th entry $g_ig_j^{-1}$.
+
+\begin{thm}
+If a group $G$ has a strong complete mapping, then there exists a Latin square orthogonal to both the Cayley table of $G$ and the normal multiplication table of $G$.
+\end{thm}
+\begin{proof}
+Let $\theta$ be a strong complete mapping of $G$. Let $L$ be the Latin square with $ij$th entry $g_i\theta(g_j)$. It is routine to show that $L$ is orthogonal to both the Cayley table of $G$ and the normal multiplication table of $G$.
+\end{proof}
+
 
 \section*{Acknowledgements}
 
@@ -769,23 +735,6 @@ This work was partly funded by a Marlboro College Faculty Professional Developme
 
 \bibitem{Anderson90} 
 B.~A.~Anderson, Some quasi-2-complete Latin squares, {\em Congr. Numer.} {\bf 70} (1990) 65--79.
-
-%\bibitem{AandI92}
-%B.~A.~Anderson and E.~C.~Ihrig.
-%\newblock All groups of odd order have starter-translate 2-sequencings,
-%\newblock {\em Australas. J. Combin.} {\bf 6} (1992) 135--146.
-
-%\bibitem{AandI93} B.~A.~Anderson and E.~C.~Ihrig,
-%Symmetric sequencings of non-solvable groups,
-%{\em Congr. Numer.} {\bf 93} (1993) 73--82.
-
-
-%\bibitem{Bailey84}
-%R.~A.~Bailey,
-%Quasi-complete {L}atin squares: construction and randomization,
-%{\em J.~Royal Statist. Soc. Ser. B} {\bf 46} (1984) 323--334.
-
-
 
 \bibitem{Bateman50}
 P.~T.~Bateman, A remark on infinite groups, {\em Amer.~Math.~Monthly} {\bf 57} (1950), 623--624.
@@ -815,10 +764,10 @@ J.~D{\'e}nes and A.~D.~Keedwell, {\em Latin Squares and Their Applications (2nd 
 \bibitem{EGT89}
 T.~Etzion, S.~W.~Golomb, and H.~Taylor, Tuscan-$K$ squares, {\em Advances in Applied Math.} {\bf 10} (1989) 164--174.
 
-%%
+
 \bibitem{Evans:1990}
 A.~B.~Evans, On strong complete mappings, {\em Congr. Numer.} {\bf 70} (1990) 241--248.
-%%
+
 
 \bibitem{Evans07}
 A.~B.~Evans, 
@@ -827,27 +776,17 @@ Complete mappings and sequencings of finite groups, in {\em The Handbook of Comb
 \bibitem{Evans12}
 A.~B.~Evans, The existence of strong complete mappings, {\em Electronic J.~Combin.}~{\bf 19} (2012), \#P34.
 
-%%
+
 \bibitem{Fuchs:2015}
 L.~Fuchs, {\em Infinite Abelian Groups}, Springer (2015).
-%%
-
-%\bibitem{Gallian}
-%J.~A.~Gallian, A dynamic survey of graph labellings, Electron. J. Combin. {\bf DS6} (2001--2010), 246pp.
-
-%\bibitem{gap}
-%{{G}{A}{P} group}.
-%\newblock {G}{A}{P}---{G}roups, {A}lgorithms, and {P}rogramming, {V}ersion 4, 1999.
 
 \bibitem{Gordon61} B.~Gordon, Sequences in groups with distinct partial products, {\em Pacific J. Math.} {\bf 11} (1961) 1309--1313.
 
-%%
-\bibitem{Hedayat:1977} A.~Hedayat, A complete solution to the existence and non-existence of Knut Vic designs and orthogonal Knut Vic, {\em J. Comb. Theory A} {\bf 22}  (1977) 331--337.
-%%
 
-%%
+\bibitem{Hedayat:1977} A.~Hedayat, A complete solution to the existence and non-existence of Knut Vic designs and orthogonal Knut Vic, {\em J. Comb. Theory A} {\bf 22}  (1977) 331--337.
+
 \bibitem{Hedayat/Federer:1975} A.~Hedayat and W.~T.~Federer, On the non-existence of Knut Vic designs for all even orders, {\em Ann. Statist.} {\bf 3} (1975) 445--447.
-%%
+
 
 \bibitem{Higham98} 
 J.~Higham, Row-complete Latin squares of every composite order exist, {\em J. Combin. Des.} {\bf 6} (1998) 63--77. 
@@ -855,34 +794,15 @@ J.~Higham, Row-complete Latin squares of every composite order exist, {\em J. Co
 \bibitem{HW05}
 A.~J.~W.~Hilton and J.~Wojciechowski, Amalgamating infinite Latin squares, {\em Discrete Math.} {\bf 292} (2005) 67--81.
 
-%%
+
 \bibitem{Horton:1990}
 J.~D.~Horton. Orthogonal starters in finite abelian groups, {\em Discrete Math.} {\bf 79} (1989/90) 265--278. 
-%%
 
-%\bibitem{HLW}
-%Y.-S.~Hwang, D.~B.~Leep and A.~R.~Wadsworth,
-%Galois groups of order $2n$ that contain a cyclic subgroup of order $n$, {\em Pacific J. Math.} {\bf 212} (2003) 297--319.
 
-%%
 \bibitem{Kaplansky:1969}
 I.~Kaplansky, {\em Infinite Abelain Groups}, Revised edition, The Michigan University Press, Ann Arbor (1969).
-%%
 
-%\bibitem{Lucas92}
-%\'{E}.~Lucas, {\em R\'{e}cr\'{e}ations Math\'{e}mathiques}, T\^{o}me II, Albert Blanchard, Paris, 1892 (reprinted 1975).
 
-%\bibitem{survey}
-%M.~A. Ollis, Sequenceable groups and related topics, {\em Electron. J. Combin.} {\bf DS10} (2002) 34pp.
-
-%\bibitem{Ollis05}
-%M.~A.~Ollis, On terraces for abelian groups, {\em Disc. Math.} {\bf 305} (2005) 250--263.
-
-%\bibitem{Ollis12}
-%M.~A.~Ollis,  A note on terraces for abelian groups,  {\em Australas.~J.~Combin.}  {\bf 52} (2012),  229--234.
-
-%\bibitem{OW1}
-%M.~A.~Ollis and D.~T.~Willmott, On twizzler, zigzag and graceful terraces, {\em Australas.~J.~Combin.} {\bf 51} (2011) 243--257.
 
 \bibitem{Ollis14}
 M.~A.~Ollis, New complete Latin squares of odd order, {\em Europ.~J.~Combin.}~{\bf 41} (2014) 35--46.
@@ -894,28 +814,14 @@ M.~A.~Ollis, Terraces for small groups, {\em J.~Combin.~Math.~Comput.} (to appea
 P.~J.~Owens,  Solutions to two problems of Denes and Keedwell on row-complete
 Latin squares, {\em J.~Combin.~Thy.}~A {\bf 21} (1976) 299--308.
 
-%%
 \bibitem{Rotman:1995}
 J.~J.~Rotman. {\em An Introduction to Group Theory}, 4th. edition, Springer, New York (1995).
-%%
 
-%\bibitem{PreeceZF}
-%D.~A.~Preece, Zigzag and foxtrot terraces for $\Z_n$, {\em Australas. J. Combin.} {\bf 42} (2008) 261--278.
 
-%\bibitem{Scott64}
-%W.~R.~Scott, {\em Group Theory}, Prentice-Hall, New Jersey (1964).
 
 
 \bibitem{VE78}
 C.~Vanden Eynden, Countable sequenceable groups, {\em Discrete Math.} {\bf 23} (1978) 317--318.
-
-
-%\bibitem{Williams49}
-%E.~J. Williams,
-%Experimental designs balanced for the estimation of residual effects of treatments,
-%{\em Aust. J. Scient. Res. A}, {\bf 2} (1949) 149--168.
-
-
 
 
 
