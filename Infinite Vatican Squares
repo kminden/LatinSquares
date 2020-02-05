@@ -1,0 +1,314 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Infinite Squares
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[utf8x,xcolor=svgnames,8pt]{beamer}
+
+\usepackage{tikz} \usetikzlibrary{matrix} \usetikzlibrary{patterns} \usepackage{adjustbox}
+\usepackage{bbm}
+
+\usepackage{appendixnumberbeamer}
+% Add total frame count to slides, optional. From Stefan,
+% http://www.latex-community.org/forum/viewtopic.php?f=4&t=2173
+%\expandafter\def\expandafter\insertshorttitle\expandafter{%
+ % \insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber}
+
+
+%\addtolength{\textwidth}{1.5em}
+%\addtolength{\oddsidemargin}{-0.75em}
+
+%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\bar}{\overline}
+%\renewcommand{\labelenumi}{\arabic{enumi}.}%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+%\renewcommand{\baselinestretch}{1.2}
+
+%\setlist[description]{leftmargin=5.5em,labelindent=\parindent}
+
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+%\newcommand{\M}{\mathbb{M}}
+%\newcommand{\Namba}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\N}{{\overline{N}}}
+\renewcommand{\H}{\overline{H}}
+\renewcommand{\G}{\overline{G}}
+\renewcommand{\S}{{\overline{S}}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\C}{\pmb{\mathcal C}}
+%\newcommand{\C}{\leftexp{<\omega}{2}}
+%\newcommand{\B}{\mathbb{B}_\mathcal{N}}
+\newcommand{\B}{\mathbb{B}}
+%\newcommand{\U}{\mathcal{U}}
+\renewcommand{\c}{\mathfrak{c}}
+
+\newcommand{\PFA}{\textup{\ensuremath{\textsf{PFA}}}}
+\newcommand{\MA}{\textup{\ensuremath{\textsf{MA}}}}
+\newcommand{\MM}{\textup{\ensuremath{\textsf{MM}}}}
+\newcommand{\SPFA}{\textup{\ensuremath{\textsf{SPFA}}}}
+\newcommand{\ZFC}{\textup{\ensuremath{\textsf{ZFC}}}}
+\newcommand{\SCFA}{\textup{\ensuremath{\textsf{SCFA}}}}
+\newcommand{\BSCFA}{\textup{\ensuremath{\textsf{BSCFA}}}}
+\newcommand{\BPFA}{\textup{\ensuremath{\textsf{BPFA}}}}
+\newcommand{\CH}{\textup{\textsf{CH}}}
+\newcommand{\GCH}{\textup{\ensuremath{\textsf{GCH}}}}
+\newcommand{\Ord}{\textup{\ensuremath{\text{Ord}}}}
+\newcommand{\id}{\textup{\ensuremath{\text{id}}}}
+\newcommand{\MP}{\textup{\ensuremath{\textsf{MP}}}}
+\newcommand{\bfMP}{\textup{\ensuremath{\textsf{\textbf{MP}}}}}
+\newcommand{\RA}{\textup{\ensuremath{\textsf{RA}}}}
+\newcommand{\bfRA}{\textup{\ensuremath{\textsf{\textbf{RA}}}}}
+\newcommand{\BFA}{\textup{\ensuremath{\textsf{BFA}}}}
+\newcommand{\HC}{\textup{\ensuremath{H_{\omega_1}}}}
+
+\DeclareMathOperator{\cof}{cof}
+\DeclareMathOperator{\height}{height}
+\DeclareMathOperator{\ran}{range}
+\DeclareMathOperator{\otp}{otp}
+\DeclareMathOperator{\cp}{cp}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Succ}{succ}
+\DeclareMathOperator{\wfc}{wfc}
+\DeclareMathOperator{\BA}{BA}
+\DeclareMathOperator{\Add}{\mathcal A\textit{dd}\,}
+\DeclareMathOperator{\Coll}{\mathcal C\textit{oll}\,}
+\DeclareMathOperator*{\bigdoublevee}{\bigvee\mkern-15mu\bigvee}
+
+\newcommand{\To}{\longrightarrow}
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+\newcommand{\seq}[2]{\langle #1 \st #2 \rangle}
+
+\newcommand{\Ptail}{\P_{\mathrm{tail}}}
+\newcommand{\Gtail}{G_{\mathrm{tail}}}
+
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+\newcommand{\funcs}[2]{\leftexp{#1}{#2}}
+
+\newcommand{\forces}{\Vdash}
+\newcommand{\proves}{\vdash}
+\newcommand{\rest}{\mathbin{\upharpoonright}}
+\newcommand{\meet}{\wedge}
+\newcommand{\Meet}{\bigwedge}
+
+\DeclareMathOperator{\MPsc}{ \textup{\textsf{MP}}_{\textit{sc}}}
+\newcommand{\bfMPsc}{\textbf{\textup{\textsf{MP}}}_{\textit{sc}}}
+\DeclareMathOperator{\MPc}{\textup{\textsf{MP}}_{\textit{c}}}
+\newcommand{\bfMPc}{\textbf{\textup{\textsf{MP}}}_{\textit{c}}}
+\DeclareMathOperator{\MPp}{\textup{\textsf{MP}}_{\textit{p}}}
+\newcommand{\bfMPp}{\textbf{\textup{\textsf{MP}}}_{\textit{p}}}
+\DeclareMathOperator{\MPccc}{\textup{\textsf{MP}}_{\textit{ccc}}}
+\newcommand{\bfMPccc}{\textbf{\textup{\textsf{MP}}}_{\textit{ccc}}}
+\DeclareMathOperator{\MPsp}{ \textup{\textsf{MP}}_{\textit{sp}}}
+\newcommand{\bfMPsp}{\textbf{\textup{\textsf{MP}}}_{\textit{sp}}}
+\DeclareMathOperator{\MPsemi}{ \textup{\textsf{MP}}_{\textit{semi}}}
+\newcommand{\bfMPsemi}{\textbf{\textup{\textsf{MP}}}_{\textit{semi}}}
+
+\newcommand{\bflMPsc}{ \textup{\textsf{\textbf{LMP}}}_{\textit{sc}} }
+\newcommand{\bflMPc}{ \textup{\textsf{\textbf{LMP}}}_{\textit{c}} }
+\newcommand{\bflMPccc}{ \textup{\textsf{\textbf{LMP}}}_{\textit{ccc}} }
+\newcommand{\bflMPp}{ \textup{\textsf{\textbf{LMP}}}_{\textit{p}} }
+\newcommand{\bflMPsemi}{ \textup{\textsf{\textbf{LMP}}}_{\textit{semi}} }
+\newcommand{\bflMPsp}{ \textup{\textsf{\textbf{LMP}}}_{\textit{sp}} }
+
+\newcommand{\lMP}[2]{ \textup{\textsf{MP}}^{H_{#2}}_{#1} (H_{#2}) }
+
+\newcommand{\bflMP}{ \textup{\textsf{\textbf{LMP}}} }
+
+
+
+\DeclareMathOperator{\RAsc}{\textup{\textsf{RA}}_{\textit{sc}}}
+\DeclareMathOperator{\RAc}{\textup{\textsf{RA}}_{\textit{c}}}
+\DeclareMathOperator{\RAp}{\textup{\textsf{RA}}_{\textit{p}}}
+\DeclareMathOperator{\RAccc}{\textup{\textsf{RA}}_{\textit{ccc}}}
+\DeclareMathOperator{\RAsp}{\textup{\textsf{RA}}_{\textit{sp}}}
+\DeclareMathOperator{\RAsemi}{\textup{\textsf{RA}}_{\textit{semi}}}
+\DeclareMathOperator{\bfRAsc}{\textup{\textsf{\textbf{RA}}}_{\textit{sc}}}
+\DeclareMathOperator{\bfRAc}{\textup{\textsf{\textbf{RA}}}_{\textit{c}}}
+\DeclareMathOperator{\bfRAccc}{\textup{\textsf{\textbf{RA}}}_{\textit{ccc}}}
+\DeclareMathOperator{\bfRAp}{\textup{\textsf{\textbf{RA}}}_{\textit{p}}}
+\DeclareMathOperator{\bfRAsp}{\textup{\textsf{\textbf{RA}}}_{\textit{sp}}}
+\DeclareMathOperator{\bfRAsemi}{\textup{\textsf{\textbf{RA}}}_{\textit{semi}}}
+
+
+\newcommand{\SH}{\mathcal{S}\textit{k} \,}
+\newcommand{\sk}[3]{\SH^{#1}( {#2} \cup {\ran(#3)} ) }
+\newcommand{\Sk}[3]{\SH^{#1}( {#2} \cup {#3} ) }
+
+\newcommand{\TC}[1]{\mathrm{TC}(\{ #1 \})}
+
+
+\mode<presentation>
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Boadilla}
+\usecolortheme[named={DarkRed}]{structure}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.45\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+  	\usebeamerfont{date in head/foot}\insertshortdate\hspace*{3em}
+    \insertframenumber{} / \inserttotalframenumber%\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+
+%\useoutertheme{split}
+
+%\renewcommand{\emph}{\textit}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{question}{Question}
+
+
+\title{Infinite Latin Squares}
+\author{Kaethe Minden}
+\institute[Simon's Rock]{\includegraphics[scale=0.3]{bard_college_insignia.jpg}}
+%\date{31 January 2019}
+
+\begin{document}
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+
+\begin{frame} \frametitle{A square}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=2cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+{}\\
+};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} 
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=1cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+{0} \& {1}\\
+{2} \& {3}\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} \frametitle{A Latin square}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 1 \& 2 \& 3 \\
+1 \& 2 \& 3 \& 0 \\
+2 \& 3 \& 0 \& 1 \\
+3 \& 0 \& 1 \& 2\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} 
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 1 \& \color{red}{2} \& \color{red}{3} \\
+1 \& \color{red} 2 \& \color{red}3 \& 0 \\
+\color{red}2 \& \color{red}3 \& 0 \& 1 \\
+3 \& 0 \& 1 \& 2\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+
+\begin{frame} \frametitle{A Roman square}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+3 \& 2 \& 0 \& 1 \\
+0 \& 3 \& 1 \& 2 \\
+1 \& 0 \& 2 \& 3 \\
+2 \& 1 \& 3 \& 0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} 
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+3 \& \color{red} 2 \& 0 \& 1 \\
+0 \& \color{red} 3 \& 1 \& 2 \\
+1 \& 0 \& \color{red} 2 \& 3 \\
+2 \& 1 \& \color{red} 3 \& 0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+
+\begin{frame} \frametitle{A Vatican square}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 3 \& 1 \& 2 \\
+1 \& 0 \& 2  \& 3 \\
+3 \& 2 \& 0 \& 1 \\
+2 \& 1 \& 3 \& 0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} 
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+\color{purple} 0 \& \color{blue} 3 \& \color{blue}1 \&\color{blue} 2 \\
+\color{red}1 \& 0 \& 2  \& 3 \\
+\color{red}3 \& 2 \& 0 \& 1 \\
+\color{red}2 \& 1 \& 3 \& 0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}
+
+\begin{frame} \frametitle{A Vatican square?}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 1 \& 2 \& 3 \\
+{} \&{} \& {}  \& {}\\
+{}\& {} \& {}\& {}\\
+{}\& {} \& {} \& {}\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
+
+\begin{frame} \frametitle{A Vatican square?}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 1 \& 2 \& 3 \\
+\textcolor{gray}{3} \&\textcolor{gray}0 \& \textcolor{gray}1  \& \textcolor{gray}2\\
+\textcolor{gray} 2\& \textcolor{gray}3 \& \textcolor{gray}0\& \textcolor{gray} 1\\
+\textcolor{gray} 1 \& \textcolor{gray} 2\& \textcolor{gray} 3 \&  \textcolor{gray} 0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}
+
+\begin{frame} \frametitle{A Vatican square? No!}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+0 \& 1 \& \textcolor{red} 2 \&\textcolor{red} 3 \\
+3 \& 0 \& 1  \& 2\\
+\textcolor{red} 2\& \textcolor{red}3 \&  0\&  1\\
+  1 \& \textcolor{red} 2\& \textcolor{red} 3 \&    0\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}
+
+\end{document}
