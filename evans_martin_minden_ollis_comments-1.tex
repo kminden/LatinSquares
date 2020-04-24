@@ -1,0 +1,275 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\bibliographystyle{plain}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+%environments
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{exa}[thm]{Example}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{ques}[thm]{Question}
+
+
+%notation
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\ub}{\underbrace}
+\newcommand{\ep}{\mathop{\rm EP}\nolimits}
+\newcommand{\rowrev}{\mathop{\rm rowrev}\nolimits}
+\newcommand{\colrev}{\mathop{\rm colrev}\nolimits}
+\newcommand{\rot}{\mathop{\rm rot}\nolimits}
+\newcommand{\subsoma}{\mathop{\rm subSOMA}\nolimits}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{range}
+\newcommand{\rest}{\mathbin{\upharpoonright}}
+\newcommand{\To}{\longrightarrow}
+
+\newcommand{\st}{\; | \;}
+\newcommand{\set}[2]{\left\{#1\st #2 \right\}}
+\newcommand{\seq}[2]{\langle #1 \st #2 \rangle}
+
+\renewcommand{\P}{\mathbb{P}}
+\renewcommand{\a}{\textup{\textbf{a}}}
+\renewcommand{\b}{\textup{\textbf{b}}}
+\newcommand{\g}{\overline{g}}
+\renewcommand{\c}{\textup{\textbf{c}}}
+\renewcommand{\d}{\textup{\textbf{d}}}
+\newcommand{\e}{\textup{\textbf{e}}}
+\newcommand{\f}{\textup{\textbf{f}}}
+\renewcommand{\r}{\overline r}
+
+\usepackage{enumitem}
+\newenvironment{QandA}{\begin{enumerate}[label=\bfseries\alph*.]\bfseries}
+                      {\end{enumerate}}
+\newenvironment{answered}{\par\normalfont}{}
+\usepackage{lipsum}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\subsection*{Responses to the referee reports for {\em Infinite Latin Squares: Neighbor Balance and Orthogonality}}
+
+
+We thank the referees for their thorough reading of the paper and their suggestions.  This document has our point-by-point responses to their comments.  For each comment from the referees that not included here, we have directly made the (sometimes implied) change as suggested. 
+
+\subsection*{Responses to Report~1}
+
+\begin{QandA}
+
+\item
+Page 10.  While the proof of Theorem 3.2 works, I think that this proof needs some rewriting. It appears that $\kappa$ is being used for two different things. By convention and statement, we have that $\kappa = |I|$, an ordinal, but later $\kappa$ is taken to be the symbol set. I would suggest using another variable, such as $X$ for the symbol set.
+
+\begin{answered}
+Added to the intro to set-theoretic terminology on p.~2:  ``We sometimes exploit the fact that an cardinal~$\kappa$ is a set of size~$\kappa$ to use~$\kappa$ as both the order of a Latin square and its symbol set."  This also addresses two similar comments.
+\end{answered}
+
+\item
+Page 14.
+$L$ and if $\theta$ and $\phi$ are orthogonal orthomorphisms then $L_\theta$ is orthogonal to $L_\phi$; see, for example...
+
+$\phi$ has not been defined in the context of the example. I think it is $L$  and $L_\theta$ that will be orthogonal under certain conditions.  
+
+\begin{answered}
+Sentence reworded slightly to indicate that there are two separate statements here ($\phi$ is taken to be an orthomorphism in the premise of the second).
+\end{answered}
+
+\item
+Page 17.
+Presumably the groups $G_i$ are infinite, so:  Given infinite groups $G_i$, $i \in I$...
+
+If not, the statement at the beginning of the proof of Theorem 5.6 would have to be justified for finite $G_i$.
+
+\begin{answered}
+We believe that the statements as written are valid for finite groups too, without any additional justification.
+\end{answered}
+
+
+\end{QandA}
+
+
+\subsection*{Responses to Report 2}
+
+
+\subsubsection*{Repetitions.}
+
+\begin{QandA}
+
+\item
+If ${\bf a}$ is any funtion from $I$ to $G$ then you can define ${\bf a}_{(d)}$ as on page 4. You repeat
+this definition verbatim on pages 13 and 14.
+
+\begin{answered}
+Rephrased the sentences on page~13 and~14 to indicate that they are reminders and, in the second case, that it's a slightly (albeit unimportantly) different definition.
+\end{answered}
+
+\item
+Semi-Vatican squares are defined on pages 3 and 13.
+
+\begin{answered}
+The definition on p.~13 is a deliberate, more informal, restatement and is billed as such ``recall...".  We think it's useful as the concept has not been used since it was introduced on p.~3.
+\end{answered}
+
+\end{QandA}
+
+\subsubsection*{Things not explained.}
+
+\begin{QandA}
+
+\item
+The term sequenceability on page 3.  The term R-sequencing on page 4.
+
+\begin{answered}
+The terms are in scare-quotes, intended to indicate that it's not required that the reader has to understand them at this point in the paper (while allowing those readers who are familiar with the concepts to better anticipate the overall shape of the coming arguments).
+\end{answered}
+
+
+\item 
+Is $e$ on page 4 the identity element of $G$? If so, please say so. If so, why do you write this element as 1 on page 17?
+
+\begin{answered}
+Standardised as $e$ for the identity.
+\end{answered}
+
+\item
+In finite Latin squares, the rows are usually labelled from top to bottom. On page 4, you say that row $i + d$ is ``distance $d$ above" row $i$. If you are using the convention opposite to the usual one, you need to say so.
+
+\begin{answered}
+We are using the opposite convention for Latin squares to fit with the convention of coordinatising $\R^2$ with the $y$-axis increasing as it goes upward.  Note added.
+\end{answered}
+
+\item
+What do you mean by the angle brackets $\langle, \rangle$ used in several places, including pages 5, 7 and 10? %%%
+
+\begin{answered}
+The use on p.~5 is easily avoided (and now has been).  The different use on the other pages...  ???
+
+\end{answered}
+
+\item
+The term R-terrace on page 14.
+
+\begin{answered}
+Survey for the finite case is now referenced there, 
+rather than a definition.
+\end{answered}
+
+\end{QandA}
+
+
+\subsubsection*{Mistakes}
+
+\begin{QandA}
+
+\item If $I \cap G \neq \emptyset$ then the definitions of $D_i$ and $D_g$ on pages 5--6 conflict.  There are similar conflicts between $D_i^g$ and $D_i^h$ on page 16 and between $D_g$ and $D_h$ on page 17. 
+
+\begin{answered}
+We changed $D_g$ to be $R_g$ (for ```range") and made the changes in other places as well.
+\end{answered}
+
+
+\item  In the proof of Theorem 3.2, there seems to be some confusion between $l$, $m$, $p$ and $q$. 
+
+\begin{answered}
+Made all of the changes to $l$ and $m$; the $p$ and $q$ were holdovers from an earlier draft.
+\end{answered}
+
+
+\item On page 13, I do not think that you mean $\{x,x^{-1} : x \in G \setminus \{e\} \}$, because this is a single set.
+
+\begin{answered}
+Replaced with ``...each set $\{ x,x^{-1} \} \subseteq G\setminus \{e\}$."
+\end{answered}
+
+\item The definition of ${\bf a} \leq {\bf b}$ on page 16 does not make sense, because ${\bf a}$ and ${\bf  b}$ are simply sets.  It seems that you need to define ${\bf a}$ and ${\bf b}$ as functions from $I$ to something.
+
+\begin{answered} 
+The definition of $\leq$ for the poset of  these sets is given in the last sentence of the second paragraph of the proof of Theorem~5.4.
+\end{answered}
+
+
+\item The set $E_2$ defined on page 18 is not a subgroup, in general. Suppose that $a$ and $b$ are involutions, that $a$ is a square but $b$ is not. Then $b$ and $ab$ are in $E_2$ but their product is not. Thus even the statement of Theorem 5.9 is problematic.
+
+\begin{answered}
+The section from the end of the proof of Theorem 5.8 to the end of the proof of Theorem 5.9 has been rewritten to account for this.
+\end{answered}
+
+\item
+On page 19 you say something about normal multiplication tables several paragraphs before you explain what they are.
+
+\begin{answered}
+Definition moved earlier.
+\end{answered}
+
+\end{QandA}
+
+\subsubsection*{Other Queries}
+
+\begin{QandA}
+
+\item At the start of the proof of Theorem 2.2, how do you know that such a set exists? %%%
+
+\begin{answered}
+We know that ordered fields of arbitrary size exist by Lowenheim-Skolem. 
+\end{answered}
+
+\item Please give a reference to justify the first statement in the proof of Corollary 2.3.
+
+\begin{answered}
+???
+\end{answered}
+
+\item Why are the functions in Section 2 written in bold but not those in Section 3?
+
+\begin{answered}
+The functions in bold are the ones that have finite analogs; they are written in bold in the finite case because they are usually thought of as vectors rather than functions from an index set in that case.  Parenthetical note added in the second paragraph of Section 2.
+\end{answered}
+
+\item I think that what you call the ``direct product" and ``direct sum" on page~17 are usually called the Cartesian product and direct product respectively. Please check this.
+
+\begin{answered}
+Our usage matches that of [14] and [25] (we currently don't have physical access to [21]).
+\end{answered}
+
+
+
+\item On page 3 you claim that Section 2 uses Cayley tables of groups. On page 4, the Latin square based on a group $G$ has $(i,j)$-entry $a(i)^{-1} a(j)$. On page 19, you say that the Cayley table of $G$ has $(i,j)$-entry $g_ig_j$. These statements are not consistent.
+
+\begin{answered}
+Clarified the page~4 discussion to give the slight distinction between Cayley tables and squares based on a group.  
+\end{answered}
+
+
+\item In Section 5, the symbol $I$ means several different things. First it indexes elements of $G$ (so is the map $i \mapsto g_i$ a bijection?). Then it is an index set. At the top of page~16 it is just ``a set". On the next page it indexes groups; on page~18 it indexes cosets of a subgroup. Please clarify these different meanings.
+
+
+\begin{answered}
+We have removed two instances where the name of the set was not important, changed instances that are infinite sets but not index sets to~$J$ (albeit different sets in different parts of the section) and kept~$I$ for index sets. 
+\end{answered}
+
+\item At the top of page 19, why don't you define Knut Vik designs in the language of this paper? Such a design is a Latin square which is orthogonal to both the cyclic Latin square and the back-cyclic Latin square of that order.
+
+
+
+\begin{answered}
+Added this interpretation.
+\end{answered}
+
+
+\end{QandA}
+
+
+\end{document}
