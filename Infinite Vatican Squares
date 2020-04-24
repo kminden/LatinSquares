@@ -171,7 +171,7 @@
 
 
 \title{Infinite Latin Squares}
-\author{Kaethe Minden}
+\author[Kaethe Minden]{Kaethe Minden \\ (based on joint work with Anthony Evans, Gage Martin, and Matt Ollis)}
 \institute[Simon's Rock]{\includegraphics[scale=0.3]{bard_college_insignia.jpg}}
 %\date{31 January 2019}
 
@@ -309,6 +309,56 @@
   1 \& \textcolor{red} 2\& \textcolor{red} 3 \&    0\\};
 \end{tikzpicture}
 \end{adjustbox}
+\end{frame}
+
+\begin{frame}\frametitle{How can we tell if a square is group-based?}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+\textcolor{blue}0 \& 5 \& 6 \& \textcolor{blue}1 \\
+7 \& \textcolor{blue}0 \& \textcolor{blue}1  \& 8 \\
+9 \& \textcolor{blue}2 \& \textcolor{blue}3 \& 10 \\
+\textcolor{blue}2 \& 11 \& 12 \& \textcolor{blue}4\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}
+
+\begin{frame}{The infinite case}
+%Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  We show similar notions are sufficient to construct infinite $D$-complete and Vatican squares.  
+\begin{definition}
+Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$. 
+\end{definition}
+\begin{itemize}
+	\item  If~$G$ is an abelian squareful group and~$I$ is an index set with~$|I| = |G|$, then we can construct an infinite Vatican square on~$I$ using the Cayley table of~$G$.
+	\item We show that there is a Vatican square of each infinite order that cannot be produced by permuting the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  
+	\item We also show that there is a Latin square of each infinite order such that no permutation of its rows and columns gives a Vatican (or even Roman) square.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Infinite Sudoku?}
+\begin{definition}
+If a partial latin square~$P$ is a subset of a latin square~$L$ then $P$ is {\em completable to $L$}.  If there is exactly one such~$L$, then~$P$ is {\em uniquely completable}.  If~$P$ is uniquely completable but no proper subset of~$P$ is uniquely completable then $P$ is a {\em critical set}.
+\end{definition}
+
+Lots of work has been done on uniquely completable partial Latin squares and critical sets in the finite case.  The goal here is to ask the same (or similar) questions in the infinite case and see if any fun math happens.
+
+\begin{block}{Question}
+Is this a critical set for the integer square?
+
+$$
+\begin{array}{ccccccccc}
+&&&& 4 & 5 & 6 & 7 & 8  \\
+&&&& 3 & 4 & 5 & 6 & 7 \\
+&&&& 2 & 3 & 4 & 5 & 6 \\
+&&&& 1 & 2 & 3 & 4 & 5 \\
+-4 & -3 & -2 & -1 & \cdot \\
+-5 & -4 & -3 & -2 \\
+-6 & -5 & -4 & -3 \\
+-7 & -6 & -5 & -4 \\
+-8 & -7 & -6 & -5 \\
+\end{array}
+$$
+\end{block}
 \end{frame}
 
 \end{document}
