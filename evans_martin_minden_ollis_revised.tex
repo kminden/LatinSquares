@@ -109,6 +109,8 @@ denoted $\omega+1$, and we can keep going after this to obtain $\omega+2, \omega
 As ordinals represent canonical well-orderings, they each support a notion of induction similar to the usual one on the natural numbers. Fixing an ordinal $\lambda$, transfinite induction up to $\lambda$ allows us to prove that a property $P$ holds for all ordinals below $\lambda$ by showing, from the hypothesis that $P$ holds for all ordinals below some $\alpha<\lambda$, that $P$ holds for $\alpha$ (in this formulation
 the induction principle is analogous to strong induction on the natural numbers, and in fact reduces to it if we set $\lambda=\omega$).
 
+We use angle brackets to denote sequences indexed by an ordinal, for example $\seq{s_\alpha}{\alpha<\kappa}$ is a length $\kappa$ sequence of sets $s_\alpha$. 
+
 It follows from the axiom of choice that for any set $X$, there is a bijection between $X$ and some ordinal. In the usual set-theoretic practice, the cardinality of $X$ is defined as the least such ordinal. 
 
 We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are naturally embedded in~$\R^2$.
@@ -247,12 +249,14 @@ By construction, $\bigcup_{\alpha<\kappa}\b_\alpha$ defines a directed $T_\infty
 \end{proof}
 
 
+Given groups $G_j$, $j\in J$, the {\em direct product}, $\prod_{j\in J}G_j$, is the group with elements $\prod_{j\in J}g_j$, $g_j\in G_j$, multiplication given by $\prod_{j\in J}g_j\prod_{j\in J}h_j=\prod_{j\in J}g_jh_j$. The {\em direct sum}, $\sum_{j\in J}G_j$, is the subgroup of $\prod_{j\in J}G_j$ consisting of elements $\prod_{j\in J}g_j$ in which $g_j\ne e$ for finitely many values of $j$. 
+
 \begin{cor}\label{cor:vatsquares}
 For every index set~$I$ there is a Vatican square on~$I$.  In particular, there is a Vatican square of every infinite order.
 \end{cor}
 
 \begin{proof}
-For every infinite order~$\kappa$ there is an abelian squareful group~$G$ of order~$\kappa$. Use~$G$ in Theorems~\ref{th:terrace2square} and~\ref{th:T_infty} to produce the required Vatican square.
+For every infinite order~$\kappa$, let~$G = \sum_{j \in \kappa} \Z$.  This is a squareful group of order~$\kappa$.  Use~$G$ in Theorems~\ref{th:terrace2square} and~\ref{th:T_infty} to produce the required Vatican square.
 \end{proof}
 
 The constraints on~$G$ in Theorem~\ref{th:T_infty} were due to the method of proof rather than fundamental impediments.  Which other  infinite groups admit directed $T_D$- and~$T_{\infty}$-terraces?  Are there any that do not?  Vanden Eynden shows that all countably infinite groups have a directed 1-terrace on~$\N$ \cite{VE78} and the proof is easily adapted to apply to index set~$\Z$.  
@@ -286,7 +290,7 @@ For every index set~$I$ there is a Latin square on~$I$ that cannot be made row-c
 \begin{proof}
 We build a Latin square on an ordered field $\F_\kappa$ of size $\kappa=|I|$ by approximations to it, by transfinite induction on $\kappa$. The same procedure would give one on $I$.
 
-Consider the poset $\P$ consisting of injective partial functions from $\F_\kappa\times\F_\kappa$ to $\kappa$ whose domains have size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as functions.
+Consider the poset $\P$ consisting of injective partial functions from $\F_\kappa\times\F_\kappa$ to $\kappa$ whose domains have size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as a function.
 
 We will start our transfinite induction with the following finite immune Latin region, a condition which we name $l_{-1}$:
 $$
@@ -512,7 +516,7 @@ Similar approaches for Vatican squares quickly run into difficulties.
 
 Let~$G$ be a group and~$\theta: G \rightarrow G$ a bijection.  If $g \mapsto g^{-1}\theta(g)$ is a bijection then~$\theta$ is an {\em orthomorphism}; if  $g \mapsto g\theta(g)$ is a bijection then~$\theta$ is a {\em complete mapping}.  Two orthomorphisms, $\theta, \phi$ are {\em orthogonal} if $g \mapsto \theta(g)^{-1} \phi(g)$ is a bijection.
 
-Let~$L$ be the Cayley table of a group~$G = \{ g_i : i \in I \}$ that has $ij^{\rm th}$ entry $g_i g_j$ and for any bijection~$\theta: G \rightarrow G$ define~$L_\theta$ to be the Latin square with $ij^{\rm th}$ entry $g_i \theta(g_j)$.  If~$\theta$ is an orthomorphism then~$L_\theta$ is orthogonal to~$L$; if~$\theta$ and~$\phi$ are orthogonal orthomorphisms then~$L_\theta$ is orthogonal to~$L_\phi$ (see, for example, \cite{Evans07}).
+Let~$L$ be the Cayley table of a group~$G$ that has $ij^{\rm th}$ entry $g_i g_j$ and for any bijection~$\theta: G \rightarrow G$ define~$L_\theta$ to be the Latin square with $ij^{\rm th}$ entry $g_i \theta(g_j)$.  If~$\theta$ is an orthomorphism then~$L_\theta$ is orthogonal to~$L$; if~$\theta$ and~$\phi$ are orthogonal orthomorphisms then~$L_\theta$ is orthogonal to~$L_\phi$ (see, for example, \cite{Evans07}).
 
 It's known that every infinite group has an orthomorphism~\cite{Bateman50}, so there is a pair of orthogonal Latin squares of every infinite order.  In~\cite{BM91}, countably many orthogonal Latin squares of countable order are constructed using mutually orthogonal orthomorphisms (although without using this terminology) of a specific countably infinite group.
 
@@ -607,7 +611,7 @@ The transfinite induction now goes through as usual.
 
 
 
-Another embellishment of the complete mapping concept is the strong complete mapping:
+An embellishment of the complete mapping concept is the strong complete mapping:
 If~$\theta$ is both an orthomorphism and a complete mapping then it is a {\em strong complete mapping}.   
 
 In~\cite{Evans12} it is claimed that every countably infinite group has a strong complete mapping.  The following result generalizes that to groups of arbitrary infinite order using essentially the same construction.  However, for the argument to go through we need that the group is squareful, a condition that is required for the argument in~\cite{Evans12}, but which was not included.  In Theorem~\ref{thm:InftyAbSCM} we construct strong complete mappings for many non-squareful abelian groups.
@@ -649,15 +653,14 @@ To extend~$\theta$ to~$\theta'$,  choose a $g$ such that $g \not\in \dom \theta$
 The result follows.
 \end{proof}
 
-Given groups $G_i$, $i\in I$, the {\em direct product}, $\prod_{i\in I}G_i$, is the group with elements $\prod_{i\in I}g_i$, $g_i\in G_i$, multiplication given by $\prod_{i\in I}g_i\prod_{i\in I}h_i=\prod_{i\in I}g_ih_i$. The {\em direct sum}, $\sum_{i\in I}G_i$, is the subgroup of $\prod_{i\in I}G_i$ consisting of elements $\prod_{i\in I}g_i$ in which $g_i\ne e$ for finitely many values of $i$. 
 
 \begin{thm}\label{thm:direct}
-If $G_i$, $i\in I$, are groups that have strong complete mappings, then both $\prod_{i\in I}G_i$ and $\sum_{i\in I}G_i$ have strong complete mappings.
+If $G_j$, $j\in J$, are groups that have strong complete mappings, then both the direct product $\prod_{j\in J}G_j$ and the direct sum $\sum_{j\in J}G_j$ have strong complete mappings.
 \end{thm}
 \begin{proof}
-Let $G=\prod_{i\in I}G_i$, and, for each $i\in I$, let $\phi_i$ be a strong complete mapping of $G_i$. It is routine to show that $\phi\colon \prod_{i\in I}g_i\mapsto \prod_{i\in I}\phi_i(g_i)$ is a strong complete mapping of $G$.
+Let $G=\prod_{j\in J}G_j$, and, for each $j\in J$, let $\phi_j$ be a strong complete mapping of $G_j$. It is routine to show that $\phi\colon \prod_{j\in J}g_j\mapsto \prod_{j\in J}\phi_j(g_j)$ is a strong complete mapping of $G$.
  
-Let $H=\sum_{i\in I}G_i$, and, for each $i\in I$, let $\phi'_i$ be defined by $\phi'_i(x)=\phi_i(x)\phi_i(1)^{-1}$: $\phi'_i$ is a strong complete mapping of $G_i$ that fixes $1$. It is routine to show that $\phi'\colon \sum_{i\in I}g_i\mapsto \sum_{i\in I}\phi'_i(g_i)$ is a strong complete mapping of $H$.
+Let $H=\sum_{j\in J}G_j$, and, for each $j\in J$, let $\phi'_j$ be defined by $\phi'_j(x)=\phi_j(x)\phi_j(e)^{-1}$: $\phi'_j$ is a strong complete mapping of $G_j$ that fixes $e$. It is routine to show that $\phi'\colon \sum_{j\in J}g_j\mapsto \sum_{j\in J}\phi'_j(g_j)$ is a strong complete mapping of $H$.
 \end{proof}
 
 Which abelian groups have strong complete mappings? This question is answered for finite abelian groups. 
@@ -675,7 +678,7 @@ An important component in the proof of Theorem~\ref{thm:finite2gps} is a quotien
 Let $H$ be a subgroup of an abelian group $G$. If both $H$ and $G/H$ have a strong complete mapping, then so does $G$.
 \end{thm}
 \begin{proof}
-Let $\theta$ be a strong complete mapping of $H$, let $\phi$ be a strong complete mapping of $G/H$, and let $D=\{g_i : i\in I\}$ be a system of distinct coset representatives for $H$ in $G$. Define $\alpha\colon G/H\to D$ by $\alpha(g_i+H)=g_i$, and define $\beta\colon G\to G$ by 
+Let $\theta$ be a strong complete mapping of $H$, let $\phi$ be a strong complete mapping of $G/H$, and let $D$ be a system of distinct coset representatives for $H$ in $G$. Define $\alpha\colon G/H\to D$ by $\alpha(g_i+H)=g_i$, and define $\beta\colon G\to G$ by 
 \[
 \beta(g_i+h)=\alpha\phi(g_i+H)+\theta(h).
 \]
@@ -706,14 +709,14 @@ As a special case of Kulikov's Theorem, $A_2$ has a subgroup $B$ with the follow
 Any subgroup of $A_2$ satisfying these properties is a {\em basic subgroup} of $A_2$.
 
 \begin{lem}\label{lem:InftyDirSum}
-If $I$ is an infinite set and $A=\sum_{i\in I}C_i$, where $C_i$ is a cyclic group of order $2^{n_i}$ for some $n_i\ge 1$, then $A$ has a strong complete mapping.
+If $J$ is an infinite set and $A=\sum_{j\in J}C_j$, where $C_j$ is a cyclic group of order $2^{n_j}$ for some $n_j\ge 1$, then $A$ has a strong complete mapping.
 \end{lem}
 \begin{proof}
-Let $x,y\in I$, $x\ne y$, and set $C=\sum_{i\in I, i\ne x,y}C_i$. We claim that $C$ has a subgroup $E$, that has a strong complete mapping, and for which $C/E$ is finite. We will prove this claim by transfinite induction. Let $\mathbb{P}$ be the poset whose elements are strong complete mappings of subgroups of $C$ and set $\theta\le\theta'$ if $\dom\theta\subseteq\dom\theta'$ and $\theta'\rest\dom\theta=\theta$.
+Let $x,y\in J$, $x\ne y$, and set $C=\sum_{j\in J, i\ne x,y}C_j$. We claim that $C$ has a subgroup $E$, that has a strong complete mapping, and for which $C/E$ is finite. Let $\mathbb{P}$ be the poset whose elements are strong complete mappings of subgroups of $C$ and set $\theta\le\theta'$ if $\dom\theta\subseteq\dom\theta'$ and $\theta'\rest\dom\theta=\theta$. 
 
-For $\theta\in\mathbb{P}$, suppose that $K\supseteq\dom\theta$ is the subgroup of $C$ for which $K/\dom\theta$ is the subgroup of of $C/\dom\theta$ generated by the involutions of $C/\dom\theta$. If $K/\dom\theta$ is infinite, then $K/\dom\theta$ has a complete mapping by~\cite{Bateman50}, and it is easily seen that any complete mapping of $K/\dom\theta$ is a strong complete mapping of $K/\dom\theta$. Hence, by Corollary~\ref{cor:G/H}, $K$ has a strong complete mapping $\theta^{(1)}$ that satisfies $\theta^{(1)}\rest \dom\theta=\theta$. Let $\theta^{(n)}$ be defined recursively by $\theta^{(i+1)}=(\theta^{(i)})^{(1)}$ if  $(\theta^{(i)})^{(1)}$ is defined.
+Let $\mathbb{C}_I=\{\theta_I: i\in I\}$ be a totally ordered set in $\mathbb{P}$. Let $\theta_I$ be defined by $\dom\theta_I=\cup_{i\in I}\dom\theta_i$ and $\theta_I(x)=\theta_i(x)$ if $x\in \dom\theta_i$. Clearly $\theta_I$ is well-defined and an upper bound for $\mathbb{C}_I$. Hence, by Zorn's lemma, $\mathbb{P}$ has a maximal element, $\theta_M$ say. Let $E=\dom\theta_M$. Let $K\supseteq E$ be the subgroup of $C$ for which $K/E$ is the subgroup of of $C/E$ generated by the involutions of $C/E$. 
 
-Let $\theta\in\mathbb{P}$ and let $w\in C\setminus\dom\theta$. For some $n$, $w^{2^n}\in\dom\theta$. There are two possibilities, $w\in\dom\theta^{(i)}$ for some $i$, or  $w\not\in\dom\theta^{(i)}$ for any $i$. In the latter case either $C/\dom\theta^{(i)}$ is squareful for some $I$, in which case $C$ has a strong complete mapping, or $C/\dom\theta^{(i)}$ is finite for some $I$, in which case the claim is proved.
+If $K/E$ is infinite, then $K/E$ has a complete mapping by~\cite{Bateman50}, and it is easily seen that any complete mapping of $K/E$ is a strong complete mapping of $K/E$. Hence, by Corollary~\ref{cor:G/H}, $K$ has a strong complete mapping, contradicting the maximality of $\theta_M$. Therefore $K/E$ is finite. It follows that, if $C/E$ is infinite, that $C/E$ is squareful and hence has a strong complete mapping: but then $C$ has a strong complete mapping, contradicting the maximality of $\theta_M$. Hence, $C/E$ is finite.
 
 Having established that $C$ has a subgroup $E$, that has a strong complete mapping, for which $C/E$ is finite, we note that, by Theorem~\ref{thm:finite2gps}, $C_x\oplus C_y\oplus C/E$ has a strong complete mapping, from which the result follows.
 \end{proof}
@@ -732,7 +735,7 @@ Let $A$ be an infinite abelian group with $2$-primary component $A_2$. Then $A$ 
 Now, either $A/A_2$ is squareful and, hence, $A$ has a strong complete mapping, or $A/A_2$ is finite and of odd order and, hence, $A$ has a strong complete mapping except possibly if $A/A_2$ has a non-trivial, cyclic Sylow $3$-subgroup.
 \end{proof}
 
-Recall that, for a group $G=\{g_i : i\in I\}$, the {\em Cayley table} of $G$ is the Latin square with $ij$th entry $g_ig_j$. The {\em normal multiplication table} of $G$ is the Latin square with $ij$th entry $g_ig_j^{-1}$.
+Recall that, for a group $G$, the {\em Cayley table} of $G$ is the Latin square with $ij$th entry $g_ig_j$. The {\em normal multiplication table} of $G$ is the Latin square with $ij$th entry $g_ig_j^{-1}$.
 
 
 In the finite case, strong complete mappings can be used to construct Knut Vik designs and to construct Latin squares orthogonal to both the Cayley table of a group and the normal multiplication table of the group. For a Latin square of order $n$; the {\em $k$th left diagonal} consists of the cells $(i,k+i)$, $i=0,\dots,n-1$, addition modulo $n$; and the {\em $k$th right diagonal} consists of the cells $(i,k-i)$, $i=0,\dots,n-1$, subtraction modulo $n$. A {\em Knut Vik design} of order $n$ is a Latin square of order $n$ in which the entries on each left diagonal, and the entries on each right diagonal form a permutation of the symbol set.  In other words, a Knut Vik design is a Latin square that is orthogonal to both the cyclic and back-circulant Latin squares.
@@ -745,7 +748,7 @@ For a Latin square $L$ of infinite order~$\kappa$ we may assume that the rows an
 There exists a Knut Vik design of every infinite order~$\kappa$.
 \end{thm}
 \begin{proof}
-Let~$A$ be a squareful abelian group of order~$\kappa$ and let $\theta$ be a strong complete mapping of $A$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the Latin square, with rows and columns indexed by $A$, with symbol set $A$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vik design.
+Let~$A$ be a squareful abelian group of order~$\kappa$ and let $\theta$ be a strong complete mapping of $A$: this exists by Theorem~\ref{thm:squarefulSCM}. Let $L$ be the Latin square with rows and columns indexed by $A$, with symbol set $A$, and with $ij$th entry $i+\theta(j)$. It is routine to show that $L$ is a Knut Vik design.
 \end{proof}
 
 Choosing~$A \in \{ \Z, \R \}$ in the proof of Theorem~\ref{th:infKV} gives a Knut Vik design embedded in the plane with a natural geometric interpretation.

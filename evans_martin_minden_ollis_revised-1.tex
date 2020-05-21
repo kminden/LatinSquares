@@ -109,6 +109,8 @@ denoted $\omega+1$, and we can keep going after this to obtain $\omega+2, \omega
 As ordinals represent canonical well-orderings, they each support a notion of induction similar to the usual one on the natural numbers. Fixing an ordinal $\lambda$, transfinite induction up to $\lambda$ allows us to prove that a property $P$ holds for all ordinals below $\lambda$ by showing, from the hypothesis that $P$ holds for all ordinals below some $\alpha<\lambda$, that $P$ holds for $\alpha$ (in this formulation
 the induction principle is analogous to strong induction on the natural numbers, and in fact reduces to it if we set $\lambda=\omega$).
 
+We use angle brackets to denote sequences indexed by an ordinal, for example $\seq{s_\alpha}{\alpha<\kappa}$ is a length $\kappa$ sequence of sets $s_\alpha$. 
+
 It follows from the axiom of choice that for any set $X$, there is a bijection between $X$ and some ordinal. In the usual set-theoretic practice, the cardinality of $X$ is defined as the least such ordinal. 
 
 We require a definition of an infinite Latin square that allows us to talk about spatial relationships.  This is accomplished by using a subset of an ordered field to index the rows and columns.  When that field is~$\Q$ or~$\R$, the infinite Latin squares we obtain are naturally embedded in~$\R^2$.
@@ -286,7 +288,7 @@ For every index set~$I$ there is a Latin square on~$I$ that cannot be made row-c
 \begin{proof}
 We build a Latin square on an ordered field $\F_\kappa$ of size $\kappa=|I|$ by approximations to it, by transfinite induction on $\kappa$. The same procedure would give one on $I$.
 
-Consider the poset $\P$ consisting of injective partial functions from $\F_\kappa\times\F_\kappa$ to $\kappa$ whose domains have size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as functions.
+Consider the poset $\P$ consisting of injective partial functions from $\F_\kappa\times\F_\kappa$ to $\kappa$ whose domains have size strictly less than $\kappa$. We think of these as populating a $\kappa$-by-$\kappa$ grid with ordinals less than $\kappa$---each condition fills in some portion, or region, of the full grid. These regions must satisfy that each ordinal appears at most once in each row/column (they are Latin). Moreover we require that the Latin regions in $\P$ are immune: a region is \textit{immune} if every Latin region  obtainable by a permutation of its columns has a repeated occurrence of an ordered pair at horizontal distance~1. Again, partially order the immune Latin regions by $l\leq m$ if $l$ extends $m$ as a function.
 
 We will start our transfinite induction with the following finite immune Latin region, a condition which we name $l_{-1}$:
 $$
