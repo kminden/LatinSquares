@@ -173,7 +173,7 @@
 \title{Infinite Latin Squares}
 \author[Kaethe Minden]{Kaethe Minden \\ (based on joint work with Anthony Evans, Gage Martin, and Matt Ollis)}
 \institute[Simon's Rock]{\includegraphics[scale=0.3]{bard_college_insignia.jpg}}
-%\date{31 January 2019}
+\date{2 October 2020}
 
 \begin{document}
 \begin{frame}[plain]
@@ -191,7 +191,7 @@
 \end{adjustbox}
 \end{frame}	
 
-\begin{frame} 
+\begin{frame} \frametitle{A square}
 \begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
 \begin{tikzpicture}
 \matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=1cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
@@ -213,7 +213,7 @@
 \end{adjustbox}
 \end{frame}	
 
-\begin{frame} 
+\begin{frame} \frametitle{A Latin square}
 \begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
 \begin{tikzpicture}
 \matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
@@ -238,13 +238,13 @@
 \end{adjustbox}
 \end{frame}	
 
-\begin{frame} 
+\begin{frame}  \frametitle{A Roman square}
 \begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
 \begin{tikzpicture}
 \matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
 3 \& \color{red} 2 \& 0 \& 1 \\
-0 \& \color{red} 3 \& 1 \& 2 \\
-1 \& 0 \& \color{red} 2 \& 3 \\
+0 \& \color{red} 3 \& 1 \& \color{red} 2 \\
+1 \& 0 \& \color{red} 2 \& \color{red} 3\\
 2 \& 1 \& \color{red} 3 \& 0\\};
 \end{tikzpicture}
 \end{adjustbox}
@@ -263,7 +263,7 @@
 \end{adjustbox}
 \end{frame}	
 
-\begin{frame} 
+\begin{frame} \frametitle{A Vatican square}
 \begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
 \begin{tikzpicture}
 \matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
@@ -311,6 +311,50 @@
 \end{adjustbox}
 \end{frame}
 
+%\begin{frame} \frametitle{Finite Vatican squares}
+%\begin{block}
+%Vatican squares are known to exist for all orders $p-1$, where $p$ is prime.
+%\end{block}
+%\end{frame}
+
+\begin{frame}{An infinite Latin square}
+
+$$
+\begin{array}{ccccccccccc}
+&\cdot & \cdot & \cdot & \cdot &  \cdot & \cdot & \cdot & \cdot & \cdot\\
+&\cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot\\
+&\cdot & \cdot & \cdot & \cdot &  \cdot & \cdot & \cdot & \cdot & \cdot\\
+\cdots &0&1&2&3& 4 & 5 & 6 & 7 & 8  & \cdots \\
+\cdots &-1&0&1&2& 3 & 4 & 5 & 6 & 7 & \cdots \\
+\cdots &-2&-1&0&1& 2 & 3 & 4 & 5 & 6 & \cdots \\
+\cdots &-3&-2&-1&0& 1 & 2 & 3 & 4 & 5 & \cdots \\
+\cdots &-4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 &4& \cdots \\
+\cdots &-5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 &3 &\cdots \\
+\cdots & -6 & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & \cdots \\
+\cdots & -7 & -6 & -5 & -4 & -3 & -2 &-1 &0 & 1 & \cdots \\
+\cdots &-8 & -7 & -6 & -5 & -4 & -3 & -2 & -1 & 0 & \cdots \\
+& \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+& \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+& \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+\end{array}
+$$
+
+\end{frame}
+
+\begin{frame}{Group-based Vatican squares}
+%Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  We show similar notions are sufficient to construct infinite $D$-complete and Vatican squares.  
+\begin{block}{}
+Vatican squares are known to exist for all orders $p-1$, where $p$ is prime (using terraces and Cayley tables).
+\end{block}
+
+\begin{definition}
+Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$. 
+\end{definition}
+\begin{block}{Result}
+ If~$G$ is an infinite abelian squareful group, then we can construct an infinite Vatican square (using a ``Cayley table").
+\end{block}
+\end{frame}
+
 \begin{frame}\frametitle{How can we tell if a square is group-based?}
 \begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
 \begin{tikzpicture}
@@ -323,17 +367,38 @@
 \end{adjustbox}
 \end{frame}
 
-\begin{frame}{The infinite case}
+\begin{frame}{Latin squares not based on groups}
 %Our first method for constructing squares uses Cayley tables of groups.   In the finite case all known constructions for complete squares--and hence $D$-complete and Vatican squares---use the notion of ``sequenceability" of a group and generalisations of it.  We show similar notions are sufficient to construct infinite $D$-complete and Vatican squares.  
-\begin{definition}
-Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$. 
-\end{definition}
+%\begin{definition}
+%Say that an infinite group~$G$ is~{\em squareful} if the set~$\{ g^2 : g \in G\}$ has the same cardinality as~$G$. 
+%\end{definition}
+\begin{block}{Results}
 \begin{itemize}
-	\item  If~$G$ is an abelian squareful group and~$I$ is an index set with~$|I| = |G|$, then we can construct an infinite Vatican square on~$I$ using the Cayley table of~$G$.
-	\item We show that there is a Vatican square of each infinite order that cannot be produced by permuting the rows and columns of a Cayley table.  Whether a finite Vatican square with this property exists is an open question.  
-	\item We also show that there is a Latin square of each infinite order such that no permutation of its rows and columns gives a Vatican (or even Roman) square.
+%	\item  If~$G$ is an infinite abelian squareful group, then we can construct an infinite Vatican square using the Cayley table of~$G$.
+	\item There is a Vatican square of each infinite order that cannot be produced by permuting the rows and columns of a Cayley table.  \\
+	Whether a finite Vatican square with this property exists is an open question!
+	\item There is a Latin square of each infinite order such that no permutation of its rows and columns gives a Vatican (or even Roman) square.
+	\item \dots
 \end{itemize}
+\end{block}
 \end{frame}
+
+\begin{frame} \frametitle{Sudoku}
+\begin{adjustbox}{min totalsize={.8\textheight}{.8\textheight},center}
+\begin{tikzpicture}
+\matrix[matrix of nodes,nodes={draw=gray, anchor=center, minimum size=0.5cm}, column sep=-\pgflinewidth, row sep=-\pgflinewidth, ampersand replacement=\&] (A) {
+5 \& 3 \&\ {} \&\& {} \& 7  \&{}  \&\&{} \&{} \&{} \\
+6 \& {} \&\ {} \&\& 1 \& 9  \& 5  \&\&{} \&{} \&{} \\
+{} \& 9 \& 8 \&\&  {} \& {}  \&  {} \&\& {} \&6 \& {}\\\\
+8 \& {} \&{}  \&\& {}  \& 6  \&  {}\&\& {}\& {}\&3 \\
+4 \& {} \& {} \&\& 8  \&  {} \& 3 \&\& {}\& {}\&1 \\
+7 \&{}  \&{}  \&\& {}  \& 2 \&  {}\&\& {}\& {}\&6 \\\\
+ {}\& 6 \& {} \&\& {} \&  {} \& {} \&\& 2\& 8\& {}\\
+{} \&{} \&{}  \&\& 4 \& 1  \& 9 \&\& {}\&{} \& 5\\
+{} \& {} \& {} \&\&{}  \& 8 \&{}  \&\&{} \& 7 \& 9\\};
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}	
 
 \begin{frame}{Infinite Sudoku?}
 \begin{definition}
@@ -341,24 +406,38 @@ If a partial latin square~$P$ is a subset of a latin square~$L$ then $P$ is {\em
 \end{definition}
 
 Lots of work has been done on uniquely completable partial Latin squares and critical sets in the finite case.  The goal here is to ask the same (or similar) questions in the infinite case and see if any fun math happens.
+\end{frame}
 
+\begin{frame}{Infinite Sudoku? Maybe?}
 \begin{block}{Question}
 Is this a critical set for the integer square?
 
 $$
-\begin{array}{ccccccccc}
-&&&& 4 & 5 & 6 & 7 & 8  \\
-&&&& 3 & 4 & 5 & 6 & 7 \\
-&&&& 2 & 3 & 4 & 5 & 6 \\
-&&&& 1 & 2 & 3 & 4 & 5 \\
--4 & -3 & -2 & -1 & \cdot \\
--5 & -4 & -3 & -2 \\
--6 & -5 & -4 & -3 \\
--7 & -6 & -5 & -4 \\
--8 & -7 & -6 & -5 \\
+\begin{array}{ccccccccccc}
+&&&&&  \cdot & \cdot & \cdot & \cdot & \cdot\\
+&&&&& \cdot & \cdot & \cdot & \cdot & \cdot\\
+&&&&&  \cdot & \cdot & \cdot & \cdot & \cdot\\
+&&&&& 4 & 5 & 6 & 7 & 8  & \cdots \\
+&&&&& 3 & 4 & 5 & 6 & 7 & \cdots \\
+&&&&& 2 & 3 & 4 & 5 & 6 & \cdots \\
+&&&&& 1 & 2 & 3 & 4 & 5 & \cdots \\
+\cdots &-4 & -3 & -2 & -1 & \cdot \\
+\cdots &-5 & -4 & -3 & -2 \\
+\cdots & -6 & -5 & -4 & -3 \\
+\cdots & -7 & -6 & -5 & -4 \\
+\cdots &-8 & -7 & -6 & -5 \\
+& \cdot & \cdot & \cdot & \cdot\\
+& \cdot & \cdot & \cdot & \cdot\\
+& \cdot & \cdot & \cdot & \cdot\\
 \end{array}
 $$
 \end{block}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{center}
+Thank you!
+\end{center}
 \end{frame}
 
 \end{document}
